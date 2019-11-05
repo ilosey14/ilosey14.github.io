@@ -51,8 +51,8 @@
             <div class="content-tile">
                 <a name="ian-js"></a>
                 <h1>ian.js</h1>
-                <p>ian.js is a lightweight framework built with priorities on common traks and alieviating needless
-                    repition. The logic and methods are meant to fell native and barebones while powerful built-in
+                <p>ian.js is a lightweight framework built with priorities on common tasks and alleviate needless
+                    repition. The logic and methods are ment to feel native and barebones while powerful built-in
                     functionality centers on dynamic content and simple, feature-rich DOM manipulation.</p>
                 <p>Consider appending a section of content to a news feed in pure javascript.</p>
                 <div class="highlight highlight-source-js">
@@ -73,12 +73,11 @@ p.textContent = 'A really long story.';
 item.appendChild(p);
 
 document.getElementById('news-feed').appendChild(item);
-                        </pre>
+                    </pre>
                 </div>
                 <p>
                     One of the main motivations for this library is allowing single-line implementations including
-                    chaining
-                    when available.
+                    chaining when available.
                 </p>
                 <div>
                     <pre>
@@ -87,11 +86,10 @@ var item = $('news-feed').append('div', { className: 'news-feed-item' });
 item.append('img', { src: '/img/my-image.png' });
 item.append('h1',  { textContent: 'My Title' });
 item.append('p',   { textContent: 'A really long story.' }):
-                        </pre>
+                    </pre>
                 </div>
                 <p>
-                    Notice that query-specific language is not being used like querySelector or the familiar jQuery
-                    library.
+                    Notice that query-specific language is not being used like querySelector or the familiar jQuery library.
                     The following example explains how querying with different identifiers can be done.
                 </p>
                 <div>
@@ -101,7 +99,7 @@ var elsFromClass = $.class('a-class');
 var elsFromTag   = $.tag('pre');
 var elsFromName  = $.name('a_name');
 var elsFromQuery = $.query('input[type=button]');
-                        </pre>
+                    </pre>
                 </div>
                 <p>
                     To further elaborate, the following is an example of chaining to get an existing element, change its
@@ -123,7 +121,7 @@ $('container').class('item')[0].set({
         this.parentElement.goAway();
     }
 });
-                        </pre>
+                    </pre>
                 </div>
             </div>
             <div class="content-tile">
@@ -204,7 +202,7 @@ $('container').class('item')[0].set({
                 </ul>
                 <h2>Prototype</h2>
                 <p>
-                    <pre>$.prototype.class(a: string): HTMLCollection</pre>
+                    <pre>$.prototype.class(a: string): HTMLCollection</pre><br>
                     Gets elements by class name relative to the parent element.
                 </p>
                 <ul>
@@ -217,7 +215,7 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.prototype.tag(a: string): HTMLCollection</pre>
+                    <pre>$.prototype.tag(a: string): HTMLCollection</pre><br>
                     Gets elements by tag name relative to the parent element.
                 </p>
                 <ul>
@@ -230,7 +228,7 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.prototype.query(a: string): HTMLCollection</pre>
+                    <pre>$.prototype.query(a: string): HTMLCollection</pre><br>
                     Gets elmeents using a DOM query string relative to the parent element.
                 </p>
                 <ul>
@@ -286,11 +284,8 @@ $('container').class('item')[0].set({
                     Dependency: <pre>ian.js</pre>
                 </p>
                 <p>
-                    The core, light-weight library also focuses on only loading essential logic while allowing
-                    flexibility
-                    to
-                    advanced tasks through extensibility. Here, ian.ajax.js wraps up AJAX requests using the
-                    XMLHttpRequest
+                    The core, light-weight library also focuses on only loading essential logic while allowing flexibility to
+                    advanced tasks through extensibility. Here, ian.ajax.js wraps up AJAX requests using the XMLHttpRequest
                     API into a high-level plug-in.
                 </p>
                 <div>
@@ -315,19 +310,21 @@ $.ajax.post('/my/sever-side/script.php', {
                 </p>
                 <ul>
                     <li>
-                        <pre>method</pre>
+                        <pre>method</pre><br>
                         <ul>
                             <li><i>>string</i></li>
                             <li>A HTTP standard request method, i.e. GET, POT, PUT, etc.</li>
                         </ul>
                     </li>
-                    <li><pre>url</pre>
+                    <li>
+                        <pre>url</pre><br>
                         <ul>
                             <li><i>>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
-                    <li><pre>options</pre>
+                    <li>
+                        <pre>options</pre><br>
                         <ul>
                             <li><i>>object</i></li>
                             <li>(Optional) Options to set for the request</li>
@@ -351,14 +348,14 @@ options = {
                 </p>
                 <ul>
                     <li>
-                        <pre>url</pre>
+                        <pre>url</pre><br>
                         <ul>
                             <li><i>>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>options</pre>
+                        <pre>options</pre><br>
                         <ul>
                             <li><i>>object</i></li>
                             <li>(
@@ -374,14 +371,14 @@ options = {
                 </p>
                 <ul>
                     <li>
-                        <pre>url</pre>
+                        <pre>url</pre><br>
                         <ul>
                             <li><i>>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>options</pre>
+                        <pre>options</pre><br>
                         <ul>
                             <li><i>>object</i></li>
                             <li>
@@ -397,14 +394,14 @@ options = {
                 </p>
                 <ul>
                     <li>
-                        <pre>obj</pre>
+                        <pre>obj</pre><br>
                         <ul>
                             <li><i>>object</i></li>
                             <li>The object to encode</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>parent</pre>
+                        <pre>parent</pre><br>
                         <ul>
                             <li><i>>string</i></li>
                             <li>String representation of the parent structure</li>
@@ -412,11 +409,11 @@ options = {
                     </li>
                 </ul>
                 <p>
-                    <pre>$.ajax.decode(encoding: string): string</pre>
+                    <pre>$.ajax.decode(encoding: string): string</pre><br>
                     Decodes html entities into text content</p>
                 <ul>
                     <li>
-                        <pre>encoding</pre>
+                        <pre>encoding</pre><br>
                         <ul>
                             <li><i>>encoding</i></li>
                             <li>The string to decode</li>
@@ -429,17 +426,13 @@ options = {
                 <h1>messagebox.js</h1>
                 <p>
                     A customizable yet robust message box platform is necessary for any full-featured website or webapp.
-                    The
-                    messagebox.js library provides a complete interface between the message box DOM and the front-end
-                    logic
-                    including templating for complex markups and asynchronous callbacks.
+                    The messagebox.js library provides a complete interface between the message box DOM and the front-end
+                    logic including templating for complex markups and asynchronous callbacks.
                 </p>
                 <p>
                     A simple use case may involve displaying a message to the user or asking the user to provide a
-                    simple
-                    response. The <pre>messagebox</pre> function takes either a string or an HTML element as its
-                    content
-                    argument, followed by an optional array of strings for button options.
+                    simple response. The <pre>messagebox</pre> function takes either a string or an HTML element as its
+                    content argument, followed by an optional array of strings for button options.
                 </p>
                 <div>
                     <pre>messagebox('Hello World!', ['Hello', 'Goodbye']);</pre>
@@ -461,8 +454,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                 </div>
                 <p>
                     For a final example, when utilizing the messagebox library's templating feature, a form element can
-                    be
-                    created in the HTML source, and shown by the message box the be filled and submitted. In general,
+                    be created in the HTML source, and shown by the message box the be filled and submitted. In general,
                     multiple messagebox tempalte containers can be added to a page using the
                     <pre>-messagebox-templates</pre> class which is useful when generating dynamic content. Each child
                     element in a template container is added to the template array to be accessed by its id attribute or
@@ -474,7 +466,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     hidden submit button invoked in your source by the messagebox callback.
                 </p>
                 <div>
-                    <pre>
+                    <code>
                         &lt;div class="-messagebox-templates"&gt;
                             &lt;form id="my-form" action="submit.php"&gt;
                                 &lt;table&gt;
@@ -488,10 +480,10 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                                     &lt;/tr&gt;
                                 &lt;/table&gt;
                         &lt;/div&gt;
-                    </pre>
+                    </code>
                 </div>
                 <div>
-                    <pre>
+                    <code>
                         messagebox('my-form', ['Submit', 'Cancel'], function (response, form) {
                             if (response !== 'Submit') return;
 
@@ -499,20 +491,15 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
 
                             form.submit();
                         });
-                    </pre>
+                    </code>
                 </div>
                 <p>
                     As one final note, it is important to understand how the messagebox can be dismissed. The first of
-                    three
-                    methods is after clicking any button defined by the messagebox button argument array. As expected,
-                    this
-                    means any button input defined in the content section does not inherently invoke the callback
-                    function
-                    or close the message box. The second method is by calling the messagebox.close() method, which skips
-                    any
-                    passed callback function. The third method is by simply clicking anywhere on the messagebox mask
-                    covers
-                    the screen.
+                    three methods is after clicking any button defined by the messagebox button argument array. As expected,
+                    this means any button input defined in the content section does not inherently invoke the callback
+                    function or close the message box. The second method is by calling the messagebox.close() method, which skips
+                    any passed callback function. The third method is by simply clicking anywhere on the messagebox mask
+                    covers the screen.
                 </p>
             </div>
             <div class="content-tile">
@@ -523,7 +510,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                 </p>
                 <ul>
                     <li>
-                        <pre>content</pre>
+                        <pre>content</pre><br>
                         <ul>
                             <li><i>>string</i> | <i>>HTMLElement</i></li>
                             <li>A string will be checked against the template-object keys before displaying inside a
@@ -531,14 +518,14 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                         </ul>
                     </li>
                     <li>
-                        <pre>buttons</pre>
+                        <pre>buttons</pre><br>
                         <ul>
                             <li><i>>string</i> | <i>>Array</i></li>
                             <li>(Optional) A string can be used as shorthand for a single button.</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>callback</pre>
+                        <pre>callback</pre><br>
                         <ul>
                             <li><i>>function</i></li>
                             <li>(Optional) The function to be called when a response button is pressed.</li>
@@ -546,7 +533,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     </li>
                 </ul>
                 <p>
-                    <pre>messagebox.close():: void</pre>
+                    <pre>messagebox.close(): void</pre><br>
                     Closes the messagebox window.</p>
                 <p>
                     <pre>messagebox.templates.add(name: string, content: string | HTMLElement): void</pre>
@@ -554,14 +541,14 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                 </p>
                 <ul>
                     <li>
-                        <pre>name</pre>
+                        <pre>name</pre><br>
                         <ul>
                             <li><i>>string</i></li>
                             <li>Name of the template to using when calling from <pre>messagebox()</pre></li>
                         </ul>
                     </li>
                     <li>
-                        <pre>content</pre>
+                        <pre>content</pre><br>
                         <ul>
                             <li><i>>string</i> | <i>>HTMLElement</i></li>
                             <li>The content to be displayed in the messagebox</li>
