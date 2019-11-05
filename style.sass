@@ -1,0 +1,210 @@
+// palette
+$blue: #78c4ff
+$green: #96ff88
+$yellow: #f5ff7b
+$red: #ff6464
+$brown: #dfd193
+$black: #111111
+$white: #f8f8f8
+
+$background-color: #dddddd
+$shadow: #aaaaaa
+// border-radius default
+$border-radius: 5px
+// media queries
+$mobile: 'only screen and (max-width: 675px)'
+
+// site style sheet
+html, body
+    padding: 0
+    margin: 0
+
+body
+    background: $background-color linear-gradient(to right, $white, $background-color)
+    font-family: Courier New, Courier, monospace
+    font-size: 20px
+
+a
+    color: inherit
+    text-decoration: none
+    border-radius: $border-radius
+    cursor: pointer
+
+    &:hover
+        color: $blue
+
+p
+    text-align: justify
+
+ul
+    display: inline-block
+    list-style: none
+    margin: 15px 0px
+    padding: 0px
+
+    li
+        margin: 3px
+        padding: 0px
+        border: 1px solid transparent
+
+        &:hover
+            background-color: $white
+            border-color: $black !important
+
+        a
+            display: block
+            padding: 10px
+
+input
+    margin: 10px
+    padding: 10px
+    border-radius: $border-radius
+    font-family: inherit
+    font-size: inherit
+    -webkit-appearance: none
+
+    &[type=text],
+    &[type=email],
+    &[type=password]
+        border: 1px solid transparent
+        border-bottom-color: $black
+
+        &:invalid
+            color: $shadow
+
+    &[type=button],
+    &[type=submit]
+        border: 1px solid $black
+        cursor: pointer
+
+        &:active
+            transform: scale(0.9)
+
+    // toggle buttons
+    &[type=checkbox], &[type=radio]
+        display: none
+    &[type=checkbox] + label,
+    &[type=radio] + label
+        @extend input, [type=button]
+    &[type=checkbox]:checked + label,
+    &[type=radio]:checked + label
+        border-color: green
+        background-color: $green
+        box-shadow: 1px 1px 5px $shadow
+
+pre
+    margin: 0px
+    padding: 10px
+    color: $black
+    background-color: #eeeeee
+    border-radius: $border-radius
+    text-align: left
+    white-space: pre
+    overflow-x: auto
+    box-shadow: 1px 1px 5px $shadow
+
+table
+    width: 100%
+    border-spacing: 10px 20px
+    margin: 0px auto
+
+    td[colspan]
+        text-align: center
+
+hr
+    border: 1px solid $shadow
+    box-shadow: 0px 1px 5px $shadow
+
+// header, footer
+.header, .footer
+    color: white
+    background: $green linear-gradient(to top right, $blue, $green, $yellow, $brown)
+    overflow: hidden
+    position: sticky
+    top: -4.5em
+
+    .content
+        padding: 20px
+
+    .ribbon
+        margin-left: -5px
+        height: 15px
+
+        .block
+            float: left
+            height: 100%
+            width: 45px
+            transform: skewX(-15deg)
+
+            &.blue
+                background-color: $blue
+            &.green
+                background-color: $green
+            &.yellow
+                background-color: $yellow
+            &.red
+                background-color: $red
+
+// content
+.content-wrapper
+    text-align: center
+    min-height: 100vh
+
+.content-container
+    display: inline-block
+    min-width: 300px
+    max-width: 1080px
+    vertical-align: top
+
+.content-tile
+    padding: 10px
+    text-align: left
+
+    img
+        max-width: 100%
+
+// status message
+.status-message-container
+    position: absolute
+    width: 100%
+    top: -100vh
+    transition: top 0.5s
+
+    &.visible
+        top: 0px !important
+
+.status-message
+    margin: 10px
+    padding: 10px
+    display: inline-block
+    max-width: 50%
+    border-left-style: solid
+    border-left-width: 5px
+    cursor: pointer
+
+    &.success
+        background-color: $green
+        border-left-color: green
+    &.warning
+        background-color: $yellow
+        border-left-color: gold
+    &.error
+        background-color: $red
+        border-left-color: red
+
+// icons
+.icon
+    height: 32px
+    width: 32px
+
+// mobile
+@media #{$mobile}
+    .header
+        position: unset !important
+
+    .content-container
+        display: block
+        max-width: 100%
+
+    .content-tile
+        overflow-x: auto
