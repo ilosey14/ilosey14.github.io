@@ -49,11 +49,13 @@
             <div class="content-tile">
                 <a name="ian-js"></a>
                 <h1>ian.js</h1>
-                <p>ian.js is a lightweight framework built with priorities on common tasks and alleviate needless
+                <p>
+                    ian.js is a lightweight framework built with priorities on common tasks and alleviating needless
                     repition. The logic and methods are ment to feel native and barebones while powerful built-in
-                    functionality centers on dynamic content and simple, feature-rich DOM manipulation.</p>
+                    functionality centers on dynamic content and simple, feature-rich DOM manipulation.
+                </p>
                 <p>Consider appending a section of content to a news feed in pure javascript.</p>
-                <div class="highlight highlight-source-js">
+                <div>
                     <pre>
 var item = document.createElement('div');
 item.className = 'news-feed-item';
@@ -87,7 +89,7 @@ item.append('p',   { textContent: 'A really long story.' }):
                     </pre>
                 </div>
                 <p>
-                    Notice that query-specific language is not being used like querySelector or the familiar jQuery library.
+                    Notice that query-specific language is not being used like <code>querySelector</code> or the familiar jQuery library.
                     The following example explains how querying with different identifiers can be done.
                 </p>
                 <div>
@@ -125,12 +127,12 @@ $('container').class('item')[0].set({
             <div class="content-tile">
                 <h2>Static Methods</h2>
                 <p>
-                    <pre>$(a: string): HTMLElement | null</pre><br>
+                    <code>$(a: string): HTMLElement | null</code><br>
                     Gets an element by id.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre>
+                        <code>a</code>
                         <ul>
                             <li><i>string</i></li>
                             <li>Element id</li>
@@ -138,12 +140,12 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.class(a: string): HTMLCollection</pre><br>
+                    <code>$.class(a: string): HTMLCollection</code><br>
                     Gets elements by class name.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre>
+                        <code>a</code>
                         <ul>
                             <li><i>string</i></li>
                             <li>Class name</li>
@@ -151,12 +153,12 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.tag(a: string): HTMLCollection</pre><br>
+                    <code>$.tag(a: string): HTMLCollection</code><br>
                     Gets elements by tag name.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre>
+                        <code>a</code>
                         <ul>
                             <li><i>string</i></li>
                             <li>Tag name</li>
@@ -164,12 +166,12 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.query(a: string): HTMLCollection</pre><br>
+                    <code>$.query(a: string): HTMLCollection</code><br>
                     Gets elements using a DOM query string.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre>
+                        <code>a</code>
                         <ul>
                             <li><i>string</i></li>
                             <li>Query string</li>
@@ -177,20 +179,20 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.new(a: string, b: object | string): HTMLElement | null</pre><br>
+                    <code>$.new(a: string, b: object | string): HTMLElement | null</code><br>
                     Creates a new element and optionally sets its properties.
                     For the behavior of <code>b</code>, references <code>$.prototype.set</code>.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre><br>
+                        <code>a</pre><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Element name</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>b</pre><br>
+                        <code>b</code><br>
                         <ul>
                             <li><i>object | string</i></li>
                             <li>Element properties to set as an object or
@@ -200,12 +202,12 @@ $('container').class('item')[0].set({
                 </ul>
                 <h2>Prototype</h2>
                 <p>
-                    <pre>$.prototype.class(a: string): HTMLCollection</pre><br>
+                    <code>$.prototype.class(a: string): HTMLCollection</code><br>
                     Gets elements by class name relative to the parent element.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre><br>
+                        <code>a</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Class name</li>
@@ -213,12 +215,12 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.prototype.tag(a: string): HTMLCollection</pre><br>
+                    <code>$.prototype.tag(a: string): HTMLCollection</code><br>
                     Gets elements by tag name relative to the parent element.
                 </p>
                 <ul>
                     <li>
-                        <pre>b</pre><br>
+                        <code>b</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Tag name</li>
@@ -226,12 +228,12 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.prototype.query(a: string): HTMLCollection</pre><br>
+                    <code>$.prototype.query(a: string): HTMLCollection</code><br>
                     Gets elmeents using a DOM query string relative to the parent element.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre><br>
+                        <code>a</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Query string</li>
@@ -239,38 +241,42 @@ $('container').class('item')[0].set({
                     </li>
                 </ul>
                 <p>
-                    <pre>$.prototype.set(a: object | string): HTMLElement</pre><br>
+                    <code>$.prototype.set(a: object | string): HTMLElement</code><br>
                     Sets the element properties from the given object or
                     sets the text content as a string.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre><br>
+                        <code>a</code><br>
                         <ul>
                             <li><i>object | string</i></li>
-                            <li>The element properties to set as an object or
-                                the text content as a string</li>
+                            <li>
+                                The element properties to set as an object or
+                                the text content as a string
+                            </li>
                         </ul>
                     </li>
                 </ul>
                 <p>
-                    <pre>$.prototype.append(a: string, b: object | string): HTMLElement | null</pre><br>
+                    <code>$.prototype.append(a: string, b: object | string): HTMLElement | null</code><br>
                     Appends the element by name to the parent element and sets its properties.
                 </p>
                 <ul>
                     <li>
-                        <pre>a</pre><br>
+                        <code>a</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Element name</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>b</pre><br>
+                        <code>b</code><br>
                         <ul>
                             <li><i>object | string</i></li>
-                            <li>Element properties to set as an object or
-                                the text content as a string</li>
+                            <li>
+                                Element properties to set as an object or
+                                the text content as a string.
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -304,26 +310,26 @@ $.ajax.post('/my/sever-side/script.php', {
             <div class="content-tile">
                 <h2>Static Methods</h2>
                 <p>
-                    <pre>$.ajax.request(method: string, url: string, options?: object): XMLHttpRequest</pre><br>
+                    <code>$.ajax.request(method: string, url: string, options?: object): XMLHttpRequest</code><br>
                     Makes a specified XMLHttpRequest.
                 </p>
                 <ul>
                     <li>
-                        <pre>method</pre><br>
+                        <code>method</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>A HTTP standard request method, i.e. GET, POT, PUT, etc.</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>url</pre><br>
+                        <code>url</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>options</pre><br>
+                        <code>options</code><br>
                         <ul>
                             <li><i>object</i></li>
                             <li>(Optional) Options to set for the request</li>
@@ -342,19 +348,19 @@ options = {
                     </pre>
                 </div>
                 <p>
-                    <pre>$.ajax.get(url: string, options?: object): XMLHttpRequest</pre><br>
+                    <code>$.ajax.get(url: string, options?: object): XMLHttpRequest</code><br>
                     Makes a HTTP GET request.
                 </p>
                 <ul>
                     <li>
-                        <pre>url</pre><br>
+                        <code>url</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>options</pre><br>
+                        <code>options</code><br>
                         <ul>
                             <li><i>object</i></li>
                             <li>(
@@ -365,19 +371,19 @@ options = {
                     </li>
                 </ul>
                 <p>
-                    <pre>$.ajax.post(url: string, options?: object): XMLHttpRequest</pre><br>
+                    <code>$.ajax.post(url: string, options?: object): XMLHttpRequest</code><br>
                     Makes a HTTP POST request.
                 </p>
                 <ul>
                     <li>
-                        <pre>url</pre><br>
+                        <code>url</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>options</pre><br>
+                        <code>options</code><br>
                         <ul>
                             <li><i>object</i></li>
                             <li>
@@ -388,19 +394,19 @@ options = {
                     </li>
                 </ul>
                 <p>
-                    <pre>$.ajax.encodeQueryParams(obj: object, parent?: string): string</pre><br>
+                    <code>$.ajax.encodeQueryParams(obj: object, parent?: string): string</code><br>
                     Encodes an object into a url parameter search query.
                 </p>
                 <ul>
                     <li>
-                        <pre>obj</pre><br>
+                        <code>obj</code><br>
                         <ul>
                             <li><i>object</i></li>
                             <li>The object to encode</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>parent</pre><br>
+                        <code>parent</code><br>
                         <ul>
                             <li><i>string</i></li>
                             <li>String representation of the parent structure</li>
@@ -408,11 +414,11 @@ options = {
                     </li>
                 </ul>
                 <p>
-                    <pre>$.ajax.decode(encoding: string): string</pre><br>
+                    <code>$.ajax.decode(encoding: string): string</code><br>
                     Decodes html entities into text content</p>
                 <ul>
                     <li>
-                        <pre>encoding</pre><br>
+                        <code>encoding</code><br>
                         <ul>
                             <li><i>encoding</i></li>
                             <li>The string to decode</li>
@@ -504,12 +510,12 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
             <div class="content-tile">
                 <h2>Methods</h2>
                 <p>
-                    <pre>messagebox(content: string | HTMLElement, buttons: string | Array, callback : function): void</pre><br>
+                    <code>messagebox(content: string | HTMLElement, buttons: string | Array, callback : function): void</code><br>
                     Displays content in messagebox and handles user input
                 </p>
                 <ul>
                     <li>
-                        <pre>content</pre><br>
+                        <code>content</code><br>
                         <ul>
                             <li><i>string</i> | <i>HTMLElement</i></li>
                             <li>A string will be checked against the template-object keys before displaying inside a
@@ -517,14 +523,14 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                         </ul>
                     </li>
                     <li>
-                        <pre>buttons</pre><br>
+                        <code>buttons</code><br>
                         <ul>
                             <li><i>string</i> | <i>Array</i></li>
                             <li>(Optional) A string can be used as shorthand for a single button.</li>
                         </ul>
                     </li>
                     <li>
-                        <pre>callback</pre><br>
+                        <code>callback</code><br>
                         <ul>
                             <li><i>function</i></li>
                             <li>(Optional) The function to be called when a response button is pressed.</li>
@@ -532,22 +538,22 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     </li>
                 </ul>
                 <p>
-                    <pre>messagebox.close(): void</pre><br>
+                    <code>messagebox.close(): void</code><br>
                     Closes the messagebox window.</p>
                 <p>
-                    <pre>messagebox.templates.add(name: string, content: string | HTMLElement): void</pre>
+                    <code>messagebox.templates.add(name: string, content: string | HTMLElement): void</code><br>
                     Stores a content template to be called by the messagebox() method.
                 </p>
                 <ul>
                     <li>
-                        <pre>name</pre><br>
+                        <code>name</code><br>
                         <ul>
                             <li><i>string</i></li>
-                            <li>Name of the template to using when calling from <pre>messagebox()</pre></li>
+                            <li>Name of the template to using when calling from <code>messagebox()</code></li>
                         </ul>
                     </li>
                     <li>
-                        <pre>content</pre><br>
+                        <code>content</code><br>
                         <ul>
                             <li><i>string</i> | <i>HTMLElement</i></li>
                             <li>The content to be displayed in the messagebox</li>
