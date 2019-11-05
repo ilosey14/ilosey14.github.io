@@ -20,7 +20,7 @@
             <div class="block red"></div>
         </div>
     </div>
-    <<!-- content -->
+    <!-- content -->
     <div class="content-wrapper">
         <div class="content-container">
             <!-- intro -->
@@ -78,7 +78,7 @@
                     chaining
                     when available.
                 </p>
-                <div class="highlight highlight-source-js">
+                <div>
                     <pre>
                             var item = $('news-feed').append('div', { className: 'news-feed-item' });
 
@@ -92,7 +92,7 @@
                     library.
                     The following example explains how querying with different identifiers can be done.
                 </p>
-                <div class="highlight highlight-source-js">
+                <div>
                     <pre>
                             var elFromId     = $('id');
                             var elsFromClass = $.class('a-class');
@@ -105,7 +105,7 @@
                     To further elaborate, the following is an example of chaining to get an existing element, change its
                     properties, and then append a new child element.
                 </p>
-                <div class="highlight highlight-source-js">
+                <div>
                     <pre>
                             $('container').class('item')[0].set({
                                 style: {
@@ -127,7 +127,7 @@
             <div class="content-tile">
                 <h2>Static Methods</h2>
                 <p>
-                    <code>$(a: string): HTMLElement | null</code>
+                    <code>$(a: string): HTMLElement | null</code><br>
                     Gets an element by id.
                 </p>
                 <ul>
@@ -140,7 +140,7 @@
                     </li>
                 </ul>
                 <p>
-                    <code>$.class(a: string): HTMLCollection</code>
+                    <code>$.class(a: string): HTMLCollection</code><br>
                     Gets elements by class name.
                 </p>
                 <ul>
@@ -153,7 +153,7 @@
                     </li>
                 </ul>
                 <p>
-                    <code>$.tag(a: string): HTMLCollection</code>
+                    <code>$.tag(a: string): HTMLCollection</code><br>
                     Gets elements by tag name.
                 </p>
                 <ul>
@@ -166,7 +166,7 @@
                     </li>
                 </ul>
                 <p>
-                    <code>$.query(a: string): HTMLCollection</code>
+                    <code>$.query(a: string): HTMLCollection</code><br>
                     Gets elements using a DOM query string.
                 </p>
                 <ul>
@@ -179,20 +179,20 @@
                     </li>
                 </ul>
                 <p>
-                    <code>$.new(a: string, b: object | string): HTMLElement | null</code>
+                    <code>$.new(a: string, b: object | string): HTMLElement | null</code><br>
                     Creates a new element and optionally sets its properties.
                     For the behavior of <code>b</code>, references <code>$.prototype.set</code>.
                 </p>
                 <ul>
                     <li>
-                        <code>a</code>
+                        <code>a</code><br>
                         <ul>
                             <li><em>string</em></li>
                             <li>Element name</li>
                         </ul>
                     </li>
                     <li>
-                        <code>b</code>
+                        <code>b</code><br>
                         <ul>
                             <li><em>object | string</em></li>
                             <li>Element properties to set as an object or
@@ -207,7 +207,7 @@
                 </p>
                 <ul>
                     <li>
-                        <code>a</code>
+                        <code>a</code><br>
                         <ul>
                             <li><em>string</em></li>
                             <li>Class name</li>
@@ -220,7 +220,7 @@
                 </p>
                 <ul>
                     <li>
-                        <code>b</code>
+                        <code>b</code><br>
                         <ul>
                             <li><em>string</em></li>
                             <li>Tag name</li>
@@ -233,7 +233,7 @@
                 </p>
                 <ul>
                     <li>
-                        <code>a</code>
+                        <code>a</code><br>
                         <ul>
                             <li><em>string</em></li>
                             <li>Query string</li>
@@ -241,13 +241,13 @@
                     </li>
                 </ul>
                 <p>
-                    <code>$.prototype.set(a: object | string): HTMLElement</code>
+                    <code>$.prototype.set(a: object | string): HTMLElement</code><br>
                     Sets the element properties from the given object or
                     sets the text content as a string.
                 </p>
                 <ul>
                     <li>
-                        <code>a</code>
+                        <code>a</code><br>
                         <ul>
                             <li><em>object | string</em></li>
                             <li>The element properties to set as an object or
@@ -256,18 +256,18 @@
                     </li>
                 </ul>
                 <p>
-                    <code>$.prototype.append(a: string, b: object | string): HTMLElement | null</code>
+                    <code>$.prototype.append(a: string, b: object | string): HTMLElement | null</code><br>
                     Appends the element by name to the parent element and sets its properties.</p>
                 <ul>
                     <li>
-                        <code>a</code>
+                        <code>a</code><br>
                         <ul>
                             <li><em>string</em></li>
                             <li>Element name</li>
                         </ul>
                     </li>
                     <li>
-                        <code>b</code>
+                        <code>b</code><br>
                         <ul>
                             <li><em>object | string</em></li>
                             <li>Element properties to set as an object or
@@ -276,62 +276,64 @@
                     </li>
                 </ul>
             </div>
-            <div class="content-tile"></div>
-            <a name="ian-ajax-js"></a>
-            <h1>ian.ajax.js</h1>
-            <p>
-                XMLHttpRequest interface for making and handling server requests/responses.<br>
-                Dependency: <code>ian.js</code>
-            </p>
-            <p>
-                The core, light-weight library also focuses on only loading essential logic while allowing flexibility
-                to
-                advanced tasks through extensibility. Here, ian.ajax.js wraps up AJAX requests using the XMLHttpRequest
-                API into a high-level plug-in.
-            </p>
-            <div>
-                <pre>
-                            $.ajax.post('/my/sever-side/script.php', {
-                                data: {
-                                    foo: 'lorem',
-                                    bar: 'ipsum'
-                                },
-                                onload: function () {
-                                    if (!this.response.error) hooray();
-                                }
-                            });
-                        </pre>
+            <div class="content-tile">
+                <a name="ian-ajax-js"></a>
+                <h1>ian.ajax.js</h1>
+                <p>
+                    XMLHttpRequest interface for making and handling server requests/responses.<br>
+                    Dependency: <code>ian.js</code>
+                </p>
+                <p>
+                    The core, light-weight library also focuses on only loading essential logic while allowing
+                    flexibility
+                    to
+                    advanced tasks through extensibility. Here, ian.ajax.js wraps up AJAX requests using the
+                    XMLHttpRequest
+                    API into a high-level plug-in.
+                </p>
+                <div>
+                    <pre>
+                        $.ajax.post('/my/sever-side/script.php', {
+                            data: {
+                                foo: 'lorem',
+                                bar: 'ipsum'
+                            },
+                            onload: function () {
+                                if (!this.response.error) hooray();
+                            }
+                        });
+                    </pre>
+                </div>
             </div>
-        </div>
-        <div class="content-tile">
-            <h2>Static Methods</h2>
-            <p>
-                <code>$.ajax.request(method: string, url: string, options?: object): XMLHttpRequest</code>
-                Makes a specified XMLHttpRequest.
-            </p>
-            <ul>
-                <li>
-                    <code>method</code>
-                    <ul>
-                        <li><em>string</em></li>
-                        <li>A HTTP standard request method, i.e. GET, POT, PUT, etc.</li>
-                    </ul>
-                </li>
-                <li><code>url</code>
-                    <ul>
-                        <li><em>string</em></li>
-                        <li>Request url</li>
-                    </ul>
-                </li>
-                <li><code>options</code>
-                    <ul>
-                        <li><em>object</em></li>
-                        <li>(Optional) Options to set for the request</li>
-                    </ul>
-                </li>
-            </ul>
-            <div>
-                <pre>
+            <div class="content-tile">
+                <h2>Static Methods</h2>
+                <p>
+                    <code>$.ajax.request(method: string, url: string, options?: object): XMLHttpRequest</code>
+                    Makes a specified XMLHttpRequest.
+                </p>
+                <ul>
+                    <li>
+                        <code>method</code>
+                        <ul>
+                            <li><em>string</em></li>
+                            <li>A HTTP standard request method, i.e. GET, POT, PUT, etc.</li>
+                        </ul>
+                    </li>
+                    <li><code>url</code>
+                        <ul>
+                            <li><em>string</em></li>
+                            <li>Request url</li>
+                        </ul>
+                    </li>
+                    <li><code>options</code>
+                        <ul>
+                            <li><em>object</em></li>
+                            <li>(Optional) Options to set for the request</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div>
+                    <pre>
                             options = {
                                 data: (object | string | FormData | Blob | Document | URLSearchParams | ArrayBufferView | ArrayBuffer | ReadableStream&lt;Uint8Array&gt;),
                                 async: bool,
@@ -340,108 +342,112 @@
                                 onerror: function
                             }
                         </pre>
+                </div>
+                <p>
+                    <code>$.ajax.get(url: string, options?: object): XMLHttpRequest</code>
+                    Makes a HTTP GET request.
+                </p>
+                <ul>
+                    <li>
+                        <code>url</code>
+                        <ul>
+                            <li><em>string</em></li>
+                            <li>Request url</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>options</code>
+                        <ul>
+                            <li><em>object</em></li>
+                            <li>(
+                                Optional) Options to set for the request.
+                                See <code>$.ajax.request</code>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.ajax.post(url: string, options?: object): XMLHttpRequest</code>
+                    Makes a HTTP POST request.
+                </p>
+                <ul>
+                    <li>
+                        <code>url</code>
+                        <ul>
+                            <li><em>string</em></li>
+                            <li>Request url</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>options</code>
+                        <ul>
+                            <li><em>object</em></li>
+                            <li>
+                                (Optional) Options to set for the request.
+                                See <code>$.ajax.request</code>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.ajax.encodeQueryParams(obj: object, parent?: string): string</code>
+                    Encodes an object into a url parameter search query.
+                </p>
+                <ul>
+                    <li>
+                        <code>obj</code>
+                        <ul>
+                            <li><em>object</em></li>
+                            <li>The object to encode</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>parent</code>
+                        <ul>
+                            <li><em>string</em></li>
+                            <li>String representation of the parent structure</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.ajax.decode(encoding: string): string</code>
+                    Decodes html entities into text content</p>
+                <ul>
+                    <li>
+                        <code>encoding</code>
+                        <ul>
+                            <li><em>encoding</em></li>
+                            <li>The string to decode</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <p>
-                <code>$.ajax.get(url: string, options?: object): XMLHttpRequest</code>
-                Makes a HTTP GET request.
-            </p>
-            <ul>
-                <li>
-                    <code>url</code>
-                    <ul>
-                        <li><em>string</em></li>
-                        <li>Request url</li>
-                    </ul>
-                </li>
-                <li>
-                    <code>options</code>
-                    <ul>
-                        <li><em>object</em></li>
-                        <li>(
-                            Optional) Options to set for the request.
-                            See <code>$.ajax.request</code>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <p>
-                <code>$.ajax.post(url: string, options?: object): XMLHttpRequest</code>
-                Makes a HTTP POST request.
-            </p>
-            <ul>
-                <li>
-                    <code>url</code>
-                    <ul>
-                        <li><em>string</em></li>
-                        <li>Request url</li>
-                    </ul>
-                </li>
-                <li>
-                    <code>options</code>
-                    <ul>
-                        <li><em>object</em></li>
-                        <li>
-                            (Optional) Options to set for the request.
-                            See <code>$.ajax.request</code>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <p>
-                <code>$.ajax.encodeQueryParams(obj: object, parent?: string): string</code>
-                Encodes an object into a url parameter search query.
-            </p>
-            <ul>
-                <li>
-                    <code>obj</code>
-                    <ul>
-                        <li><em>object</em></li>
-                        <li>The object to encode</li>
-                    </ul>
-                </li>
-                <li>
-                    <code>parent</code>
-                    <ul>
-                        <li><em>string</em></li>
-                        <li>String representation of the parent structure</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>
-                <code>$.ajax.decode(encoding: string): string</code>
-                Decodes html entities into text content</p>
-            <ul>
-                <li>
-                    <code>encoding</code>
-                    <ul>
-                        <li><em>encoding</em></li>
-                        <li>The string to decode</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="content-tile">
-            <a name="messagebox-js"></a>
-            <h1>messagebox.js</h1>
-            <p>
-                A customizable yet robust message box platform is necessary for any full-featured website or webapp. The
-                messagebox.js library provides a complete interface between the message box DOM and the front-end logic
-                including templating for complex markups and asynchronous callbacks.
-            </p>
-            <p>
-                A simple use case may involve displaying a message to the user or asking the user to provide a simple
-                response. The <code>messagebox</code> function takes either a string or an HTML element as its content
-                argument, followed by an optional array of strings for button options.
-            </p>
-            <div>
-                <pre>messagebox('Hello World!', ['Hello', 'Goodbye']);</pre>
-            </div>
-            <p>
-                Because the messagebox function is asynchronous, no value is returned. The next example shows how to
-                handle a user's response using the callback function argument.
-            </p>
-            <div>
-                <pre>
+            <div class="content-tile">
+                <a name="messagebox-js"></a>
+                <h1>messagebox.js</h1>
+                <p>
+                    A customizable yet robust message box platform is necessary for any full-featured website or webapp.
+                    The
+                    messagebox.js library provides a complete interface between the message box DOM and the front-end
+                    logic
+                    including templating for complex markups and asynchronous callbacks.
+                </p>
+                <p>
+                    A simple use case may involve displaying a message to the user or asking the user to provide a
+                    simple
+                    response. The <code>messagebox</code> function takes either a string or an HTML element as its
+                    content
+                    argument, followed by an optional array of strings for button options.
+                </p>
+                <div>
+                    <pre>messagebox('Hello World!', ['Hello', 'Goodbye']);</pre>
+                </div>
+                <p>
+                    Because the messagebox function is asynchronous, no value is returned. The next example shows how to
+                    handle a user's response using the callback function argument.
+                </p>
+                <div>
+                    <pre>
                             messagebox('You have un-saved changes, are you sure you want to continue?',
                                 ['Yes', 'Cancel'],
                                 function (response) {
@@ -449,22 +455,23 @@
                                         continueToAnotherThing();
                                 });
                         </pre>
-            </div>
-            <p>
-                For a final example, when utilizing the messagebox library's templating feature, a form element can be
-                created in the HTML source, and shown by the message box the be filled and submitted. In general,
-                multiple messagebox tempalte containers can be added to a page using the
-                <code>-messagebox-templates</code> class which is useful when generating dynamic content. Each child
-                element in a template container is added to the template array to be accessed by its id attribute or
-                data-name attribute if registering an id to the DOM is not desired.
-            </p>
-            <p>
-                <b>Aside:</b> regarding the example logic, the FormElement.submit() method does not raise the
-                onsubmit event or trigger form validation and can be substituted with a visible submit button, or a
-                hidden submit button invoked in your source by the messagebox callback.
-            </p>
-            <div>
-                <pre>
+                </div>
+                <p>
+                    For a final example, when utilizing the messagebox library's templating feature, a form element can
+                    be
+                    created in the HTML source, and shown by the message box the be filled and submitted. In general,
+                    multiple messagebox tempalte containers can be added to a page using the
+                    <code>-messagebox-templates</code> class which is useful when generating dynamic content. Each child
+                    element in a template container is added to the template array to be accessed by its id attribute or
+                    data-name attribute if registering an id to the DOM is not desired.
+                </p>
+                <p>
+                    <b>Aside:</b> regarding the example logic, the FormElement.submit() method does not raise the
+                    onsubmit event or trigger form validation and can be substituted with a visible submit button, or a
+                    hidden submit button invoked in your source by the messagebox callback.
+                </p>
+                <div>
+                    <pre>
                             &lt;div class="-messagebox-templates"&gt;
                                 &lt;form id="my-form" action="submit.php"&gt;
                                     &lt;table&gt;
@@ -479,9 +486,9 @@
                                     &lt;/table&gt;
                             &lt;/div&gt;
                         </pre>
-            </div>
-            <div>
-                <code>
+                </div>
+                <div>
+                    <code>
                             messagebox('my-form', ['Submit', 'Cancel'], function (response, form) {
                                 if (response !== 'Submit') return;
 
@@ -490,87 +497,92 @@
                                 form.submit();
                             });
                         </code>
+                </div>
+                <p>
+                    As one final note, it is important to understand how the messagebox can be dismissed. The first of
+                    three
+                    methods is after clicking any button defined by the messagebox button argument array. As expected,
+                    this
+                    means any button input defined in the content section does not inherently invoke the callback
+                    function
+                    or close the message box. The second method is by calling the messagebox.close() method, which skips
+                    any
+                    passed callback function. The third method is by simply clicking anywhere on the messagebox mask
+                    covers
+                    the screen.
+                </p>
             </div>
-            <p>
-                As one final note, it is important to understand how the messagebox can be dismissed. The first of three
-                methods is after clicking any button defined by the messagebox button argument array. As expected, this
-                means any button input defined in the content section does not inherently invoke the callback function
-                or close the message box. The second method is by calling the messagebox.close() method, which skips any
-                passed callback function. The third method is by simply clicking anywhere on the messagebox mask covers
-                the screen.
-            </p>
+            <div class="content-tile">
+                <h2>Methods</h2>
+                <p>
+                    <ccode>messagebox(content: string | HTMLElement, buttons: string | Array, callback : function):
+                        void</code></strong>
+                        Displays content in messagebox and handles user input
+                </p>
+                <ul>
+                    <li>
+                        <code>content</code>
+                        <ul>
+                            <li><em>string</em> | <em>HTMLElement</em></li>
+                            <li>A string will be checked against the template-object keys before displaying inside a
+                                <code>div</code> element.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>buttons</code>
+                        <ul>
+                            <li><em>string</em> | <em>Array</em></li>
+                            <li>(Optional) A string can be used as shorthand for a single button.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>callback</code>
+                        <ul>
+                            <li><em>function</em></li>
+                            <li>(Optional) The function to be called when a response button is pressed.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>messagebox.close():: void</code>
+                    Closes the messagebox window.</p>
+                <p>
+                    <code>messagebox.templates.add(name: string, content: string | HTMLElement): void</code>
+                    Stores a content template to be called by the messagebox() method.
+                </p>
+                <ul>
+                    <li>
+                        <code>name</code>
+                        <ul>
+                            <li><em>string</em></li>
+                            <li>Name of the template to using when calling from <code>messagebox()</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>content</code>
+                        <ul>
+                            <li><em>string</em> | <em>HTMLElement</em></li>
+                            <li>The content to be displayed in the messagebox</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="content-tile">
-            <h2>Methods</h2>
-            <p>
-                <ccode>messagebox(content: string | HTMLElement, buttons: string | Array, callback : function):
-                    void</code></strong>
-                    Displays content in messagebox and handles user input
-            </p>
-            <ul>
-                <li>
-                    <code>content</code>
-                    <ul>
-                        <li><em>string</em> | <em>HTMLElement</em></li>
-                        <li>A string will be checked against the template-object keys before displaying inside a
-                            <code>div</code> element.</li>
-                    </ul>
-                </li>
-                <li>
-                    <code>buttons</code>
-                    <ul>
-                        <li><em>string</em> | <em>Array</em></li>
-                        <li>(Optional) A string can be used as shorthand for a single button.</li>
-                    </ul>
-                </li>
-                <li>
-                    <code>callback</code>
-                    <ul>
-                        <li><em>function</em></li>
-                        <li>(Optional) The function to be called when a response button is pressed.</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>
-                <code>messagebox.close():: void</code>
-                Closes the messagebox window.</p>
-            <p>
-                <code>messagebox.templates.add(name: string, content: string | HTMLElement): void</code>
-                Stores a content template to be called by the messagebox() method.
-            </p>
-            <ul>
-                <li>
-                    <code>name</code>
-                    <ul>
-                        <li><em>string</em></li>
-                        <li>Name of the template to using when calling from <code>messagebox()</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <code>content</code>
-                    <ul>
-                        <li><em>string</em> | <em>HTMLElement</em></li>
-                        <li>The content to be displayed in the messagebox</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!- footer -->
-    <div class="footer">
-        <div class="footer">
-            <div class="ribbon">
-            <div class="block blue"></div>
-            <div class="block green"></div>
-            <div class="block yellow"></div>
-            <div class="block red"></div>
-        </div>
-        <div class="content">
-            <p>
-                Copyright &copy; <?php echo date('Y'); ?> ilosey14 |
-                All Rights Reserved
-            </p>
-        </div>
-    </div>
+        <!- footer -->
+            <div class="footer">
+                <div class="footer">
+                    <div class="ribbon">
+                        <div class="block blue"></div>
+                        <div class="block green"></div>
+                        <div class="block yellow"></div>
+                        <div class="block red"></div>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Copyright &copy; <?php echo date('Y'); ?> ilosey14 |
+                            All Rights Reserved
+                        </p>
+                    </div>
+                </div>
 </body>
 </html>
