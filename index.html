@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <title>The Internet</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <!-- header -->
     <div class="header">
@@ -134,7 +132,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>a</pre>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Element id</li>
                         </ul>
                     </li>
@@ -147,7 +145,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>a</pre>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Class name</li>
                         </ul>
                     </li>
@@ -160,7 +158,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>a</pre>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Tag name</li>
                         </ul>
                     </li>
@@ -173,7 +171,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>a</pre>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Query string</li>
                         </ul>
                     </li>
@@ -181,20 +179,20 @@ $('container').class('item')[0].set({
                 <p>
                     <pre>$.new(a: string, b: object | string): HTMLElement | null</pre><br>
                     Creates a new element and optionally sets its properties.
-                    For the behavior of <pre>b</pre>, references <pre>$.prototype.set</pre>.
+                    For the behavior of <code>b</code>, references <code>$.prototype.set</code>.
                 </p>
                 <ul>
                     <li>
                         <pre>a</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Element name</li>
                         </ul>
                     </li>
                     <li>
                         <pre>b</pre><br>
                         <ul>
-                            <li><i>>object | string</i></li>
+                            <li><i>object | string</i></li>
                             <li>Element properties to set as an object or
                                 the text content as a string</li>
                         </ul>
@@ -209,7 +207,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>a</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Class name</li>
                         </ul>
                     </li>
@@ -222,7 +220,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>b</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Tag name</li>
                         </ul>
                     </li>
@@ -235,7 +233,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>a</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Query string</li>
                         </ul>
                     </li>
@@ -249,7 +247,7 @@ $('container').class('item')[0].set({
                     <li>
                         <pre>a</pre><br>
                         <ul>
-                            <li><i>>object | string</i></li>
+                            <li><i>object | string</i></li>
                             <li>The element properties to set as an object or
                                 the text content as a string</li>
                         </ul>
@@ -257,19 +255,20 @@ $('container').class('item')[0].set({
                 </ul>
                 <p>
                     <pre>$.prototype.append(a: string, b: object | string): HTMLElement | null</pre><br>
-                    Appends the element by name to the parent element and sets its properties.</p>
+                    Appends the element by name to the parent element and sets its properties.
+                </p>
                 <ul>
                     <li>
                         <pre>a</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Element name</li>
                         </ul>
                     </li>
                     <li>
                         <pre>b</pre><br>
                         <ul>
-                            <li><i>>object | string</i></li>
+                            <li><i>object | string</i></li>
                             <li>Element properties to set as an object or
                                 the text content as a string</li>
                         </ul>
@@ -281,7 +280,7 @@ $('container').class('item')[0].set({
                 <h1>ian.ajax.js</h1>
                 <p>
                     XMLHttpRequest interface for making and handling server requests/responses.<br>
-                    Dependency: <pre>ian.js</pre>
+                    Dependency: <code>ian.js</code>
                 </p>
                 <p>
                     The core, light-weight library also focuses on only loading essential logic while allowing flexibility to
@@ -312,21 +311,21 @@ $.ajax.post('/my/sever-side/script.php', {
                     <li>
                         <pre>method</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>A HTTP standard request method, i.e. GET, POT, PUT, etc.</li>
                         </ul>
                     </li>
                     <li>
                         <pre>url</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
                         <pre>options</pre><br>
                         <ul>
-                            <li><i>>object</i></li>
+                            <li><i>object</i></li>
                             <li>(Optional) Options to set for the request</li>
                         </ul>
                     </li>
@@ -350,14 +349,14 @@ options = {
                     <li>
                         <pre>url</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
                         <pre>options</pre><br>
                         <ul>
-                            <li><i>>object</i></li>
+                            <li><i>object</i></li>
                             <li>(
                                 Optional) Options to set for the request.
                                 See <pre>$.ajax.request</pre>
@@ -373,14 +372,14 @@ options = {
                     <li>
                         <pre>url</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Request url</li>
                         </ul>
                     </li>
                     <li>
                         <pre>options</pre><br>
                         <ul>
-                            <li><i>>object</i></li>
+                            <li><i>object</i></li>
                             <li>
                                 (Optional) Options to set for the request.
                                 See <pre>$.ajax.request</pre>
@@ -396,14 +395,14 @@ options = {
                     <li>
                         <pre>obj</pre><br>
                         <ul>
-                            <li><i>>object</i></li>
+                            <li><i>object</i></li>
                             <li>The object to encode</li>
                         </ul>
                     </li>
                     <li>
                         <pre>parent</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>String representation of the parent structure</li>
                         </ul>
                     </li>
@@ -415,7 +414,7 @@ options = {
                     <li>
                         <pre>encoding</pre><br>
                         <ul>
-                            <li><i>>encoding</i></li>
+                            <li><i>encoding</i></li>
                             <li>The string to decode</li>
                         </ul>
                     </li>
@@ -431,7 +430,7 @@ options = {
                 </p>
                 <p>
                     A simple use case may involve displaying a message to the user or asking the user to provide a
-                    simple response. The <pre>messagebox</pre> function takes either a string or an HTML element as its
+                    simple response. The <code>messagebox</code> function takes either a string or an HTML element as its
                     content argument, followed by an optional array of strings for button options.
                 </p>
                 <div>
@@ -456,7 +455,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     For a final example, when utilizing the messagebox library's templating feature, a form element can
                     be created in the HTML source, and shown by the message box the be filled and submitted. In general,
                     multiple messagebox tempalte containers can be added to a page using the
-                    <pre>-messagebox-templates</pre> class which is useful when generating dynamic content. Each child
+                    <code>-messagebox-templates</code> class which is useful when generating dynamic content. Each child
                     element in a template container is added to the template array to be accessed by its id attribute or
                     data-name attribute if registering an id to the DOM is not desired.
                 </p>
@@ -466,7 +465,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     hidden submit button invoked in your source by the messagebox callback.
                 </p>
                 <div>
-                    <code>
+                    <pre>
                         &lt;div class="-messagebox-templates"&gt;
                             &lt;form id="my-form" action="submit.php"&gt;
                                 &lt;table&gt;
@@ -480,10 +479,10 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                                     &lt;/tr&gt;
                                 &lt;/table&gt;
                         &lt;/div&gt;
-                    </code>
+                    </pre>
                 </div>
                 <div>
-                    <code>
+                    <pre>
                         messagebox('my-form', ['Submit', 'Cancel'], function (response, form) {
                             if (response !== 'Submit') return;
 
@@ -491,7 +490,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
 
                             form.submit();
                         });
-                    </code>
+                    </pre>
                 </div>
                 <p>
                     As one final note, it is important to understand how the messagebox can be dismissed. The first of
@@ -512,7 +511,7 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     <li>
                         <pre>content</pre><br>
                         <ul>
-                            <li><i>>string</i> | <i>>HTMLElement</i></li>
+                            <li><i>string</i> | <i>HTMLElement</i></li>
                             <li>A string will be checked against the template-object keys before displaying inside a
                                 <pre>div</pre> element.</li>
                         </ul>
@@ -520,14 +519,14 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     <li>
                         <pre>buttons</pre><br>
                         <ul>
-                            <li><i>>string</i> | <i>>Array</i></li>
+                            <li><i>string</i> | <i>Array</i></li>
                             <li>(Optional) A string can be used as shorthand for a single button.</li>
                         </ul>
                     </li>
                     <li>
                         <pre>callback</pre><br>
                         <ul>
-                            <li><i>>function</i></li>
+                            <li><i>function</i></li>
                             <li>(Optional) The function to be called when a response button is pressed.</li>
                         </ul>
                     </li>
@@ -543,14 +542,14 @@ messagebox('You have un-saved changes, are you sure you want to continue?',
                     <li>
                         <pre>name</pre><br>
                         <ul>
-                            <li><i>>string</i></li>
+                            <li><i>string</i></li>
                             <li>Name of the template to using when calling from <pre>messagebox()</pre></li>
                         </ul>
                     </li>
                     <li>
                         <pre>content</pre><br>
                         <ul>
-                            <li><i>>string</i> | <i>>HTMLElement</i></li>
+                            <li><i>string</i> | <i>HTMLElement</i></li>
                             <li>The content to be displayed in the messagebox</li>
                         </ul>
                     </li>
