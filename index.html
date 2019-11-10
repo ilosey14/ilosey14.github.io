@@ -6,12 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>ilosey14 - /src - Documentation</title>
     <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        .documentation-button-container {
+            margin: 15px;
+            text-align: center;
+        }
+        .documentation {
+            max-height: 10000px;
+            opacity: 1;
+            transition: max-height 0.5s, opacity 0.5s;
+        }
+        .documentation.collapse {
+            max-height: 0px;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <!-- header -->
     <div class="header">
         <div class="content">
-            <h1>/src - Documentation</h1>
+            <h1>/public/src - Documentation</h1>
         </div>
         <div class="ribbon">
             <div class="block blue"></div>
@@ -26,31 +42,49 @@
             <!-- intro -->
             <div class="content-tile">
                 <p>Documentation and such.</p>
-                <p>
+                <p><i>
                     Note: This is a rather cumbersome write-up of my libraries and api's.
-                    The wordiness is just for fun I supposed.
-                </p>
+                    There's probably better ways to spend your time.
+                </i></p>
             </div>
             <hr>
             <!-- table of contents -->
             <div class="content-tile">
                 <ul>
                     <li>
-                        <a href="#ian-js">ian.js</a>
+                        <a href="#common-js">common.js</a>
+                        <ul>
+                            <li>
+                                <a href="#common-js-static-methods">Static Methods</a>
+                            </li>
+                            <li>
+                                <a href="#common-js-prototypes">Prototypes</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="#ian-ajax-js">ian.ajax.js</a>
+                        <a href="#common-ajax-js">common.ajax.js</a>
+                        <ul>
+                            <li>
+                                <a href="#common-ajax-js-static-methods">Static methods</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#messagebox-js">messagebox.js</a>
+                        <ul>
+                            <li>
+                                <a href="#messagebox-js-methods">Methods</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <div class="content-tile">
-                <a name="ian-js"></a>
-                <h1>ian.js</h1>
+                <a name="common-js"></a>
+                <h1>common.js</h1>
                 <p>
-                    ian.js is a lightweight framework built with priorities on common tasks and alleviating needless
+                    common.js is a lightweight framework built with priorities on common tasks and alleviating needless
                     repition. The logic and methods are meant to feel native and barebones while powerful built-in
                     functionality centers on dynamic content and simple, feature-rich DOM manipulation.
                 </p>
@@ -128,7 +162,12 @@ $('container').class('item')[0].set({
                     </pre>
                 </div>
             </div>
-            <div class="content-tile">
+            <div class="content-tile documentation-button-container">
+                <input type="checkbox" id="common-js-documentation-button" class="-documentation-button" value="common-js-documentation">
+                <label for="common-js-documentation-button">Documentation</label>
+            </div>
+            <div id="common-js-documentation" class="content-tile documentation collapse">
+                <a name="common-js-static-methods"></a>
                 <h2>Static Methods</h2>
                 <p>
                     <code>$(a: string): HTMLElement | null</code><br>
@@ -204,6 +243,7 @@ $('container').class('item')[0].set({
                         </ul>
                     </li>
                 </ul>
+                <a name="common-js-prototypes"></a>
                 <h2>Prototype</h2>
                 <p>
                     <code>$.prototype.class(a: string): HTMLCollection</code><br>
@@ -286,15 +326,15 @@ $('container').class('item')[0].set({
                 </ul>
             </div>
             <div class="content-tile">
-                <a name="ian-ajax-js"></a>
-                <h1>ian.ajax.js</h1>
+                <a name="common-ajax-js"></a>
+                <h1>common.ajax.js</h1>
                 <p>
                     XMLHttpRequest interface for making and handling server requests/responses.<br>
-                    Dependency: <code>ian.js</code>
+                    Dependency: <code>common.js</code>
                 </p>
                 <p>
                     The core, light-weight library also focuses on only loading essential logic while allowing flexibility for
-                    advanced tasks through extensibility. Here, <code>ian.ajax.js</code> wraps up AJAX requests using the XMLHttpRequest
+                    advanced tasks through extensibility. Here, <code>common.ajax.js</code> wraps up AJAX requests using the XMLHttpRequest
                     API into a high-level plug-in.
                 </p>
                 <div>
@@ -311,7 +351,12 @@ $.ajax.post('/my/sever-side/script.php', {
                     </pre>
                 </div>
             </div>
-            <div class="content-tile">
+            <div class="content-tile documentation-button-container">
+                <input type="checkbox" id="common-ajax-js-documentation-button" class="-documentation-button" value="common-ajax-js-documentation">
+                <label for="common-ajax-js-documentation-button">Documentation</label>
+            </div>
+            <div id="common-ajax-js-documentation" class="content-tile documentation collapse">
+                <a name="common-ajax-js-static-methods"></a>
                 <h2>Static Methods</h2>
                 <p>
                     <code>$.ajax.request(method: string, url: string, options?: object): XMLHttpRequest</code><br>
@@ -512,7 +557,12 @@ messagebox('my-form', ['Submit', 'Cancel'], function (response, form) {
                     covers the screen.
                 </p>
             </div>
-            <div class="content-tile">
+            <div class="content-tile documentation-button-container">
+                    <input type="checkbox" id="messagebox-js-documentation-button" class="-documentation-button" value="messagebox-js-documentation">
+                    <label for="messagebox-js-documentation-button">Documentation</label>
+            </div>
+            <div id="messagebox-js-documentation" class="content-tile documentation collapse">
+                <a name="messagebox-js-methods"></a>
                 <h2>Methods</h2>
                 <p>
                     <code>messagebox(content: string | HTMLElement, buttons: string | Array, callback : function): void</code><br>
@@ -569,23 +619,33 @@ messagebox('my-form', ['Submit', 'Cancel'], function (response, form) {
                 </ul>
             </div>
         </div>
-        <!-- footer -->
+    </div>
+    <!-- footer -->
+    <div class="footer">
         <div class="footer">
-            <div class="footer">
-                <div class="ribbon">
-                    <div class="block blue"></div>
-                    <div class="block green"></div>
-                    <div class="block yellow"></div>
-                    <div class="block red"></div>
-                </div>
-                <div class="content">
-                    <p>
-                        Copyright &copy; 2020 ilosey14 |
-                        All Rights Reserved
-                    </p>
-                </div>
+            <div class="ribbon">
+                <div class="block blue"></div>
+                <div class="block green"></div>
+                <div class="block yellow"></div>
+                <div class="block red"></div>
+            </div>
+            <div class="content">
+                <p>
+                    Copyright &copy; 2020 ilosey14 |
+                    All Rights Reserved
+                </p>
             </div>
         </div>
     </div>
+    <!-- scripts -->
+    <script type="text/javascript">
+        [].forEach.call(document.getElementsByClassName('-documentation-button'), function (button) {
+            var docs = document.getElementById(button.value);
+
+            button.onchange = function () {
+                docs.classList.toggle('collapse', !this.checked);
+            };
+        });
+    </script>
 </body>
 </html>
