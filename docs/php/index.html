@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>ilosey14 - Documentation</title>
+    <link rel="stylesheet" href="/style.css">
+    <style type="text/css">
+        p + ul {
+            border-bottom: 1px solid #aaa;
+        }
+        pre .keyword { color: blue; }
+        pre .class { color: teal; }
+        pre .function { color: brown; }
+        pre .string { color: forestgreen;}
+        .documentation-button-container {
+            margin: 15px;
+            text-align: center;
+        }
+        .documentation {
+            max-height: 10000px;
+            opacity: 1;
+            transition: max-height 0.5s, opacity 0.5s;
+        }
+        .documentation.collapse {
+            max-height: 0px;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
+    <script src="/src/common.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="content">
+            <h1>Documentation</h1>
+        </div>
+        <div class="ribbon">
+            <div class="block blue"></div>
+            <div class="block green"></div>
+            <div class="block yellow"></div>
+            <div class="block red"></div>
+        </div>
+    </div>
+    <!-- content -->
+    <div class="content-wrapper">
+        <div class="content-container">
+            <!-- intro -->
+            <div class="content-tile">
+                <h2>/lib</h2>
+                <p><i>
+                    Note: This is a rather cumbersome write-up of my libraries and api's.
+                    There's probably better ways to spend your time.
+                </i></p>
+            </div>
+            <hr>
+            <!-- table of contents -->
+            <div class="content-tile">
+                <ul>
+                    <li>
+                        <a href="#common-php">common.php</a>
+                    </li>
+                    <li>
+                        <a href="#sql-php">sql.php</a>
+                    </li>
+                    <li>
+                        <a href="#view-php">view.php</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-tile">
+                <a name="common-php"></a>
+                <h1>common.php</h1>
+                <p>
+                    A class of common functions.
+                </p>
+                <p>
+                    TODO: anecdotes and examples
+                </p>
+            </div>
+            <div class="content-tile documentation-button-container">
+                <input type="checkbox" id="common-php-documentation-button" class="-documentation-button" value="common-php-documentation">
+                <label for="common-php-documentation-button">Documentation</label>
+            </div>
+            <div id="common-php-documentation" class="content-tile documentation">
+                <h2>Static Methods</h2>
+                <p>
+                    <code>Common::return(array $obj): void</code><br>
+                    Echos an object as a JSON string and exits.
+                </p>
+                <ul>
+                    <li>
+                        <code>$obj</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>The object to JSON encode and echo</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>Common::escape(string $value = null): string</code><br>
+                    Escapes a GET/POST string.
+                    HTML special characters are encoded and leading/trailing whitespace is trimmed.
+                </p>
+                <ul>
+                    <li>
+                        <code>$value</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>The value to escape</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>Common::randomToken(int $length): string</code><br>
+                    Builds a random token string.
+                    Token characters := /[_\-0-9A-Za-z]/
+                </p>
+                <ul>
+                    <li>
+                        <code>$length</code><br>
+                        <ul>
+                            <li><i>int</i></li>
+                            <li>Length of the token</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>Common::redirect(string $url = '', array $params = null, string $hash = ''): void</code><br>
+                    Redirects the client to an absolute url.
+                    Sets the "Location" header proptery.
+                </p>
+                <ul>
+                    <li>
+                        <code>$url</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>The absolute url to the root domain</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$params</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>Associative array of url parameters</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$hash</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>A hash string including the '#' character</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>Common::getLoginStatus(): bool</code><br>
+                    Gets the login status of the current session.
+                    Verifies access tokesn between the client and the user session.
+                </p>
+                <ul></ul>
+                <p>
+                    <code>Common::formatDate(string $date_time_str, bool $time = false, $timezone_offset = null): string</code><br>
+                    Formats a date (and time) string for the client.
+                    Performs formatting and timezone offsetting if available.
+                </p>
+                <ul>
+                    <li>
+                        <code>$date_time_str</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>A parseable date or date-time string</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$time</code><br>
+                        <ul>
+                            <li><i>bool</i></li>
+                            <li>Whether time is present in the $date_time_str and to be formatted</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$timezone_offset</code><br>
+                        <ul>
+                            <li><i>int</i></li>
+                            <li>The hour offset from UTC time</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-tile">
+                <a name="sql-php"></a>
+                <h1>sql.php</h1>
+                <p>
+                    do the thing here
+                </p>
+            </div>
+            <div class="content-tile documentation-button-container">
+                <input type="checkbox" id="sql-php-documentation-button" class="-documentation-button" value="sql-php-documentation">
+                <label for="sql-php-documentation-button">Documentation</label>
+            </div>
+            <div id="sql-php-documentation" class="content-tile documentation collapse">
+                <h2>Static Methods</h2>
+                <p>
+                    <code>SQL::connect(string $host?, string $root?, string $password?, string $database?): void</code><br>
+                    Instantiates a new mysqli connection with a database.
+                </p>
+                <ul>
+                    <li>
+                        <code>$host? = null</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Host URI</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$root? = null</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Root name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$password? = null</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Root password</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$database? = null</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Database name</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>SQL::close(): void</code><br>
+                    Closes the connection to the database.
+                </p>
+                <ul></ul>
+                <p>
+                    <code>SQL::init(mixed $tables?): void</code>
+                    Initializes dependencies.
+                </p>
+                <ul>
+                    <li>
+                        <code>$tables? = -1</code><br>
+                        <ul>
+                            <li><i>int|array&lt;int&gt;</i></li>
+                            <li>Enumerations of tables to initialize.</li>
+                            <li>i.e. <code>SQL::TABLE_USERS</code>, etc</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>SQL::query(\SQL\Query $query): mysqli_stmt</code><br>
+                    Prepares and executes an SQL query.
+                </p>
+                <ul>
+                    <li>
+                        <code>$query</code><br>
+                        <ul>
+                            <li><i>\SQL\Query</i></li>
+                            <li>Query object to execute</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>SQL::getResult(mysqli_stmt $stmt, int $fetch_type?): array|null</code><br>
+                    Gets the specified result type from an executed MySQLi statement.
+                </p>
+                <ul>
+                    <li>
+                        <code>$stmt</code><br>
+                        <ul>
+                            <li><i>mysqli_stmt</i></li>
+                            <li>MySQLi statement object</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$fetch_type? = SQL::FETCH_ALL</code><br>
+                        <ul>
+                            <li><i>int</i></li>
+                            <li>Whether to return the first row or all rows</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>SQL::getRow(string $table, array $id, array $prop_names?): array|null</code><br>
+                    Gets the <code>$prop_names</code> info about a row by its unique id(s).
+                </p>
+                <ul>
+                    <li>
+                        <code>$table</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Table name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$id</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>Unique row column-name and value</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$prop_names = ['*']</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>An associative array or null if no rows are found</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    HERE
+                </p>
+            </div>
+            <div class="content-tile">
+                <a name="view-php"></a>
+                <h1>view.php</h1>
+                <p>
+                    A customizable yet robust message box platform is necessary for any full-featured website or webapp.
+                    The <code>messagebox.js</code> library provides a complete interface between the message box DOM and the front-end
+                    logic including templating for complex markups and asynchronous callbacks.
+                </p>
+                <p>
+                    A simple use case may involve displaying a message to the user or asking the user to provide a
+                    simple response. The <code>messagebox</code> function takes either a string or an HTML element as its
+                    content argument, followed by an optional array of strings for button options.
+                </p>
+                <div>
+                    <pre>
+<span class="function">messagebox</span>(<span class="string">'Hello World!'</span>, [<span class="string">'Hello'</span>, <span class="string">'Goodbye'</span>]);
+                    </pre>
+                </div>
+                <div style="text-align:center">
+                    <input type="button" id="messagebox-demo-1" value="Try It!">
+                </div>
+                <p>
+                    Because the messagebox function is asynchronous, no value is returned. The next example shows how to
+                    handle a user's response using the callback function argument.
+                </p>
+                <div>
+                    <pre>
+<span class="function">messagebox</span>(<span class="string">'You have un-saved changes, are you sure you want to continue?'</span>,
+    [<span class="string">'Yes'</span>, <span class="string">'Cancel'</span>],
+    <span class="keyword">function</span> (response) {
+        <span class="keyword">if</span> (response === <span class="string">'Yes'</span>)
+            <span class="function">continueToAnotherThing</span>();
+    }
+);
+                    </pre>
+                </div>
+                <p>
+                    For a final example, when utilizing the messagebox library's templating feature, a form element can
+                    be created in the HTML source, and shown by the message box to be filled and submitted. In general,
+                    multiple messagebox template containers can be added to a page using the
+                    <code>-messagebox-templates</code> class which is useful when generating dynamic content with multiplate components.
+                    Each child element in a template container is added to the template array to be accessed by its <code>id</code> attribute or
+                    <code>data-name</code> attribute if registering an id to the DOM is not desired.
+                </p>
+                <p>
+                    <b>Aside:</b> regarding the example logic, the FormElement.submit() method does not raise the
+                    onsubmit event or trigger form validation and can be substituted with a visible submit button, or a
+                    hidden submit button invoked in your source by the messagebox callback.
+                </p>
+                <div>
+                    <pre>
+&lt;<span class="function">div</span> <span class="keyword">class</span>=<span class="string">"-messagebox-templates"</span>&gt;
+    &lt;<span class="function">form</span> <span class="keyword">id</span>=<span class="string">"my-form"</span> <span class="keyword">action</span>=<span class="string">"submit.php"</span>&gt;
+        &lt;<span class="function">table</span>&gt;
+            &lt;<span class="function">tr</span>&gt;
+                &lt;<span class="function">td</span>&gt;First Name&lt;/<span class="function">td</span>&gt;
+                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"first_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
+            &lt;/<span class="function">tr</span>&gt;
+            &lt;<span class="function">tr</span>&gt;
+                &lt;<span class="function">td</span>&gt;Last Name&lt;/<span class="function">td</span>&gt;
+                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"last_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
+            &lt;/<span class="function">tr</span>&gt;
+        &lt;/<span class="function">table</span>&gt;
+    &lt;<span class="function">form</span>&gt;
+&lt;/<span class="function">div</span>&gt;
+                    </pre>
+                </div>
+                <br>
+                <div>
+                    <pre>
+<span class="function">messagebox</span>(<span class="string">'my-form'</span>, [<span class="string">'Submit'</span>, <span class="string">'Cancel'</span>], <span class="keyword">function</span> (response, form) {
+    <span class="keyword">if</span> (response !== <span class="string">'Submit'</span>) <span class="keyword">return</span>;
+
+    // handle something
+
+    form.<span class="function">submit</span>();
+});
+                    </pre>
+                </div>
+                <p>
+                    As one final note, it is important to understand how the messagebox can be dismissed. The first of
+                    three methods is after clicking any button defined by the messagebox button argument array. As expected,
+                    this means any button input defined in the content section does not inherently invoke the callback
+                    function or close the message box. The second method is by calling the messagebox.close() method, which skips
+                    any passed callback function. The third method is by simply clicking anywhere on the messagebox mask which
+                    covers the screen.
+                </p>
+            </div>
+            <div class="content-tile documentation-button-container">
+                    <input type="checkbox" id="messagebox-js-documentation-button" class="-documentation-button" value="messagebox-js-documentation">
+                    <label for="messagebox-js-documentation-button">Documentation</label>
+            </div>
+            <div id="messagebox-js-documentation" class="content-tile documentation collapse">
+                <h2>Methods</h2>
+                <p>
+                    <code>messagebox(content: string | HTMLElement, buttons: string | Array, callback: function): void</code><br>
+                    Displays content in a messagebox and handles user inputs
+                </p>
+                <ul>
+                    <li>
+                        <code>content</code><br>
+                        <ul>
+                            <li><i>string</i> | <i>HTMLElement</i></li>
+                            <li>
+                                A string will be checked against the template-object keys before displaying inside a
+                                <code>div</code> element.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>buttons</code><br>
+                        <ul>
+                            <li><i>string</i> | <i>Array</i></li>
+                            <li>(Optional) A string can be used as shorthand for a single button.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>callback(response: string, content: object)</code><br>
+                        <ul>
+                            <li><i>function</i></li>
+                            <li>(Optional) The function to be called when a response button is pressed.</li>
+                            <ul>
+                                <li>
+                                    <code>response</code><br>
+                                    <ul>
+                                        <li><i>string</i></li>
+                                        <li>The value of the selected button.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <code>content</code><br>
+                                    <ul>
+                                        <li><i>object</i></li>
+                                        <li>The content DOM object.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>messagebox.close(): void</code><br>
+                    Closes the messagebox window.</p>
+                <p>
+                    <code>messagebox.templates.add(name: string, content: string | HTMLElement): void</code><br>
+                    Stores a content template to be called by the messagebox() method.
+                </p>
+                <ul>
+                    <li>
+                        <code>name</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Name of the template to use when calling from <code>messagebox()</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>content</code><br>
+                        <ul>
+                            <li><i>string</i> | <i>HTMLElement</i></li>
+                            <li>The content to be displayed in the messagebox</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer">
+            <div class="ribbon">
+                <div class="block blue"></div>
+                <div class="block green"></div>
+                <div class="block yellow"></div>
+                <div class="block red"></div>
+            </div>
+            <div class="content">
+                <p>
+                    Copyright &copy; 2020 ilosey14 |
+                    All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+    <style type="text/css">
+        @media only screen and (max-width: 400px) {
+            #messagebox-container {
+                min-width: 100px !important;
+                max-width: 95%;
+            }
+        }
+        #messagebox-mask {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(225,225,225,0.25);
+            visibility: hidden;
+            z-index: 100;
+            text-align: center;
+            line-height: 100vh;
+        }
+        #messagebox-mask.-show-messagebox {
+            visibility: visible !important;
+        }
+        #messagebox-container {
+            position: relative;
+            display: inline-block;
+            min-width: 300px;
+            max-width: 720px;
+            max-height: 90%;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            vertical-align: middle;
+            line-height: initial;
+        }
+        #messagebox-content, #messagebox-buttons {
+            padding: 10px;
+        }
+        #messagebox-buttons {
+            text-align: center;
+        }
+        .-messagebox-templates {
+            display: none;
+        }
+    </style>
+    <div id="messagebox-mask">
+        <div id="messagebox-container">
+            <div id="messagebox-content"></div>
+            <div id="messagebox-buttons"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/src/messagebox.js"></script>
+    <script type="text/javascript">
+        // documentation buttons
+        [].forEach.call($.class('-documentation-button'), function (button) {
+            var docs = $(button.value);
+
+            button.onchange = function () {
+                docs.classList.toggle('collapse', !this.checked);
+            };
+        });
+
+        // demos
+        $('messagebox-demo-1').onclick = function () {
+            messagebox('Hello World!', ['Hello', 'Goodbye']);
+        };
+    </script>
+</body>
+</html>
