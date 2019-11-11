@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>ilosey14 - Documentation</title>
+    <link rel="stylesheet" href="/style.css">
+    <style type="text/css">
+        p + ul {
+            border-bottom: 1px solid #aaa;
+        }
+        pre .keyword { color: blue; }
+        pre .class { color: teal; }
+        pre .function { color: brown; }
+        pre .string { color: forestgreen;}
+        .documentation-button-container {
+            margin: 15px;
+            text-align: center;
+        }
+        .documentation {
+            max-height: 10000px;
+            opacity: 1;
+            transition: max-height 0.5s, opacity 0.5s;
+        }
+        .documentation.collapse {
+            max-height: 0px;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
+    <script src="/src/common.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="content">
+            <h1>Documentation</h1>
+        </div>
+        <div class="ribbon">
+            <div class="block blue"></div>
+            <div class="block green"></div>
+            <div class="block yellow"></div>
+            <div class="block red"></div>
+        </div>
+    </div>
+    <!-- content -->
+    <div class="content-wrapper">
+        <div class="content-container">
+            <!-- intro -->
+            <div class="content-tile">
+                <h2>/public/src</h2>
+                <p><i>
+                    Note: This is a rather cumbersome write-up of my libraries and api's.
+                    There's probably better ways to spend your time.
+                </i></p>
+            </div>
+            <hr>
+            <!-- table of contents -->
+            <div class="content-tile">
+                <ul>
+                    <li>
+                        <a href="#common-js">common.js</a>
+                    </li>
+                    <li>
+                        <a href="#common-ajax-js">common.ajax.js</a>
+                    </li>
+                    <li>
+                        <a href="#messagebox-js">messagebox.js</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-tile">
+                <a name="common-js"></a>
+                <h1>common.js</h1>
+                <p>
+                    common.js is a lightweight framework built with priorities on common tasks and alleviating needless
+                    repition. The logic and methods are meant to feel native and barebones while powerful built-in
+                    functionality centers on dynamic content and simple, feature-rich DOM manipulation.
+                </p>
+                <p>Consider appending a section of content to a news feed in pure javascript.</p>
+                <div>
+                    <pre>
+<span class="keyword">var</span> item = document.<span class="function">createElement</span>(<span class="string">'div'</span>);
+item.className = <span class="string">'news-feed-item'</span>;
+
+<span class="keyword">var</span> img = document.<span class="function">createElement</span>(<span class="string">'img'</span>);
+img.src = <span class="string">'/img/my-image.png'</span>;
+item.<span class="function">appendChild</span>(img);
+
+<span class="keyword">var</span> h1 = document.<span class="function">createElement</span>(<span class="string">'h1'</span>);
+h1.textContent = <span class="string">'My Title'</span>;
+item.<span class="function">appendChild</span>(h1);
+
+<span class="keyword">var</span> p = document.<span class="function">createElement</span>(<span class="string">'p'</span>);
+p.textContent = <span class="string">'A really long story.'</span>;
+item.<span class="function">appendChild</span>(p);
+
+document.<span class="function">getElementById</span>(<span class="string">'news-feed'</span>).<span class="function">appendChild</span>(item);
+                    </pre>
+                </div>
+                <p>
+                    One of the main motivations for this library is allowing single-line implementations including
+                    chaining when available.
+                </p>
+                <div>
+                    <pre>
+<span class="keyword">var</span> item = <span class="function">$</span>(<span class="string">'news-feed'</span>).<span class="function">append</span>(<span class="string">'div'</span>, { className: <span class="string">'news-feed-item'</span> });
+
+item.<span class="function">append</span>(<span class="string">'img'</span>, { src: <span class="string">'/img/my-image.png'</span> });
+item.<span class="function">append</span>(<span class="string">'h1'</span>,  { textContent: <span class="string">'My Title'</span> });
+item.<span class="function">append</span>(<span class="string">'p'</span>,   { textContent: <span class="string">'A really long story.'</span> }):
+                    </pre>
+                </div>
+                <p>
+                    Notice that query-specific language is not being used like <code>querySelector</code> or the familiar jQuery library.
+                    The following example explains how querying with different identifiers can be done.
+                </p>
+                <div>
+                    <pre>
+<span class="keyword">var</span> elFromId     = <span class="function">$</span>(<span class="string">'id'</span>);
+<span class="keyword">var</span> elsFromClass = $.<span class="function">class</span>(<span class="string">'a-class'</span>);
+<span class="keyword">var</span> elsFromTag   = $.<span class="function">tag</span>(<span class="string">'pre'</span>);
+<span class="keyword">var</span> elsFromName  = $.<span class="function">name</span>(<span class="string">'a_name'</span>);
+<span class="keyword">var</span> elsFromQuery = $.<span class="function">query</span>(<span class="string">'input[type=button]'</span>);
+                    </pre>
+                </div>
+                <p>
+                    The <code>id</code> attribute was chosen first because I found myself needing it the most and, well
+                    this is my library so here we are. Additionally, simple, semantic methods provide expected behavior.
+                </p>
+                <p>
+                    To further elaborate, the following seemingly useless example illustrates chaining to get an existing element,
+                    change its properties, and append a new child element.
+                </p>
+                <div>
+                    <pre>
+<span class="function">$</span>(<span class="string">'container'</span>).<span class="function">class</span>(<span class="string">'item'</span>)[0].<span class="function">set</span>({
+    style: {
+        backgroundColor: <span class="string">'#abcdef'</span>;
+    },
+    <span class="function">onclick</span>: <span class="keyword">function</span> () {
+        this.classList.<span class="function">toggle</span>(<span class="string">'selected-item'</span>);
+    }
+}).<span class="function">append</span>(<span class="string">'input'</span>, {
+    type: <span class="string">'button'</span>,
+    className: <span class="string">'close-button'</span>,
+    <span class="function">onclick</span>: <span class="keyword">function</span> () {
+        this.parentElement.<span class="function">goAway</span>();
+    }
+});
+                    </pre>
+                </div>
+            </div>
+            <div class="content-tile documentation-button-container">
+                <input type="checkbox" id="common-js-documentation-button" class="-documentation-button" value="common-js-documentation">
+                <label for="common-js-documentation-button">Documentation</label>
+            </div>
+            <div id="common-js-documentation" class="content-tile documentation collapse">
+                <a name="common-js-static-methods"></a>
+                <h2>Static Methods</h2>
+                <p>
+                    <code>$(a: string): HTMLElement | null</code><br>
+                    Gets an element by id.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Element id</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.class(a: string): HTMLCollection</code><br>
+                    Gets elements by class name.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Class name</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.tag(a: string): HTMLCollection</code><br>
+                    Gets elements by tag name.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Tag name</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.query(a: string): HTMLCollection</code><br>
+                    Gets elements using a DOM query string.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Query string</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.new(a: string, b: object | string): HTMLElement | null</code><br>
+                    Creates a new element and optionally sets its properties.
+                    For the behavior of <code>b</code>, reference <code>$.prototype.set</code>.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Element name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>b</code><br>
+                        <ul>
+                            <li><i>object | string</i></li>
+                            <li>Element properties to set as an object or
+                                the text content as a string</li>
+                        </ul>
+                    </li>
+                </ul>
+                <a name="common-js-prototypes"></a>
+                <h2>Prototype</h2>
+                <p>
+                    <code>$.prototype.class(a: string): HTMLCollection</code><br>
+                    Gets elements by class name relative to the parent element.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Class name</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.prototype.tag(a: string): HTMLCollection</code><br>
+                    Gets elements by tag name relative to the parent element.
+                </p>
+                <ul>
+                    <li>
+                        <code>b</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Tag name</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.prototype.query(a: string): HTMLCollection</code><br>
+                    Gets elements using a DOM query string relative to the parent element.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Query string</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.prototype.set(a: object | string): HTMLElement</code><br>
+                    Sets the element properties from the given object or
+                    sets the text content as a string.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>object | string</i></li>
+                            <li>
+                                The element properties to set as an object or
+                                the text content as a string
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.prototype.append(a: string, b: object | string): HTMLElement | null</code><br>
+                    Appends the element by name to the parent element and sets its properties.
+                </p>
+                <ul>
+                    <li>
+                        <code>a</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Element name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>b</code><br>
+                        <ul>
+                            <li><i>object | string</i></li>
+                            <li>
+                                Element properties to set as an object or
+                                the text content as a string.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-tile">
+                <a name="common-ajax-js"></a>
+                <h1>common.ajax.js</h1>
+                <p>
+                    XMLHttpRequest interface for making and handling server requests/responses.<br>
+                    Dependency: <code>common.js</code>
+                </p>
+                <p>
+                    The core, light-weight library also focuses on only loading essential logic while allowing flexibility for
+                    advanced tasks through extensibility. Here, <code>common.ajax.js</code> wraps up AJAX requests using the XMLHttpRequest
+                    API into a high-level plug-in.
+                </p>
+                <div>
+                    <pre>
+$.ajax.<span class="function">post</span>(<span class="string">'/my/sever-side/script.php'</span>, {
+    data: {
+        foo: <span class="string">'lorem'</span>,
+        bar: <span class="string">'ipsum'</span>
+    },
+    <span class="function">onload</span>: function () {
+        <span class="keyword">if</span> (!this.response.error) <span class="function">hooray</span>();
+    }
+});
+                    </pre>
+                </div>
+            </div>
+            <div class="content-tile documentation-button-container">
+                <input type="checkbox" id="common-ajax-js-documentation-button" class="-documentation-button" value="common-ajax-js-documentation">
+                <label for="common-ajax-js-documentation-button">Documentation</label>
+            </div>
+            <div id="common-ajax-js-documentation" class="content-tile documentation collapse">
+                <a name="common-ajax-js-static-methods"></a>
+                <h2>Static Methods</h2>
+                <p>
+                    <code>$.ajax.request(method: string, url: string, options?: object): XMLHttpRequest</code><br>
+                    Makes a specified XMLHttpRequest.
+                </p>
+                <ul>
+                    <li>
+                        <code>method</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>An HTTP standard request method, i.e. GET, POST, PUT, etc.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>url</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Request url</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>options</code><br>
+                        <ul>
+                            <li><i>object</i></li>
+                            <li>(Optional) Options to set for the request</li>
+                            <li>
+                                <pre style="white-space:pre-wrap">
+options: {
+    data: (<span class="keyword">object</span> | <span class="keyword">string</span> | <span class="class">FormData</span> | <span class="class">Blob</span> | <span class="class">Document</span> | <span class="class">URLSearchParams</span> | <span class="class">ArrayBufferView</span> | <span class="class">ArrayBuffer</span> | <span class="class">ReadableStream</span>&lt;<span class="class">Uint8Array</span>&gt;),
+    async: <span class="keyword">bool</span>,
+    requestHeaders: <span class="keyword">object</span>,
+    onload: <span class="keyword">function</span>,
+    onerror: <span class="keyword">function</span>
+}
+                                </pre>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.ajax.get(url: string, options?: object): XMLHttpRequest</code><br>
+                    Makes an HTTP GET request.
+                </p>
+                <ul>
+                    <li>
+                        <code>url</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Request url</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>options</code><br>
+                        <ul>
+                            <li><i>object</i></li>
+                            <li>
+                                (Optional) Options to set for the request.
+                                See <code>$.ajax.request</code>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.ajax.post(url: string, options?: object): XMLHttpRequest</code><br>
+                    Makes an HTTP POST request.
+                </p>
+                <ul>
+                    <li>
+                        <code>url</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Request url</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>options</code><br>
+                        <ul>
+                            <li><i>object</i></li>
+                            <li>
+                                (Optional) Options to set for the request.
+                                See <code>$.ajax.request</code>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.ajax.encodeQueryParams(obj: object, parent?: string): string</code><br>
+                    Encodes an object into a url parameter search query.
+                </p>
+                <ul>
+                    <li>
+                        <code>obj</code><br>
+                        <ul>
+                            <li><i>object</i></li>
+                            <li>The object to encode</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>parent</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>String representation of the parent structure</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>$.ajax.decode(encoding: string): string</code><br>
+                    Decodes html entities into text content</p>
+                <ul>
+                    <li>
+                        <code>encoding</code><br>
+                        <ul>
+                            <li><i>encoding</i></li>
+                            <li>The string to decode</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-tile">
+                <a name="messagebox-js"></a>
+                <h1>messagebox.js</h1>
+                <p>
+                    A customizable yet robust message box platform is necessary for any full-featured website or webapp.
+                    The <code>messagebox.js</code> library provides a complete interface between the message box DOM and the front-end
+                    logic including templating for complex markups and asynchronous callbacks.
+                </p>
+                <p>
+                    A simple use case may involve displaying a message to the user or asking the user to provide a
+                    simple response. The <code>messagebox</code> function takes either a string or an HTML element as its
+                    content argument, followed by an optional array of strings for button options.
+                </p>
+                <div>
+                    <pre>
+<span class="function">messagebox</span>(<span class="string">'Hello World!'</span>, [<span class="string">'Hello'</span>, <span class="string">'Goodbye'</span>]);
+                    </pre>
+                </div>
+                <div style="text-align:center">
+                    <input type="button" id="messagebox-demo-1" value="Try It!">
+                </div>
+                <p>
+                    Because the messagebox function is asynchronous, no value is returned. The next example shows how to
+                    handle a user's response using the callback function argument.
+                </p>
+                <div>
+                    <pre>
+<span class="function">messagebox</span>(<span class="string">'You have un-saved changes, are you sure you want to continue?'</span>,
+    [<span class="string">'Yes'</span>, <span class="string">'Cancel'</span>],
+    <span class="keyword">function</span> (response) {
+        <span class="keyword">if</span> (response === <span class="string">'Yes'</span>)
+            <span class="function">continueToAnotherThing</span>();
+    }
+);
+                    </pre>
+                </div>
+                <p>
+                    For a final example, when utilizing the messagebox library's templating feature, a form element can
+                    be created in the HTML source, and shown by the message box to be filled and submitted. In general,
+                    multiple messagebox template containers can be added to a page using the
+                    <code>-messagebox-templates</code> class which is useful when generating dynamic content with multiplate components.
+                    Each child element in a template container is added to the template array to be accessed by its <code>id</code> attribute or
+                    <code>data-name</code> attribute if registering an id to the DOM is not desired.
+                </p>
+                <p>
+                    <b>Aside:</b> regarding the example logic, the FormElement.submit() method does not raise the
+                    onsubmit event or trigger form validation and can be substituted with a visible submit button, or a
+                    hidden submit button invoked in your source by the messagebox callback.
+                </p>
+                <div>
+                    <pre>
+&lt;<span class="function">div</span> <span class="keyword">class</span>=<span class="string">"-messagebox-templates"</span>&gt;
+    &lt;<span class="function">form</span> <span class="keyword">id</span>=<span class="string">"my-form"</span> <span class="keyword">action</span>=<span class="string">"submit.php"</span>&gt;
+        &lt;<span class="function">table</span>&gt;
+            &lt;<span class="function">tr</span>&gt;
+                &lt;<span class="function">td</span>&gt;First Name&lt;/<span class="function">td</span>&gt;
+                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"first_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
+            &lt;/<span class="function">tr</span>&gt;
+            &lt;<span class="function">tr</span>&gt;
+                &lt;<span class="function">td</span>&gt;Last Name&lt;/<span class="function">td</span>&gt;
+                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"last_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
+            &lt;/<span class="function">tr</span>&gt;
+        &lt;/<span class="function">table</span>&gt;
+    &lt;<span class="function">form</span>&gt;
+&lt;/<span class="function">div</span>&gt;
+                    </pre>
+                </div>
+                <br>
+                <div>
+                    <pre>
+<span class="function">messagebox</span>(<span class="string">'my-form'</span>, [<span class="string">'Submit'</span>, <span class="string">'Cancel'</span>], <span class="keyword">function</span> (response, form) {
+    <span class="keyword">if</span> (response !== <span class="string">'Submit'</span>) <span class="keyword">return</span>;
+
+    // handle something
+
+    form.<span class="function">submit</span>();
+});
+                    </pre>
+                </div>
+                <p>
+                    As one final note, it is important to understand how the messagebox can be dismissed. The first of
+                    three methods is after clicking any button defined by the messagebox button argument array. As expected,
+                    this means any button input defined in the content section does not inherently invoke the callback
+                    function or close the message box. The second method is by calling the messagebox.close() method, which skips
+                    any passed callback function. The third method is by simply clicking anywhere on the messagebox mask which
+                    covers the screen.
+                </p>
+            </div>
+            <div class="content-tile documentation-button-container">
+                    <input type="checkbox" id="messagebox-js-documentation-button" class="-documentation-button" value="messagebox-js-documentation">
+                    <label for="messagebox-js-documentation-button">Documentation</label>
+            </div>
+            <div id="messagebox-js-documentation" class="content-tile documentation collapse">
+                <a name="messagebox-js-methods"></a>
+                <h2>Methods</h2>
+                <p>
+                    <code>messagebox(content: string | HTMLElement, buttons: string | Array, callback: function): void</code><br>
+                    Displays content in a messagebox and handles user inputs
+                </p>
+                <ul>
+                    <li>
+                        <code>content</code><br>
+                        <ul>
+                            <li><i>string</i> | <i>HTMLElement</i></li>
+                            <li>
+                                A string will be checked against the template-object keys before displaying inside a
+                                <code>div</code> element.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>buttons</code><br>
+                        <ul>
+                            <li><i>string</i> | <i>Array</i></li>
+                            <li>(Optional) A string can be used as shorthand for a single button.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>callback(response: string, content: object)</code><br>
+                        <ul>
+                            <li><i>function</i></li>
+                            <li>(Optional) The function to be called when a response button is pressed.</li>
+                            <ul>
+                                <li>
+                                    <code>response</code><br>
+                                    <ul>
+                                        <li><i>string</i></li>
+                                        <li>The value of the selected button.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <code>content</code><br>
+                                    <ul>
+                                        <li><i>object</i></li>
+                                        <li>The content DOM object.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <code>messagebox.close(): void</code><br>
+                    Closes the messagebox window.</p>
+                <p>
+                    <code>messagebox.templates.add(name: string, content: string | HTMLElement): void</code><br>
+                    Stores a content template to be called by the messagebox() method.
+                </p>
+                <ul>
+                    <li>
+                        <code>name</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Name of the template to use when calling from <code>messagebox()</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>content</code><br>
+                        <ul>
+                            <li><i>string</i> | <i>HTMLElement</i></li>
+                            <li>The content to be displayed in the messagebox</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer">
+            <div class="ribbon">
+                <div class="block blue"></div>
+                <div class="block green"></div>
+                <div class="block yellow"></div>
+                <div class="block red"></div>
+            </div>
+            <div class="content">
+                <p>
+                    Copyright &copy; 2020 ilosey14 |
+                    All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script src="/src/messagebox.js"></script>
+    <script type="text/javascript">
+        // documentation buttons
+        [].forEach.call($.class('-documentation-button'), function (button) {
+            var docs = $(button.value);
+
+            button.onchange = function () {
+                docs.classList.toggle('collapse', !this.checked);
+            };
+        });
+
+        // demos
+        $('messagebox-demo-1').onclick = function () {
+            messagebox('Hello World!', ['Hello', 'Goodbye']);
+        };
+    </script>
+</body>
+</html>
