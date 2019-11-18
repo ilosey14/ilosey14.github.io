@@ -50,6 +50,7 @@
             <!-- intro -->
             <div class="content-tile">
                 <h2>/lib</h2>
+                <p><a href="/">Home</a></p>
                 <p><i>
                     Note: This is a rather cumbersome write-up of my libraries and api's.
                     There's probably better ways to spend your time.
@@ -194,7 +195,7 @@
                 <a name="sql-php"></a>
                 <h1>sql.php</h1>
                 <p>
-                    do the thing here
+                    TODO: do the thing here
                 </p>
             </div>
             <div class="content-tile documentation-button-container">
@@ -268,6 +269,7 @@
                             <li>Query object to execute</li>
                         </ul>
                     </li>
+                    <li>Returns the prepared and executed mysqli query statement</li>
                 </ul>
                 <p>
                     <code>SQL::getResult(mysqli_stmt $stmt, int $fetch_type?): array|null</code><br>
@@ -288,6 +290,7 @@
                             <li>Whether to return the first row or all rows</li>
                         </ul>
                     </li>
+                    <li>Returns the result array of null if no rows were returned</li>
                 </ul>
                 <p>
                     <code>SQL::getRow(string $table, array $id, array $prop_names?): array|null</code><br>
@@ -315,97 +318,172 @@
                             <li>An associative array or null if no rows are found</li>
                         </ul>
                     </li>
+                    <li>Returns an associated array or null if no rows were found</li>
                 </ul>
                 <p>
-                    HERE
+                    <code>SQL::getRows(string $table, array $params, array $prop_names?): array|null</code><br>
+                    Gets an array of rows by their <code>$prop_names</code>.
                 </p>
+                <ul>
+                    <li>
+                        <code>$table</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Table name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$params</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li><code>where</code>, <code>order_by</code>, <code>sort</code>, <code>limit</code>, <code>offset</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$prop_names = ['*']</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>An array of results or null if no rows were found</li>
+                        </ul>
+                    </li>
+                    <li>Returns an array of result rows of null if no rows were found</li>
+                </ul>
+                <p>
+                    <code>SQL::setRow(string $table, array $id, array $prop_list): int</code><br>
+                    Sets the column values in <code>$prop_list</code> of a row by its unique id.
+                </p>
+                <ul>
+                    <li>
+                        <code>$table</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Table name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$id</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>Unique row column-name and value of rows to set</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$prop_names</code>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>Associative array of column values</li>
+                        </ul>
+                    </li>
+                    <li>Returns the number of affected rows</li>
+                </ul>
+                <p>
+                    <code>SQL::insertRow(string $table, array $prop_list): int</code><br>
+                    Inserts a new row into a table.
+                </p>
+                <ul>
+                    <li>
+                        <code>$table</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Table name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$prop_list</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>Asociative array of column values</li>
+                        </ul>
+                    </li>
+                    <li>Returns the number of affected rows</li>
+                </ul>
+                <p>
+                    <code>SQL::deleteRow(string $table, array $id): int</code><br>
+                    Deletes a row from a table.
+                </p>
+                <ul>
+                    <li>
+                        <code>$table</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>Table name</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>$id</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>Unique row column-name and value of the row to delete</li>
+                        </ul>
+                    </li>
+                    <li>Returns the number of affected rows</li>
+                </ul>
+                <p>
+                    <code>SQL::escape(string $value): string</code><br>
+                    Escapes/sanitizes a string used to query the connected database.
+                </p>
+                <ul>
+                    <li>
+                        <code>$value</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>The value to sanitize</li>
+                        </ul>
+                    </li>
+                    <li>Returns the sanitized string</li>
+                </ul>
+                <p>
+                    <code>SQL::return(array $obj): void</code><br>
+                    Echos a JSON encoded string and exits the script.
+                </p>
+                <ul>
+                    <li>
+                        <code>$obj</code><br>
+                        <ul>
+                            <li><i>array</i></li>
+                            <li>An associated array to echo</li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr>
+                <h2>Constants</h2>
+                <p>
+                    <code>SQL::FETCH_FIRST</code>
+                </p>
+                <ul>
+                    <li>For <code>SQL::getResults</code></li>
+                    <li>Returns the first result in from the query</li>
+                </ul>
+                <p>
+                    <code>SQL::FETCH_ALL</code>
+                </p>
+                <ul>
+                    <li>For <code>SQL::getReults</code></li>
+                    <li>Returns all results from the query</li>
+                </ul>
+                <p>
+                    <code>SQL::&lt;TABLE_ENUM&gt;</code>
+                </p>
+                <ul>
+                    <li>For <code>SQL::init</code></li>
+                    <li>
+                        Set these values in the class definition and implement them in <code>SQL::init</code>
+                        to initialize and interface with any existing table classes
+                    </li>
+                </ul>
             </div>
             <div class="content-tile">
                 <a name="view-php"></a>
                 <h1>view.php</h1>
                 <p>
-                    A customizable yet robust message box platform is necessary for any full-featured website or webapp.
-                    The <code>messagebox.js</code> library provides a complete interface between the message box DOM and the front-end
-                    logic including templating for complex markups and asynchronous callbacks.
+                    TODO: anecote and examples here too
                 </p>
                 <p>
-                    A simple use case may involve displaying a message to the user or asking the user to provide a
-                    simple response. The <code>messagebox</code> function takes either a string or an HTML element as its
-                    content argument, followed by an optional array of strings for button options.
-                </p>
-                <div>
-                    <pre>
-<span class="function">messagebox</span>(<span class="string">'Hello World!'</span>, [<span class="string">'Hello'</span>, <span class="string">'Goodbye'</span>]);
-                    </pre>
-                </div>
-                <div style="text-align:center">
-                    <input type="button" id="messagebox-demo-1" value="Try It!">
-                </div>
-                <p>
-                    Because the messagebox function is asynchronous, no value is returned. The next example shows how to
-                    handle a user's response using the callback function argument.
-                </p>
-                <div>
-                    <pre>
-<span class="function">messagebox</span>(<span class="string">'You have un-saved changes, are you sure you want to continue?'</span>,
-    [<span class="string">'Yes'</span>, <span class="string">'Cancel'</span>],
-    <span class="keyword">function</span> (response) {
-        <span class="keyword">if</span> (response === <span class="string">'Yes'</span>)
-            <span class="function">continueToAnotherThing</span>();
-    }
-);
-                    </pre>
-                </div>
-                <p>
-                    For a final example, when utilizing the messagebox library's templating feature, a form element can
-                    be created in the HTML source, and shown by the message box to be filled and submitted. In general,
-                    multiple messagebox template containers can be added to a page using the
-                    <code>-messagebox-templates</code> class which is useful when generating dynamic content with multiplate components.
-                    Each child element in a template container is added to the template array to be accessed by its <code>id</code> attribute or
-                    <code>data-name</code> attribute if registering an id to the DOM is not desired.
+                    Talk about how public flags and values can be added based on components and
+                    persistent value dependencies
                 </p>
                 <p>
-                    <b>Aside:</b> regarding the example logic, the FormElement.submit() method does not raise the
-                    onsubmit event or trigger form validation and can be substituted with a visible submit button, or a
-                    hidden submit button invoked in your source by the messagebox callback.
-                </p>
-                <div>
-                    <pre>
-&lt;<span class="function">div</span> <span class="keyword">class</span>=<span class="string">"-messagebox-templates"</span>&gt;
-    &lt;<span class="function">form</span> <span class="keyword">id</span>=<span class="string">"my-form"</span> <span class="keyword">action</span>=<span class="string">"submit.php"</span>&gt;
-        &lt;<span class="function">table</span>&gt;
-            &lt;<span class="function">tr</span>&gt;
-                &lt;<span class="function">td</span>&gt;First Name&lt;/<span class="function">td</span>&gt;
-                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"first_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
-            &lt;/<span class="function">tr</span>&gt;
-            &lt;<span class="function">tr</span>&gt;
-                &lt;<span class="function">td</span>&gt;Last Name&lt;/<span class="function">td</span>&gt;
-                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"last_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
-            &lt;/<span class="function">tr</span>&gt;
-        &lt;/<span class="function">table</span>&gt;
-    &lt;<span class="function">form</span>&gt;
-&lt;/<span class="function">div</span>&gt;
-                    </pre>
-                </div>
-                <br>
-                <div>
-                    <pre>
-<span class="function">messagebox</span>(<span class="string">'my-form'</span>, [<span class="string">'Submit'</span>, <span class="string">'Cancel'</span>], <span class="keyword">function</span> (response, form) {
-    <span class="keyword">if</span> (response !== <span class="string">'Submit'</span>) <span class="keyword">return</span>;
-
-    // handle something
-
-    form.<span class="function">submit</span>();
-});
-                    </pre>
-                </div>
-                <p>
-                    As one final note, it is important to understand how the messagebox can be dismissed. The first of
-                    three methods is after clicking any button defined by the messagebox button argument array. As expected,
-                    this means any button input defined in the content section does not inherently invoke the callback
-                    function or close the message box. The second method is by calling the messagebox.close() method, which skips
-                    any passed callback function. The third method is by simply clicking anywhere on the messagebox mask which
-                    covers the screen.
+                    Table about the expected file structure to correctly render a page.
                 </p>
             </div>
             <div class="content-tile documentation-button-container">
@@ -415,73 +493,63 @@
             <div id="messagebox-js-documentation" class="content-tile documentation collapse">
                 <h2>Methods</h2>
                 <p>
-                    <code>messagebox(content: string | HTMLElement, buttons: string | Array, callback: function): void</code><br>
-                    Displays content in a messagebox and handles user inputs
+                    <code>View::__construct(string $title, string $page?): View</code><br>
+                    Instantiates a new View object.
                 </p>
                 <ul>
                     <li>
-                        <code>content</code><br>
+                        <code>$title</code><br>
                         <ul>
-                            <li><i>string</i> | <i>HTMLElement</i></li>
-                            <li>
-                                A string will be checked against the template-object keys before displaying inside a
-                                <code>div</code> element.
-                            </li>
+                            <li><i>string</i></li>
+                            <li>The page title</li>
                         </ul>
                     </li>
                     <li>
-                        <code>buttons</code><br>
+                        <code>$page? = '/'</code><br>
                         <ul>
-                            <li><i>string</i> | <i>Array</i></li>
-                            <li>(Optional) A string can be used as shorthand for a single button.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <code>callback(response: string, content: object)</code><br>
-                        <ul>
-                            <li><i>function</i></li>
-                            <li>(Optional) The function to be called when a response button is pressed.</li>
-                            <ul>
-                                <li>
-                                    <code>response</code><br>
-                                    <ul>
-                                        <li><i>string</i></li>
-                                        <li>The value of the selected button.</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <code>content</code><br>
-                                    <ul>
-                                        <li><i>object</i></li>
-                                        <li>The content DOM object.</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <li><i>string</i></li>
+                            <li>The page path i.e. "/about"</li>
                         </ul>
                     </li>
                 </ul>
                 <p>
-                    <code>messagebox.close(): void</code><br>
-                    Closes the messagebox window.</p>
+                    <code>View::render(): void</code><br>
+                    Renders the specified template with the current set values.
+                </p>
+                <ul></ul>
                 <p>
-                    <code>messagebox.templates.add(name: string, content: string | HTMLElement): void</code><br>
-                    Stores a content template to be called by the messagebox() method.
+                    <code>View::__set(string $name, mixed $value): void</code><br>
+                    Sets a template variable to access in the page or template component.
                 </p>
                 <ul>
                     <li>
-                        <code>name</code><br>
+                        <code>$name</code><br>
                         <ul>
                             <li><i>string</i></li>
-                            <li>Name of the template to use when calling from <code>messagebox()</code></li>
+                            <li>Variable name</li>
                         </ul>
                     </li>
                     <li>
-                        <code>content</code><br>
+                        <code>$value</code><br>
                         <ul>
-                            <li><i>string</i> | <i>HTMLElement</i></li>
-                            <li>The content to be displayed in the messagebox</li>
+                            <li><i>mixed</i></li>
+                            <li>Variable value</li>
                         </ul>
                     </li>
+                </ul>
+                <p>
+                    <code>View::_get(string $name): void</code><br>
+                    Gets a template variable value.
+                </p>
+                <ul>
+                    <li>
+                        <code>$name</code><br>
+                        <ul>
+                            <li><i>string</i></li>
+                            <li>The name of an existing variable</li>
+                        </ul>
+                    </li>
+                    <li>Returns the value of the existing variable, otherwise null</li>
                 </ul>
             </div>
         </div>
