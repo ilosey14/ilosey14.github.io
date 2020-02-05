@@ -6,7 +6,7 @@
         {
             "label": "Sass Compile",
             "type": "shell",
-            "command": "sass style.sass style.css --style=compressed",
+            "command": "sass style/style.sass style/style.css --style=compressed",
             "group": {
                 "kind": "build",
                 "isDefault": true
