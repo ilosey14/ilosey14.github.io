@@ -9,10 +9,15 @@ $white: #f8f8f8
 
 $background-color: #dddddd
 $shadow: #aaaaaa
+
 // border-radius default
 $border-radius: 5px
+
 // media queries
 $mobile: 'only screen and (max-width: 720px)'
+
+// misc values
+$menu-width: 360px
 
 // site style sheet
 html, body
@@ -39,7 +44,7 @@ p
 ul
     display: inline-block
     list-style: none
-    margin: 15px 0px 15px 15px
+    margin: 1em 0 1em 1em
     padding: 0px
 
     li
@@ -49,7 +54,7 @@ ul
 
         a
             display: block
-            padding: 10px
+            padding: 0.5em
             border: 1px solid transparent
 
             &:hover
@@ -57,8 +62,8 @@ ul
                 border-color: $black !important
 
 input
-    margin: 10px
-    padding: 10px
+    margin: 0.5em
+    padding: 0.5em
     border-radius: $border-radius
     font-family: inherit
     font-size: inherit
@@ -83,7 +88,7 @@ input
 
     // toggle buttons
     &[type=checkbox], &[type=radio]
-        display: none
+        display: none !important
     &[type=checkbox] + label,
     &[type=radio] + label
         @extend input, [type=button]
@@ -95,7 +100,7 @@ input
 
 pre
     margin: 0px
-    padding: 10px
+    padding: 0.5em
     color: $black
     background-color: #eeeeee
     border-radius: $border-radius
@@ -106,7 +111,7 @@ pre
 
 table
     width: 100%
-    border-spacing: 10px 20px
+    border-spacing: 0.5em 1em
     margin: 0px auto
 
     td[colspan]
@@ -118,14 +123,20 @@ hr
 
 // header, footer
 .header, .footer
-    color: white
+    font-weight: bold
+    color: $white
+    text-shadow: -1px -1px $black, -1px  1px $black, 1px -1px $black, 1px  1px $black
     background: $green linear-gradient(to top right, $blue, $green, $yellow, $brown)
     overflow: hidden
     position: sticky
     top: -4.5em
 
     .content
-        padding: 20px
+        padding: 1em
+
+        *
+            display: inline-block
+            vertical-align: middle
 
     .ribbon
         margin-left: -5px
@@ -146,23 +157,42 @@ hr
             &.red
                 background-color: $red
 
+    .menu-button + label
+        display: none !important
+
 // content
 .content-wrapper
+    display: grid
+    grid-template: "menu content" auto / auto 1fr
     text-align: center
     min-height: 100vh
 
 .content-container
+    grid-area: content
     display: inline-block
     min-width: 300px
     max-width: 720px
     vertical-align: top
 
 .content-tile
-    padding: 10px
+    margin: 1em
+    padding: 1em
     text-align: left
 
     img
         max-width: 100%
+
+.menu-container
+    grid-area: menu
+    max-width: $menu-width
+    background-color: $white
+    box-shadow: 0px 0px 10px $shadow
+    overflow: hidden
+    transition: left .2s
+
+// mobile
+@media #{$mobile}
+
 
 // status message
 .status-message-container
@@ -203,9 +233,24 @@ hr
     .header
         position: unset !important
 
+        .menu-button + label
+            display: inline-block !important
+
     .content-container
         display: block
         max-width: 100%
 
     .content-tile
         overflow-x: auto
+
+    .menu-container
+        position: absolute
+        height: 0
+        left: -$menu-width
+        overflow: hidden
+
+        &.open
+            position: relative
+            height: auto
+            left: 0
+            overflow: auto

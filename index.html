@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>ilosey14 - Home</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <style type="text/css">
-        .secret-message { color: transparent; }
-        .secret-message:hover { color: unset; }
+        .secret-message { color: transparent; text-shadow: none; }
+        .secret-message:hover { color: unset; text-shadow: inherit; }
     </style>
 </head>
 <body>
     <!-- header -->
     <div class="header">
         <div class="content">
+            <input type="checkbox" id="menu-button" class="menu-button" value="Menu">
+            <label for="menu-button">&#9776;</label>
             <h1>
                 <span>Hello</span>
                 <span class="secret-message">World!</span>
@@ -27,22 +29,28 @@
             <div class="block red"></div>
         </div>
     </div>
+
     <!-- content -->
     <div class="content-wrapper">
-        <div class="content-container">
+        <div class="menu-container">
             <div class="content-tile">
-                <p>Documentation &amp; such</p>
                 <ul>
                     <li>
-                        <a href="/docs/js/">Javascript</a>
+                        <a href="#">Hello</a>
                     </li>
                     <li>
-                        <a href="/docs/php/">PHP</a>
+                        <a href="#">There</a>
                     </li>
                 </ul>
             </div>
         </div>
+        <div class="content-container">
+            <div class="content-tile">
+                <p>Hmm... not much to see here</p>
+            </div>
+        </div>
     </div>
+
     <!-- footer -->
     <div class="footer">
         <div class="footer">
@@ -54,11 +62,27 @@
             </div>
             <div class="content">
                 <p>
-                    Copyright &copy; 2020 ilosey14 |
+                    Copyright &copy; 2020 ilosey14.github.io |
                     All Rights Reserved
                 </p>
             </div>
         </div>
     </div>
+
+    <!-- scripts -->
+    <script type="text/javascript">
+        (function () {
+            var menu = document.getElementsByClassName('menu-container')[0],
+                menuButton = document.getElementsByClassName('menu-button')[0];
+
+            if (menu && menuButton)
+                menuButton.onchange = function () {
+                    if (this.checked)
+                        menu.classList.add('open');
+                    else
+                        menu.classList.remove('open');
+                };
+        })();
+    </script>
 </body>
 </html>
