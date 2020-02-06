@@ -4,13 +4,28 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Sass Compile",
+            "label": "Sass (all)",
+            "type": "shell",
+            "group": "build",
+            "dependsOn": [
+                "Sass (style)",
+                "Sass (docs)"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Sass (style)",
             "type": "shell",
             "command": "sass style/style.sass style/style.css --style=compressed",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Sass (docs)",
+            "type": "shell",
+            "command": "sass style/docs.sass style/docs.css --style=compressed",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }
