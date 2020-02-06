@@ -5,30 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>ilosey14 - Documentation</title>
-    <link rel="stylesheet" href="/style.css">
-    <style type="text/css">
-        p + ul {
-            border-bottom: 1px solid #aaa;
-        }
-        pre .keyword { color: blue; }
-        pre .class { color: teal; }
-        pre .function { color: brown; }
-        pre .string { color: forestgreen;}
-        .documentation-button-container {
-            margin: 15px;
-            text-align: center;
-        }
-        .documentation {
-            max-height: 10000px;
-            opacity: 1;
-            transition: max-height 0.5s, opacity 0.5s;
-        }
-        .documentation.collapse {
-            max-height: 0px;
-            opacity: 0;
-            overflow: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/docs.css">
     <script src="/src/common.js"></script>
 </head>
 <body>
@@ -72,8 +50,9 @@
                 </ul>
             </div>
             <div class="content-tile">
-                <a name="common-js"></a>
-                <h1>common.js</h1>
+                <a name="common-js" href="#common-js">
+                    <h1>common.js</h1>
+                </a>
                 <p>
                     common.js is a lightweight framework built with priorities on common tasks and alleviating needless
                     repition. The logic and methods are meant to feel native and barebones while powerful built-in
@@ -109,8 +88,8 @@ document.<span class="function">getElementById</span>(<span class="string">'news
 <span class="keyword">var</span> item = <span class="function">$</span>(<span class="string">'news-feed'</span>).<span class="function">append</span>(<span class="string">'div'</span>, { className: <span class="string">'news-feed-item'</span> });
 
 item.<span class="function">append</span>(<span class="string">'img'</span>, { src: <span class="string">'/img/my-image.png'</span> });
-item.<span class="function">append</span>(<span class="string">'h1'</span>,  { textContent: <span class="string">'My Title'</span> });
-item.<span class="function">append</span>(<span class="string">'p'</span>,   { textContent: <span class="string">'A really long story.'</span> }):
+item.<span class="function">append</span>(<span class="string">'h1'</span>, <span class="string">'My Title'</span>);
+item.<span class="function">append</span>(<span class="string">'p'</span>, <span class="string">'A really long story.'</span>):
                     </pre>
                 </div>
                 <p>
@@ -119,11 +98,12 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                 </p>
                 <div>
                     <pre>
-<span class="keyword">var</span> elFromId     = <span class="function">$</span>(<span class="string">'id'</span>);
-<span class="keyword">var</span> elsFromClass = $.<span class="function">class</span>(<span class="string">'a-class'</span>);
-<span class="keyword">var</span> elsFromTag   = $.<span class="function">tag</span>(<span class="string">'pre'</span>);
-<span class="keyword">var</span> elsFromName  = $.<span class="function">name</span>(<span class="string">'a_name'</span>);
-<span class="keyword">var</span> elsFromQuery = $.<span class="function">query</span>(<span class="string">'input[type=button]'</span>);
+<span class="keyword">var</span> elFromId      = <span class="function">$</span>(<span class="string">'id'</span>);
+<span class="keyword">var</span> elsFromClass  = $.<span class="function">class</span>(<span class="string">'a-class'</span>);
+<span class="keyword">var</span> elsFromTag    = $.<span class="function">tag</span>(<span class="string">'pre'</span>);
+<span class="keyword">var</span> elsFromName   = $.<span class="function">name</span>(<span class="string">'a_name'</span>);
+<span class="keyword">var</span> elsFromQuery  = $.<span class="function">query</span>(<span class="string">'input[type=button]'</span>);
+<span class="keyword">var</span> elFromElement = $.<span class="function">element</span>(document.body);
                     </pre>
                 </div>
                 <p>
@@ -161,7 +141,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                 <a name="common-js-static-methods"></a>
                 <h2>Static Methods</h2>
                 <p>
-                    <code>$(a: string): HTMLElement | null</code><br>
+                    <code><span class="function">$</span>(a: <span class="keyword">string</span>) => <span class="class">HTMLElement</span> | <span class="keyword">null</span></code><br>
                     Gets an element by id.
                 </p>
                 <ul>
@@ -174,7 +154,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.class(a: string): HTMLCollection</code><br>
+                    <code>$.<span class="function">class</span>(a: <span class="keyword">string</span>) => <span class="class">HTMLCollection</span></code><br>
                     Gets elements by class name.
                 </p>
                 <ul>
@@ -187,7 +167,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.tag(a: string): HTMLCollection</code><br>
+                    <code>$.<span class="function">tag</span>(a: <span class="keyword">string</span>) => <span class="class">HTMLCollection</span></code><br>
                     Gets elements by tag name.
                 </p>
                 <ul>
@@ -200,7 +180,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.query(a: string): HTMLCollection</code><br>
+                    <code>$.<span class="function">query</span>(a: <span class="keyword">string</span>) => <span class="class">HTMLCollection</span></code><br>
                     Gets elements using a DOM query string.
                 </p>
                 <ul>
@@ -213,7 +193,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.new(a: string, b: object | string): HTMLElement | null</code><br>
+                    <code>$.<span class="function">new</span>(a: <span class="keyword">string</span>, b: <span class="keyword">object</span> | <span class="keyword">string</span>) => <span class="class">HTMLElement</span> | <span class="keyword">null</span></code><br>
                     Creates a new element and optionally sets its properties.
                     For the behavior of <code>b</code>, reference <code>$.prototype.set</code>.
                 </p>
@@ -237,7 +217,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                 <a name="common-js-prototypes"></a>
                 <h2>Prototype</h2>
                 <p>
-                    <code>$.prototype.class(a: string): HTMLCollection</code><br>
+                    <code>$.prototype.<span class="function">class</span>(a: <span class="keyword">string</span>) => <span class="class">HTMLCollection</span></code><br>
                     Gets elements by class name relative to the parent element.
                 </p>
                 <ul>
@@ -250,7 +230,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.prototype.tag(a: string): HTMLCollection</code><br>
+                    <code>$.prototype.<span class="function">tag</span>(a: <span class="keyword">string</span>) => <span class="class">HTMLCollection</span></code><br>
                     Gets elements by tag name relative to the parent element.
                 </p>
                 <ul>
@@ -263,7 +243,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.prototype.query(a: string): HTMLCollection</code><br>
+                    <code>$.prototype.<span class="function">query</span>(a: <span class="keyword">string</span>) => <span class="class">HTMLCollection</span></code><br>
                     Gets elements using a DOM query string relative to the parent element.
                 </p>
                 <ul>
@@ -276,7 +256,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.prototype.set(a: object | string): HTMLElement</code><br>
+                    <code>$.prototype.<span class="function">set</span>(a: <span class="keyword">object</span> | <span class="keyword">string</span>) => <span class="class">HTMLElement</span></code><br>
                     Sets the element properties from the given object or
                     sets the text content as a string.
                 </p>
@@ -293,7 +273,7 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                     </li>
                 </ul>
                 <p>
-                    <code>$.prototype.append(a: string, b: object | string): HTMLElement | null</code><br>
+                    <code>$.prototype.<span class="function">append</span>(a: <span class="keyword">string</span>, b: <span class="keyword">object</span> | <span class="keyword">string</span>) => <span class="class">HTMLElement</span> | <span class="keyword">null</span></code><br>
                     Appends the element by name to the parent element and sets its properties.
                 </p>
                 <ul>
@@ -317,8 +297,9 @@ item.<span class="function">append</span>(<span class="string">'p'</span>,   { t
                 </ul>
             </div>
             <div class="content-tile">
-                <a name="common-ajax-js"></a>
-                <h1>common.ajax.js</h1>
+                <a name="common-ajax-js" href="common-ajax-js">
+                    <h1>common.ajax.js</h1>
+                </a>
                 <p>
                     XMLHttpRequest interface for making and handling server requests/responses.<br>
                     Dependency: <code>common.js</code>
@@ -336,7 +317,7 @@ $.ajax.<span class="function">post</span>(<span class="string">'/my/sever-side/s
         bar: <span class="string">'ipsum'</span>
     },
     <span class="function">onload</span>: function () {
-        <span class="keyword">if</span> (!this.response.error) <span class="function">hooray</span>();
+        <span class="function">doSomething</span>(this.response);
     }
 });
                     </pre>
@@ -350,7 +331,7 @@ $.ajax.<span class="function">post</span>(<span class="string">'/my/sever-side/s
                 <a name="common-ajax-js-static-methods"></a>
                 <h2>Static Methods</h2>
                 <p>
-                    <code>$.ajax.request(method: string, url: string, options?: object): XMLHttpRequest</code><br>
+                    <code>$.ajax.<span class="function">request</span>(method: <span class="keyword">string</span>, url: <span class="keyword">string</span>, options?: <span class="keyword">object</span>) => <span class="class">XMLHttpRequest</span></code><br>
                     Makes a specified XMLHttpRequest.
                 </p>
                 <ul>
@@ -379,6 +360,7 @@ options: {
     data: (<span class="keyword">object</span> | <span class="keyword">string</span> | <span class="class">FormData</span> | <span class="class">Blob</span> | <span class="class">Document</span> | <span class="class">URLSearchParams</span> | <span class="class">ArrayBufferView</span> | <span class="class">ArrayBuffer</span> | <span class="class">ReadableStream</span>&lt;<span class="class">Uint8Array</span>&gt;),
     async: <span class="keyword">bool</span>,
     requestHeaders: <span class="keyword">object</span>,
+    responseType: <span class="string">'arraybuffer'</span> | <span class="string">'blob'</span> | <span class="string">'document'</span> | <span class="string">'json'</span> | <span class="string">''</span> = <span class="string">'text'</span>,
     onload: <span class="keyword">function</span>,
     onerror: <span class="keyword">function</span>
 }
@@ -388,7 +370,7 @@ options: {
                     </li>
                 </ul>
                 <p>
-                    <code>$.ajax.get(url: string, options?: object): XMLHttpRequest</code><br>
+                    <code>$.ajax.<span class="function">get</span>(url: <span class="keyword">string</span>, options?: <span class="keyword">object</span>) => <span class="class">XMLHttpRequest</span></code><br>
                     Makes an HTTP GET request.
                 </p>
                 <ul>
@@ -411,7 +393,7 @@ options: {
                     </li>
                 </ul>
                 <p>
-                    <code>$.ajax.post(url: string, options?: object): XMLHttpRequest</code><br>
+                    <code>$.ajax.<span class="function">post</span>(url: <span class="keyword">string</span>, options?: <span class="keyword">object</span>) => <span class="class">XMLHttpRequest</span></code><br>
                     Makes an HTTP POST request.
                 </p>
                 <ul>
@@ -434,7 +416,7 @@ options: {
                     </li>
                 </ul>
                 <p>
-                    <code>$.ajax.encodeQueryParams(obj: object, parent?: string): string</code><br>
+                    <code>$.ajax.<span class="function">encodeQueryParams</span>(obj: <span class="keyword">object</span>, parent?: <span class="keyword">string</span>) => <span class="keyword">string</span></code><br>
                     Encodes an object into a url parameter search query.
                 </p>
                 <ul>
@@ -454,7 +436,7 @@ options: {
                     </li>
                 </ul>
                 <p>
-                    <code>$.ajax.decode(encoding: string): string</code><br>
+                    <code>$.ajax.<span class="function">decode</span>(encoding: <span class="keyword">string</span>) => <span class="keyword">string</span></code><br>
                     Decodes html entities into text content</p>
                 <ul>
                     <li>
@@ -467,8 +449,9 @@ options: {
                 </ul>
             </div>
             <div class="content-tile">
-                <a name="messagebox-js"></a>
-                <h1>messagebox.js</h1>
+                <a name="messagebox-js" href="#messagebox-js">
+                    <h1>messagebox.js</h1>
+                </a>
                 <p>
                     A customizable yet robust message box platform is necessary for any full-featured website or webapp.
                     The <code>messagebox.js</code> library provides a complete interface between the message box DOM and the front-end
@@ -517,20 +500,20 @@ options: {
                 </p>
                 <div>
                     <pre>
-&lt;<span class="function">div</span> <span class="keyword">class</span>=<span class="string">"-messagebox-templates"</span>&gt;
-    &lt;<span class="function">form</span> <span class="keyword">id</span>=<span class="string">"my-form"</span> <span class="keyword">action</span>=<span class="string">"submit.php"</span>&gt;
-        &lt;<span class="function">table</span>&gt;
-            &lt;<span class="function">tr</span>&gt;
-                &lt;<span class="function">td</span>&gt;First Name&lt;/<span class="function">td</span>&gt;
-                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"first_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
-            &lt;/<span class="function">tr</span>&gt;
-            &lt;<span class="function">tr</span>&gt;
-                &lt;<span class="function">td</span>&gt;Last Name&lt;/<span class="function">td</span>&gt;
-                &lt;<span class="function">td</span>&gt;&lt;<span class="function">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">name</span>=<span class="string">"last_name"</span>&gt;&lt;/<span class="function">td</span>&gt;
-            &lt;/<span class="function">tr</span>&gt;
-        &lt;/<span class="function">table</span>&gt;
-    &lt;<span class="function">form</span>&gt;
-&lt;/<span class="function">div</span>&gt;
+&lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="string">"-messagebox-templates"</span>&gt;
+    &lt;<span class="tag">form</span> <span class="attribute">id</span>=<span class="string">"my-form"</span> <span class="attribute">action</span>=<span class="string">"submit.php"</span>&gt;
+        &lt;<span class="tag">table</span>&gt;
+            &lt;<span class="tag">tr</span>&gt;
+                &lt;<span class="tag">td</span>&gt;First Name&lt;/<span class="tag">td</span>&gt;
+                &lt;<span class="tag">td</span>&gt;&lt;<span class="tag">input</span> <span class="attribute">type</span>=<span class="string">"text"</span> <span class="attribute">name</span>=<span class="string">"first_name"</span>&gt;&lt;/<span class="tag">td</span>&gt;
+            &lt;/<span class="tag">tr</span>&gt;
+            &lt;<span class="tag">tr</span>&gt;
+                &lt;<span class="tag">td</span>&gt;Last Name&lt;/<span class="tag">td</span>&gt;
+                &lt;<span class="tag">td</span>&gt;&lt;<span class="tag">input</span> <span class="attribute">type</span>=<span class="string">"text"</span> <span class="attribute">name</span>=<span class="string">"last_name"</span>&gt;&lt;/<span class="tag">td</span>&gt;
+            &lt;/<span class="tag">tr</span>&gt;
+        &lt;/<span class="tag">table</span>&gt;
+    &lt;<span class="tag">form</span>&gt;
+&lt;/<span class="tag">div</span>&gt;
                     </pre>
                 </div>
                 <br>
@@ -549,9 +532,9 @@ options: {
                     As one final note, it is important to understand how the messagebox can be dismissed. The first of
                     three methods is after clicking any button defined by the messagebox button argument array. As expected,
                     this means any button input defined in the content section does not inherently invoke the callback
-                    function or close the message box. The second method is by calling the messagebox.close() method, which skips
+                    function or close the message box. The second method is by calling the <code>messagebox.close()</code> method, which skips
                     any passed callback function. The third method is by simply clicking anywhere on the messagebox mask which
-                    covers the screen.
+                    covers the screen, having the same behavior as <code>messagebox.close()</code>.
                 </p>
             </div>
             <div class="content-tile documentation-button-container">
@@ -559,10 +542,13 @@ options: {
                     <label for="messagebox-js-documentation-button">Documentation</label>
             </div>
             <div id="messagebox-js-documentation" class="content-tile documentation collapse">
+                <!--
+                    TODO: update messagebox src from repo and update/add additional methods (onopen, etc)
+                 -->
                 <a name="messagebox-js-methods"></a>
                 <h2>Methods</h2>
                 <p>
-                    <code>messagebox(content: string | HTMLElement, buttons: string | Array, callback: function): void</code><br>
+                    <code><span class="function">messagebox</span>(content: <span class="keyword">string</span> | <span class="class">HTMLElement</span>, buttons: <span class="keyword">string</span> | <span class="keyword">string</span>[], callback: (response: <span class="keyword">string</span>, content: <span class="class">HTMLElement</span>) => <span class="keyword">void</span>) => <span class="keyword">void</span></code><br>
                     Displays content in a messagebox and handles user inputs
                 </p>
                 <ul>
@@ -579,7 +565,7 @@ options: {
                     <li>
                         <code>buttons</code><br>
                         <ul>
-                            <li><i>string</i> | <i>Array</i></li>
+                            <li><i>string</i> | <i>string[]</i></li>
                             <li>(Optional) A string can be used as shorthand for a single button.</li>
                         </ul>
                     </li>
@@ -608,10 +594,12 @@ options: {
                     </li>
                 </ul>
                 <p>
-                    <code>messagebox.close(): void</code><br>
-                    Closes the messagebox window.</p>
+                    <code>messagebox.<span class="function">close</span>() => <span class="keyword">void</span></code><br>
+                    Closes the messagebox window.
+                </p>
+                <ul></ul>
                 <p>
-                    <code>messagebox.templates.add(name: string, content: string | HTMLElement): void</code><br>
+                    <code>messagebox.templates.<span class="function">add</span>(name: <span class="keyword">string</span>, content: <span class="keyword">string</span> | <span class="class">HTMLElement</span>) => <span class="keyword">void</span></code><br>
                     Stores a content template to be called by the messagebox() method.
                 </p>
                 <ul>
@@ -633,6 +621,7 @@ options: {
             </div>
         </div>
     </div>
+
     <!-- footer -->
     <div class="footer">
         <div class="footer">
@@ -650,6 +639,7 @@ options: {
             </div>
         </div>
     </div>
+
     <!-- scripts -->
     <style type="text/css">
         @media only screen and (max-width: 400px) {
@@ -704,19 +694,21 @@ options: {
     </div>
     <script type="text/javascript" src="/src/messagebox.js"></script>
     <script type="text/javascript">
-        // documentation buttons
-        [].forEach.call($.class('-documentation-button'), function (button) {
-            var docs = $(button.value);
+        (function () {
+            // documentation buttons
+            [].forEach.call($.class('-documentation-button'), function (button) {
+                var docs = $(button.value);
 
-            button.onchange = function () {
-                docs.classList.toggle('collapse', !this.checked);
+                button.onchange = function () {
+                    docs.classList.toggle('show', this.checked);
+                };
+            });
+
+            // demos
+            $('messagebox-demo-1').onclick = function () {
+                messagebox('Hello World!', ['Hello', 'Goodbye']);
             };
-        });
-
-        // demos
-        $('messagebox-demo-1').onclick = function () {
-            messagebox('Hello World!', ['Hello', 'Goodbye']);
-        };
+        })();
     </script>
 </body>
 </html>
