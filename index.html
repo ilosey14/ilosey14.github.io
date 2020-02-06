@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>ilosey14 - Home</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="/style/style.css">
     <style type="text/css">
         .secret-message { color: transparent; text-shadow: none; }
         .secret-message:hover { color: unset; text-shadow: inherit; }
@@ -77,10 +77,7 @@
 
             if (menu && menuButton)
                 menuButton.onchange = function () {
-                    if (this.checked)
-                        menu.classList.add('open');
-                    else
-                        menu.classList.remove('open');
+                    menu.classList.toggle('open', this.checked);
                 };
         })();
     </script>
