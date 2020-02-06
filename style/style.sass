@@ -38,6 +38,10 @@ a
     &:hover
         color: $blue
 
+    &[name][href] > *:hover::before
+        content: '# ',
+        color: $blue
+
 p
     text-align: justify
 
@@ -169,13 +173,14 @@ hr
 
 .content-container
     grid-area: content
-    display: inline-block
     min-width: 300px
-    max-width: 720px
     vertical-align: top
 
+    *
+        max-width: 1080px
+
 .content-tile
-    margin: 1em
+    margin: 1em auto
     padding: 1em
     text-align: left
 
