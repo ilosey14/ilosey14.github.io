@@ -1,0 +1,281 @@
+<div class="content-tile">
+    <a name="sql-php"></a>
+    <h1>sql.php</h1>
+    <p>
+        TODO: do the thing here
+    </p>
+</div>
+<div class="content-tile documentation-button-container">
+    <input type="checkbox" id="sql-php-documentation-button" class="-documentation-button" value="sql-php-documentation">
+    <label for="sql-php-documentation-button">Documentation</label>
+</div>
+<div id="sql-php-documentation" class="content-tile documentation collapse">
+    <h2>Static Methods</h2>
+    <p>
+        <code>SQL::connect(string $host?, string $root?, string $password?, string $database?): void</code><br>
+        Instantiates a new mysqli connection with a database.
+    </p>
+    <ul>
+        <li>
+            <code>$host? = null</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Host URI</li>
+            </ul>
+        </li>
+        <li>
+            <code>$root? = null</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Root name</li>
+            </ul>
+        </li>
+        <li>
+            <code>$password? = null</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Root password</li>
+            </ul>
+        </li>
+        <li>
+            <code>$database? = null</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Database name</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <code>SQL::close(): void</code><br>
+        Closes the connection to the database.
+    </p>
+    <ul></ul>
+    <p>
+        <code>SQL::init(mixed $tables?): void</code>
+        Initializes dependencies.
+    </p>
+    <ul>
+        <li>
+            <code>$tables? = -1</code><br>
+            <ul>
+                <li><i>int|array&lt;int&gt;</i></li>
+                <li>Enumerations of tables to initialize.</li>
+                <li>i.e. <code>SQL::TABLE_USERS</code>, etc</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <code>SQL::query(\SQL\Query $query): mysqli_stmt</code><br>
+        Prepares and executes an SQL query.
+    </p>
+    <ul>
+        <li>
+            <code>$query</code><br>
+            <ul>
+                <li><i>\SQL\Query</i></li>
+                <li>Query object to execute</li>
+            </ul>
+        </li>
+        <li>Returns the prepared and executed mysqli query statement</li>
+    </ul>
+    <p>
+        <code>SQL::getResult(mysqli_stmt $stmt, int $fetch_type?): array|null</code><br>
+        Gets the specified result type from an executed MySQLi statement.
+    </p>
+    <ul>
+        <li>
+            <code>$stmt</code><br>
+            <ul>
+                <li><i>mysqli_stmt</i></li>
+                <li>MySQLi statement object</li>
+            </ul>
+        </li>
+        <li>
+            <code>$fetch_type? = SQL::FETCH_ALL</code><br>
+            <ul>
+                <li><i>int</i></li>
+                <li>Whether to return the first row or all rows</li>
+            </ul>
+        </li>
+        <li>Returns the result array of null if no rows were returned</li>
+    </ul>
+    <p>
+        <code>SQL::getRow(string $table, array $id, array $prop_names?): array|null</code><br>
+        Gets the <code>$prop_names</code> info about a row by its unique id(s).
+    </p>
+    <ul>
+        <li>
+            <code>$table</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Table name</li>
+            </ul>
+        </li>
+        <li>
+            <code>$id</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>Unique row column-name and value</li>
+            </ul>
+        </li>
+        <li>
+            <code>$prop_names = ['*']</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>An associative array or null if no rows are found</li>
+            </ul>
+        </li>
+        <li>Returns an associated array or null if no rows were found</li>
+    </ul>
+    <p>
+        <code>SQL::getRows(string $table, array $params, array $prop_names?): array|null</code><br>
+        Gets an array of rows by their <code>$prop_names</code>.
+    </p>
+    <ul>
+        <li>
+            <code>$table</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Table name</li>
+            </ul>
+        </li>
+        <li>
+            <code>$params</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li><code>where</code>, <code>order_by</code>, <code>sort</code>, <code>limit</code>, <code>offset</code></li>
+            </ul>
+        </li>
+        <li>
+            <code>$prop_names = ['*']</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>An array of results or null if no rows were found</li>
+            </ul>
+        </li>
+        <li>Returns an array of result rows of null if no rows were found</li>
+    </ul>
+    <p>
+        <code>SQL::setRow(string $table, array $id, array $prop_list): int</code><br>
+        Sets the column values in <code>$prop_list</code> of a row by its unique id.
+    </p>
+    <ul>
+        <li>
+            <code>$table</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Table name</li>
+            </ul>
+        </li>
+        <li>
+            <code>$id</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>Unique row column-name and value of rows to set</li>
+            </ul>
+        </li>
+        <li>
+            <code>$prop_names</code>
+            <ul>
+                <li><i>array</i></li>
+                <li>Associative array of column values</li>
+            </ul>
+        </li>
+        <li>Returns the number of affected rows</li>
+    </ul>
+    <p>
+        <code>SQL::insertRow(string $table, array $prop_list): int</code><br>
+        Inserts a new row into a table.
+    </p>
+    <ul>
+        <li>
+            <code>$table</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Table name</li>
+            </ul>
+        </li>
+        <li>
+            <code>$prop_list</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>Asociative array of column values</li>
+            </ul>
+        </li>
+        <li>Returns the number of affected rows</li>
+    </ul>
+    <p>
+        <code>SQL::deleteRow(string $table, array $id): int</code><br>
+        Deletes a row from a table.
+    </p>
+    <ul>
+        <li>
+            <code>$table</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>Table name</li>
+            </ul>
+        </li>
+        <li>
+            <code>$id</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>Unique row column-name and value of the row to delete</li>
+            </ul>
+        </li>
+        <li>Returns the number of affected rows</li>
+    </ul>
+    <p>
+        <code>SQL::escape(string $value): string</code><br>
+        Escapes/sanitizes a string used to query the connected database.
+    </p>
+    <ul>
+        <li>
+            <code>$value</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>The value to sanitize</li>
+            </ul>
+        </li>
+        <li>Returns the sanitized string</li>
+    </ul>
+    <p>
+        <code>SQL::return(array $obj): void</code><br>
+        Echos a JSON encoded string and exits the script.
+    </p>
+    <ul>
+        <li>
+            <code>$obj</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>An associated array to echo</li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    <h2>Constants</h2>
+    <p>
+        <code>SQL::FETCH_FIRST</code>
+    </p>
+    <ul>
+        <li>For <code>SQL::getResults</code></li>
+        <li>Returns the first result in from the query</li>
+    </ul>
+    <p>
+        <code>SQL::FETCH_ALL</code>
+    </p>
+    <ul>
+        <li>For <code>SQL::getReults</code></li>
+        <li>Returns all results from the query</li>
+    </ul>
+    <p>
+        <code>SQL::&lt;TABLE_ENUM&gt;</code>
+    </p>
+    <ul>
+        <li>For <code>SQL::init</code></li>
+        <li>
+            Set these values in the class definition and implement them in <code>SQL::init</code>
+            to initialize and interface with any existing table classes
+        </li>
+    </ul>
+</div>

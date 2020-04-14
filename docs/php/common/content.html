@@ -1,0 +1,120 @@
+<div class="content-tile">
+    <a name="common-php"></a>
+    <h1>common.php</h1>
+    <p>
+        A class of common functions.
+    </p>
+    <p>
+        TODO: anecdotes and examples
+    </p>
+</div>
+<div class="content-tile documentation-button-container">
+    <input type="checkbox" id="common-php-documentation-button" class="-documentation-button" value="common-php-documentation">
+    <label for="common-php-documentation-button">Documentation</label>
+</div>
+<div id="common-php-documentation" class="content-tile documentation">
+    <h2>Static Methods</h2>
+    <p>
+        <code>Common::return(array $obj): void</code><br>
+        Echos an object as a JSON string and exits.
+    </p>
+    <ul>
+        <li>
+            <code>$obj</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>The object to JSON encode and echo</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <code>Common::escape(string $value = null): string</code><br>
+        Escapes a GET/POST string.
+        HTML special characters are encoded and leading/trailing whitespace is trimmed.
+    </p>
+    <ul>
+        <li>
+            <code>$value</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>The value to escape</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <code>Common::randomToken(int $length): string</code><br>
+        Builds a random token string.
+        Token characters := /[_\-0-9A-Za-z]/
+    </p>
+    <ul>
+        <li>
+            <code>$length</code><br>
+            <ul>
+                <li><i>int</i></li>
+                <li>Length of the token</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <code>Common::redirect(string $url = '', array $params = null, string $hash = ''): void</code><br>
+        Redirects the client to an absolute url.
+        Sets the "Location" header proptery.
+    </p>
+    <ul>
+        <li>
+            <code>$url</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>The absolute url to the root domain</li>
+            </ul>
+        </li>
+        <li>
+            <code>$params</code><br>
+            <ul>
+                <li><i>array</i></li>
+                <li>Associative array of url parameters</li>
+            </ul>
+        </li>
+        <li>
+            <code>$hash</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>A hash string including the '#' character</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <code>Common::getLoginStatus(): bool</code><br>
+        Gets the login status of the current session.
+        Verifies access tokesn between the client and the user session.
+    </p>
+    <ul></ul>
+    <p>
+        <code>Common::formatDate(string $date_time_str, bool $time = false, $timezone_offset = null): string</code><br>
+        Formats a date (and time) string for the client.
+        Performs formatting and timezone offsetting if available.
+    </p>
+    <ul>
+        <li>
+            <code>$date_time_str</code><br>
+            <ul>
+                <li><i>string</i></li>
+                <li>A parseable date or date-time string</li>
+            </ul>
+        </li>
+        <li>
+            <code>$time</code><br>
+            <ul>
+                <li><i>bool</i></li>
+                <li>Whether time is present in the $date_time_str and to be formatted</li>
+            </ul>
+        </li>
+        <li>
+            <code>$timezone_offset</code><br>
+            <ul>
+                <li><i>int</i></li>
+                <li>The hour offset from UTC time</li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -4,6 +4,13 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Markdown to HTML",
+            "type": "shell",
+            "command": "pandoc ${relativeFile} -f markdown+pipe_tables -t html -s --quiet -o ${relativeFileDirname}\\content.html",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
             "label": "Sass (all)",
             "type": "shell",
             "group": "build",
