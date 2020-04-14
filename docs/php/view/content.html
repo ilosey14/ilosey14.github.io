@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>content</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -86,17 +86,18 @@
 <table>
 <tbody>
 <tr class="odd">
-<td>string</td>
-<td>$name</td>
+<td><em>string</em></td>
+<td><code>$name</code></td>
 <td>The document title</td>
 </tr>
 <tr class="even">
-<td>string</td>
-<td>$dir</td>
+<td><em>string</em></td>
+<td><code>$dir</code></td>
 <td>The page source directory</td>
 </tr>
 </tbody>
 </table>
+<hr />
 <div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1"></a>View::<span class="fu">__set</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">string</span> <span class="kw">$value</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Sets a template variable.</p>
 <table>
@@ -113,6 +114,7 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a>View::<span class="fu">__get</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">)</span>: <span class="kw">mixed</span></span></code></pre></div>
 <p>Gets a template variable</p>
 <table>
@@ -129,10 +131,13 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1"></a>View::render<span class="ot">()</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Renders the page with the current value set.</p>
+<hr />
 <div class="sourceCode" id="cb5"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1"></a>View::renderPageHeader<span class="ot">()</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Renders up to the page’s body header (if specified). This is useful for returning immediate content to the user while database queries and/or computation are taking place.</p>
+<hr />
 <div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1"></a>View::setHeader<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">string</span>|<span class="kw">array</span> <span class="kw">$value</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Sets a response header.</p>
 <table>
@@ -149,6 +154,7 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1"></a>View::includeComponent<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$scope</span> = <span class="kw">null</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Include a component in a template by name. Components are globally available to any view and are restricted to the provided scope.</p>
 <table>
@@ -170,6 +176,7 @@
 </tr>
 </tbody>
 </table>
+<hr />
 <div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1"></a>View::requireResource<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Require a page resource by name, if available. Resources are unique to a view directory and have access to the view template scope.</p>
 <table>

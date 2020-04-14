@@ -1,281 +1,343 @@
-<div class="content-tile">
-    <a name="sql-php"></a>
-    <h1>sql.php</h1>
-    <p>
-        TODO: do the thing here
-    </p>
-</div>
-<div class="content-tile documentation-button-container">
-    <input type="checkbox" id="sql-php-documentation-button" class="-documentation-button" value="sql-php-documentation">
-    <label for="sql-php-documentation-button">Documentation</label>
-</div>
-<div id="sql-php-documentation" class="content-tile documentation collapse">
-    <h2>Static Methods</h2>
-    <p>
-        <code>SQL::connect(string $host?, string $root?, string $password?, string $database?): void</code><br>
-        Instantiates a new mysqli connection with a database.
-    </p>
-    <ul>
-        <li>
-            <code>$host? = null</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Host URI</li>
-            </ul>
-        </li>
-        <li>
-            <code>$root? = null</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Root name</li>
-            </ul>
-        </li>
-        <li>
-            <code>$password? = null</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Root password</li>
-            </ul>
-        </li>
-        <li>
-            <code>$database? = null</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Database name</li>
-            </ul>
-        </li>
-    </ul>
-    <p>
-        <code>SQL::close(): void</code><br>
-        Closes the connection to the database.
-    </p>
-    <ul></ul>
-    <p>
-        <code>SQL::init(mixed $tables?): void</code>
-        Initializes dependencies.
-    </p>
-    <ul>
-        <li>
-            <code>$tables? = -1</code><br>
-            <ul>
-                <li><i>int|array&lt;int&gt;</i></li>
-                <li>Enumerations of tables to initialize.</li>
-                <li>i.e. <code>SQL::TABLE_USERS</code>, etc</li>
-            </ul>
-        </li>
-    </ul>
-    <p>
-        <code>SQL::query(\SQL\Query $query): mysqli_stmt</code><br>
-        Prepares and executes an SQL query.
-    </p>
-    <ul>
-        <li>
-            <code>$query</code><br>
-            <ul>
-                <li><i>\SQL\Query</i></li>
-                <li>Query object to execute</li>
-            </ul>
-        </li>
-        <li>Returns the prepared and executed mysqli query statement</li>
-    </ul>
-    <p>
-        <code>SQL::getResult(mysqli_stmt $stmt, int $fetch_type?): array|null</code><br>
-        Gets the specified result type from an executed MySQLi statement.
-    </p>
-    <ul>
-        <li>
-            <code>$stmt</code><br>
-            <ul>
-                <li><i>mysqli_stmt</i></li>
-                <li>MySQLi statement object</li>
-            </ul>
-        </li>
-        <li>
-            <code>$fetch_type? = SQL::FETCH_ALL</code><br>
-            <ul>
-                <li><i>int</i></li>
-                <li>Whether to return the first row or all rows</li>
-            </ul>
-        </li>
-        <li>Returns the result array of null if no rows were returned</li>
-    </ul>
-    <p>
-        <code>SQL::getRow(string $table, array $id, array $prop_names?): array|null</code><br>
-        Gets the <code>$prop_names</code> info about a row by its unique id(s).
-    </p>
-    <ul>
-        <li>
-            <code>$table</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Table name</li>
-            </ul>
-        </li>
-        <li>
-            <code>$id</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li>Unique row column-name and value</li>
-            </ul>
-        </li>
-        <li>
-            <code>$prop_names = ['*']</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li>An associative array or null if no rows are found</li>
-            </ul>
-        </li>
-        <li>Returns an associated array or null if no rows were found</li>
-    </ul>
-    <p>
-        <code>SQL::getRows(string $table, array $params, array $prop_names?): array|null</code><br>
-        Gets an array of rows by their <code>$prop_names</code>.
-    </p>
-    <ul>
-        <li>
-            <code>$table</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Table name</li>
-            </ul>
-        </li>
-        <li>
-            <code>$params</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li><code>where</code>, <code>order_by</code>, <code>sort</code>, <code>limit</code>, <code>offset</code></li>
-            </ul>
-        </li>
-        <li>
-            <code>$prop_names = ['*']</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li>An array of results or null if no rows were found</li>
-            </ul>
-        </li>
-        <li>Returns an array of result rows of null if no rows were found</li>
-    </ul>
-    <p>
-        <code>SQL::setRow(string $table, array $id, array $prop_list): int</code><br>
-        Sets the column values in <code>$prop_list</code> of a row by its unique id.
-    </p>
-    <ul>
-        <li>
-            <code>$table</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Table name</li>
-            </ul>
-        </li>
-        <li>
-            <code>$id</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li>Unique row column-name and value of rows to set</li>
-            </ul>
-        </li>
-        <li>
-            <code>$prop_names</code>
-            <ul>
-                <li><i>array</i></li>
-                <li>Associative array of column values</li>
-            </ul>
-        </li>
-        <li>Returns the number of affected rows</li>
-    </ul>
-    <p>
-        <code>SQL::insertRow(string $table, array $prop_list): int</code><br>
-        Inserts a new row into a table.
-    </p>
-    <ul>
-        <li>
-            <code>$table</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Table name</li>
-            </ul>
-        </li>
-        <li>
-            <code>$prop_list</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li>Asociative array of column values</li>
-            </ul>
-        </li>
-        <li>Returns the number of affected rows</li>
-    </ul>
-    <p>
-        <code>SQL::deleteRow(string $table, array $id): int</code><br>
-        Deletes a row from a table.
-    </p>
-    <ul>
-        <li>
-            <code>$table</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>Table name</li>
-            </ul>
-        </li>
-        <li>
-            <code>$id</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li>Unique row column-name and value of the row to delete</li>
-            </ul>
-        </li>
-        <li>Returns the number of affected rows</li>
-    </ul>
-    <p>
-        <code>SQL::escape(string $value): string</code><br>
-        Escapes/sanitizes a string used to query the connected database.
-    </p>
-    <ul>
-        <li>
-            <code>$value</code><br>
-            <ul>
-                <li><i>string</i></li>
-                <li>The value to sanitize</li>
-            </ul>
-        </li>
-        <li>Returns the sanitized string</li>
-    </ul>
-    <p>
-        <code>SQL::return(array $obj): void</code><br>
-        Echos a JSON encoded string and exits the script.
-    </p>
-    <ul>
-        <li>
-            <code>$obj</code><br>
-            <ul>
-                <li><i>array</i></li>
-                <li>An associated array to echo</li>
-            </ul>
-        </li>
-    </ul>
-    <hr>
-    <h2>Constants</h2>
-    <p>
-        <code>SQL::FETCH_FIRST</code>
-    </p>
-    <ul>
-        <li>For <code>SQL::getResults</code></li>
-        <li>Returns the first result in from the query</li>
-    </ul>
-    <p>
-        <code>SQL::FETCH_ALL</code>
-    </p>
-    <ul>
-        <li>For <code>SQL::getReults</code></li>
-        <li>Returns all results from the query</li>
-    </ul>
-    <p>
-        <code>SQL::&lt;TABLE_ENUM&gt;</code>
-    </p>
-    <ul>
-        <li>For <code>SQL::init</code></li>
-        <li>
-            Set these values in the class definition and implement them in <code>SQL::init</code>
-            to initialize and interface with any existing table classes
-        </li>
-    </ul>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>content</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="static-methods">Static Methods</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">SQL</span>::connect<span class="ot">(</span><span class="kw">string</span> <span class="kw">$host</span><span class="ot">?,</span> <span class="kw">string</span> <span class="kw">$root</span><span class="ot">?,</span> <span class="kw">string</span> <span class="kw">$password</span><span class="ot">?,</span> <span class="kw">string</span> <span class="kw">$database</span><span class="ot">?):</span> <span class="kw">void</span></span></code></pre></div>
+<p>Instantiates a new <code>mysqli</code> connection with a database.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$host</code></td>
+<td>Host URI</td>
+</tr>
+<tr class="even">
+<td><em>string</em></td>
+<td><code>$root</code></td>
+<td>Root name</td>
+</tr>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$password</code></td>
+<td>Root password</td>
+</tr>
+<tr class="even">
+<td><em>string</em></td>
+<td><code>$database</code></td>
+<td>Database name</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">SQL</span>::close<span class="ot">()</span>: <span class="kw">void</span></span></code></pre></div>
+<p>Closes the connection to the database.</p>
+<hr />
+<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SQL</span>::init<span class="ot">(</span><span class="kw">int</span>|<span class="kw">array</span> <span class="kw">$tables</span><span class="ot">?):</span> <span class="kw">void</span></span></code></pre></div>
+<p>Initializes table dependencies.</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 74%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><em>int|array</em></td>
+<td><code>$tables</code></td>
+<td>Enumerations of tables to initialize i.e. <code>SQL::TABLE_USERS</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">SQL</span>::query<span class="ot">(</span>\<span class="kw">SQL</span>\Query <span class="kw">$query</span><span class="ot">)</span>: <span class="kw">mysqli_stmt</span></span></code></pre></div>
+<p>Prepares and executes an SQL query</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>*</td>
+<td><code>$query</code></td>
+<td>Query object to execute</td>
+</tr>
+<tr class="even">
+<td><em>mysqli_stmt</em></td>
+<td><code>@return</code></td>
+<td>Prepared and executed <code>mysqli</code> query statement</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb5"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">SQL</span>::getResults<span class="ot">(</span><span class="kw">mysqli_stmt</span> <span class="kw">$stmt</span><span class="ot">,</span> <span class="kw">int</span> <span class="kw">$fetch_type</span><span class="ot">?):</span> <span class="kw">array</span>|<span class="kw">null</span></span></code></pre></div>
+<p>Gets the specified result type from an executed <code>mysqli</code> statement.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>mysqli_stmt</em></td>
+<td><code>$stmt</code></td>
+<td>Statement object</td>
+</tr>
+<tr class="even">
+<td><em>int</em></td>
+<td><code>$fetch_type</code></td>
+<td>Whether to return the first row or all rows</td>
+</tr>
+<tr class="odd">
+<td><em>array|null</em></td>
+<td><code>@return</code></td>
+<td>The result array or null if no rows were returned</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">SQL</span>::getRow<span class="ot">(</span><span class="kw">string</span> <span class="kw">$table</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$id</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$prop_names</span><span class="ot">?):</span> <span class="kw">array</span>|<span class="kw">null</span></span></code></pre></div>
+<p>Gets the property info about a row by its unique id(s).</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$table</code></td>
+<td>Table name</td>
+</tr>
+<tr class="even">
+<td><em>array</em></td>
+<td><code>$id</code></td>
+<td>Unique row column-name and value</td>
+</tr>
+<tr class="odd">
+<td><em>array</em></td>
+<td><code>$prop_names</code></td>
+<td>Property names to get from the rows</td>
+</tr>
+<tr class="even">
+<td><em>array|null</em></td>
+<td><code>@return</code></td>
+<td>An associative array or null if no rows were found</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">SQL</span>::getRows<span class="ot">(</span><span class="kw">string</span> <span class="kw">$table</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$params</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$prop_names</span><span class="ot">?):</span> <span class="kw">array</span>|<span class="kw">null</span></span></code></pre></div>
+<p>Gets an array of rows by their property names.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$table</code></td>
+<td>Tables name</td>
+</tr>
+<tr class="even">
+<td><em>array</em></td>
+<td><code>$params</code></td>
+<td><code>where</code>, <code>order_by</code>, <code>sort</code>, <code>limit</code>, <code>offset</code></td>
+</tr>
+<tr class="odd">
+<td><em>array</em></td>
+<td><code>$prop_names</code></td>
+<td>Property names to get from the rows</td>
+</tr>
+<tr class="even">
+<td><em>array|null</em></td>
+<td><code>@return</code></td>
+<td>An array of result rows or null if no rows were found</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">SQL</span>::setRow<span class="ot">(</span><span class="kw">string</span> <span class="kw">$table</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$id</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$prop_list</span><span class="ot">)</span>: <span class="kw">int</span></span></code></pre></div>
+<p>Sets the column values in <code>$prop_list</code> of a row by its unique id.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$table</code></td>
+<td>Table name</td>
+</tr>
+<tr class="even">
+<td><em>array</em></td>
+<td><code>$id</code></td>
+<td>Unique row column-name and value of rows to set</td>
+</tr>
+<tr class="odd">
+<td><em>array</em></td>
+<td><code>$prop_list</code></td>
+<td>Associative array of column values</td>
+</tr>
+<tr class="even">
+<td><em>int</em></td>
+<td><code>@return</code></td>
+<td>The number of affected rows</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb9"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">SQL</span>::insertRow<span class="ot">(</span><span class="kw">string</span> <span class="kw">$table</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$prop_list</span><span class="ot">)</span>: <span class="kw">int</span></span></code></pre></div>
+<p>Inserts a new row into a table.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$table</code></td>
+<td>Table name</td>
+</tr>
+<tr class="even">
+<td><em>array</em></td>
+<td><code>$prop_list</code></td>
+<td>Associative array of column values</td>
+</tr>
+<tr class="odd">
+<td><em>int</em></td>
+<td><code>@return</code></td>
+<td>The number of affected rows</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb10"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">SQL</span>::deleteRow<span class="ot">(</span><span class="kw">string</span> <span class="kw">$table</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$id</span><span class="ot">)</span>: <span class="kw">int</span></span></code></pre></div>
+<p>Deletes a row from a table.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$table</code></td>
+<td>Table name</td>
+</tr>
+<tr class="even">
+<td><em>array</em></td>
+<td><code>$id</code></td>
+<td>Unique row column-name and value of the row to delete</td>
+</tr>
+<tr class="odd">
+<td><em>int</em></td>
+<td><code>@return</code></td>
+<td>The number of affected rows</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb11"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">SQL</span>::escape<span class="ot">(</span><span class="kw">string</span> <span class="kw">$value</span><span class="ot">)</span>: <span class="kw">string</span></span></code></pre></div>
+<p>Escapes/sanitizes a string used to query the connected database.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$value</code></td>
+<td>The value to sanitize</td>
+</tr>
+<tr class="even">
+<td><em>string</em></td>
+<td><code>@return</code></td>
+<td>The sanitized string</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb12"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">SQL</span>::<span class="kw">return</span><span class="ot">(</span><span class="kw">array</span> <span class="kw">$obj</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
+<p>Echos a JSON encoded string and exists the script.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>array</em></td>
+<td><code>$obj</code></td>
+<td>An object to echo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="constants">Constants</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">SQL</span>::<span class="kw">FETCH_FIRST</span></span></code></pre></div>
+<ul>
+<li>For <code>SQL::getResults</code></li>
+<li>Returns the first result from the query</li>
+</ul>
+<hr />
+<div class="sourceCode" id="cb14"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">SQL</span>::<span class="kw">FETCH_ALL</span></span></code></pre></div>
+<ul>
+<li>For <code>SQL::getResults</code></li>
+<li>Returns all results fromm the query</li>
+</ul>
+<hr />
+<div class="sourceCode" id="cb15"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">SQL</span>::&lt;<span class="kw">TABLE_ENUM</span>\</span></code></pre></div>
+<ul>
+<li>For <code>SQL::init</code></li>
+<li>Set these values in the class definition and implement them in <code>SQL::init</code> to initialize an interface with any existing table classes.</li>
+</ul>
+</body>
+</html>
