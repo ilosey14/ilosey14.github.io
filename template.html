@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <base target="_parent">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template</title>
@@ -98,6 +99,7 @@
 
             if (path[path.length - 1].indexOf('.') >= 0) {
                 path[path.length - 1] = '';
+                path = path.filter(item => item);
                 dir = path.join('/');
             }
 
