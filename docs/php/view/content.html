@@ -74,6 +74,7 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -81,7 +82,7 @@
 </head>
 <body>
 <h2 id="methods">Methods</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1"></a>View::<span class="fu">__construct</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$title</span><span class="ot">,</span> <span class="kw">string</span> <span class="kw">$dir</span><span class="ot">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>View::<span class="fu">__construct</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$title</span><span class="ot">,</span> <span class="kw">string</span> <span class="kw">$dir</span><span class="ot">)</span></span></code></pre></div>
 <p>Creates a new view object.</p>
 <table>
 <tbody>
@@ -98,7 +99,7 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1"></a>View::<span class="fu">__set</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">string</span> <span class="kw">$value</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>View::<span class="fu">__set</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">string</span> <span class="kw">$value</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Sets a template variable.</p>
 <table>
 <tbody>
@@ -115,7 +116,7 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a>View::<span class="fu">__get</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">)</span>: <span class="kw">mixed</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>View::<span class="fu">__get</span><span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">)</span>: <span class="kw">mixed</span></span></code></pre></div>
 <p>Gets a template variable</p>
 <table>
 <tbody>
@@ -132,13 +133,13 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1"></a>View::render<span class="ot">()</span>: <span class="kw">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>View::render<span class="ot">()</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Renders the page with the current value set.</p>
 <hr />
-<div class="sourceCode" id="cb5"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1"></a>View::renderPageHeader<span class="ot">()</span>: <span class="kw">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>View::renderPageHeader<span class="ot">()</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Renders up to the page’s body header (if specified). This is useful for returning immediate content to the user while database queries and/or computation are taking place.</p>
 <hr />
-<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1"></a>View::setHeader<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">string</span>|<span class="kw">array</span> <span class="kw">$value</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>View::setHeader<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">string</span>|<span class="kw">array</span> <span class="kw">$value</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Sets a response header.</p>
 <table>
 <tbody>
@@ -155,7 +156,7 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1"></a>View::includeComponent<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$scope</span> = <span class="kw">null</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>View::includeComponent<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$scope</span> = <span class="kw">null</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Include a component in a template by name. Components are globally available to any view and are restricted to the provided scope.</p>
 <table>
 <colgroup>
@@ -177,7 +178,7 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1"></a>View::requireResource<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>View::requireResource<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">)</span>: <span class="kw">void</span></span></code></pre></div>
 <p>Require a page resource by name, if available. Resources are unique to a view directory and have access to the view template scope.</p>
 <table>
 <tbody>
@@ -185,6 +186,49 @@
 <td><em>string</em></td>
 <td><code>$name</code></td>
 <td>The resource name</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb9"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>View::embedScript<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$vars</span> = <span class="kw">null</span><span class="ot">,</span> <span class="kw">array</span> <span class="kw">$options</span> = <span class="ot">[])</span>: <span class="kw">void</span></span></code></pre></div>
+<p>Embeds a JavaScript library into the markup.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>$name</code></td>
+<td>The script name</td>
+</tr>
+<tr class="even">
+<td><em>array</em></td>
+<td><code>$vars</code></td>
+<td>Name-value pairs to pass to the script as embeded variables</td>
+</tr>
+<tr class="odd">
+<td><em>array</em></td>
+<td><code>$options</code></td>
+<td>See below</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>anonymous</td>
+<td>bool</td>
+<td>Wrap script in anonymous function</td>
+</tr>
+<tr class="even">
+<td>compressed</td>
+<td>bool</td>
+<td>Compress the script</td>
 </tr>
 </tbody>
 </table>

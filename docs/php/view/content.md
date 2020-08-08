@@ -86,3 +86,21 @@ Resources are unique to a view directory and have access to the view template sc
 |          |         |                   |
 | -------- | ------- | ----------------- |
 | *string* | `$name` | The resource name |
+
+---
+
+```php
+View::embedScript(string $name, array $vars = null, array $options = []): void
+```
+Embeds a JavaScript library into the markup.
+
+|          |            |                                                             |
+| -------- | ---------- | ----------------------------------------------------------- |
+| *string* | `$name`    | The script name                                             |
+| *array*  | `$vars`    | Name-value pairs to pass to the script as embeded variables |
+| *array*  | `$options` | See below                                                   |
+
+| Option     | Type | Description                       |
+| ---------- | ---- | --------------------------------- |
+| anonymous  | bool | Wrap script in anonymous function |
+| compressed | bool | Compress the script               |
