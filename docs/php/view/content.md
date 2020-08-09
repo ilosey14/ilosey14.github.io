@@ -104,3 +104,16 @@ Embeds a JavaScript library into the markup.
 | ---------- | ---- | --------------------------------- |
 | anonymous  | bool | Wrap script in anonymous function |
 | compressed | bool | Compress the script               |
+
+---
+---
+
+```php
+StaticView::renderToFile(string $in_path = './index.php', string $out_path = './index.html'): void
+```
+Renders a script to a static output file.
+
+|          |             |                           |
+| -------- | ----------- | ------------------------- |
+| *string* | `$in_path`  | The source file to render |
+| *string* | `$out_path` | The rendered output file  |
