@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>content</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<ul>
+<li><a href="#Class">Sprite Class</a>
+<ul>
+<li><a href="#Class-Constructor">Constructor</a></li>
+<li><a href="#Class-Properties">Properties</a></li>
+<li><a href="#Class-Methods">Methods</a></li>
+</ul></li>
+<li><a href="#Static">Sprite Object</a>
+<ul>
+<li><a href="#Static-Properties">Properties</a></li>
+<li><a href="#Static-Methods">Methods</a></li>
+<li><a href="#Static-Interfaces_and_Enums">Interfaces and Enums</a></li>
+</ul></li>
+</ul>
+<hr />
+<hr />
+<p><a name="Class"></a></p>
+<h1 id="sprite-class">Sprite Class</h1>
+<p><a name="Class-Constructor"></a></p>
+<h2 id="constructor">Constructor</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>class Sprite {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="kw">constructor</span>(container<span class="op">:</span> HTMLElement<span class="op">,</span> options<span class="op">?:</span> Sprite<span class="op">.</span><span class="at">Options</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Creates a sprite animation element.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>HTMLElement</em></td>
+<td><code>container</code></td>
+<td>Container element for the sprite icon</td>
+</tr>
+<tr class="even">
+<td><em>Sprite.Options</em></td>
+<td><code>options</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="Class-Properties"></a></p>
+<h2 id="properties">Properties</h2>
+<p>Standard properties</p>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>id</code></td>
+<td>Object id</td>
+</tr>
+<tr class="even">
+<td><em>HTMLElement</em></td>
+<td><code>icon</code></td>
+<td>Icon container</td>
+</tr>
+<tr class="odd">
+<td><em>boolean</em></td>
+<td><code>isStopRequested</code></td>
+<td>Whether stopping the animation has been requested</td>
+</tr>
+<tr class="even">
+<td><em>boolean</em></td>
+<td><code>isAnimated</code></td>
+<td>Whether the object is currently animated</td>
+</tr>
+<tr class="odd">
+<td><em>Sprite.Frame[]</em></td>
+<td><code>frames</code></td>
+<td>Collection of sprite frames</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>frameIndex</code></td>
+<td>Active frame index</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>sheetHeight</code></td>
+<td>Sprite sheet height in px</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>SheetWidth</code></td>
+<td>Sprite sheet width in px</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Optional properties</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 24%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Sprite.Behavior</em></td>
+<td><code>behavior</code></td>
+<td><code>Sprite.Behavior.linear</code></td>
+<td>Animation delay behavior</td>
+</tr>
+<tr class="even">
+<td><em>Spite.Direction</em></td>
+<td><code>direction</code></td>
+<td><code>Sprite.Direction.leftToRight</code></td>
+<td>Animation frame indexed flow direction</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>delay</code></td>
+<td><code>0</code></td>
+<td>Delay between animated frames in ms</td>
+</tr>
+<tr class="even">
+<td><em>boolean</em></td>
+<td><code>canLoop</code></td>
+<td><code>false</code></td>
+<td>Whether the sprite can loop when animated</td>
+</tr>
+<tr class="odd">
+<td><em>boolean</em></td>
+<td><code>canReset</code></td>
+<td><code>false</code></td>
+<td>Wether the sprite can reset to the starting frame after animating</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>height</code></td>
+<td><code>0</code></td>
+<td>Sprite height in px</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>weight</code></td>
+<td><code>0</code></td>
+<td>Sprite width in px</td>
+</tr>
+<tr class="even">
+<td><em>string</em></td>
+<td><code>url</code></td>
+<td><code>null</code></td>
+<td>Sprite sheet url</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>startFrame</code></td>
+<td><code>0</code></td>
+<td>Start frame index</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>endFrame</code></td>
+<td><code>null</code></td>
+<td>Ending frame index</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="Class-Methods"></a></p>
+<h2 id="methods">Methods</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="fu">animate</span>()<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Animates the sprite element.</p>
+<hr />
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="fu">setFrame</span>(index<span class="op">:</span> <span class="dt">number</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Sets the current sprite sheet frame.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>index</code></td>
+<td>Changes the frame to the specified index</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="fu">reset</span>()<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Resets the sprite animation to the initial frame.</p>
+<hr />
+<div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="fu">stop</span>(reset<span class="op">:</span> <span class="dt">boolean</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Stops the sprite animation.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>boolean</em></td>
+<td><code>reset</code></td>
+<td>Whether to reset the sprite animation to the initial frame</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<p><a name="Static"></a></p>
+<h1 id="sprite-object">Sprite Object</h1>
+<p><a name="Static-Properties"></a></p>
+<h2 id="properties-1">Properties</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Sprite.Cache</em></td>
+<td><code>cache</code></td>
+<td>Resource cache interface</td>
+</tr>
+<tr class="even">
+<td><em>string</em></td>
+<td><code>className</code></td>
+<td>Class name root</td>
+</tr>
+<tr class="odd">
+<td><em>Sprite.Options</em></td>
+<td><code>options</code></td>
+<td>Sprite class constructor options</td>
+</tr>
+<tr class="even">
+<td><em>string</em></td>
+<td><code>staticClassName</code></td>
+<td>Static class name root</td>
+</tr>
+<tr class="odd">
+<td><em>Sprite.StaticOptions</em></td>
+<td><code>staticOptions</code></td>
+<td>Static sprite default options</td>
+</tr>
+<tr class="even">
+<td><em>HTMLStyleElement</em></td>
+<td><code>styleElement</code></td>
+<td>Style element defining sprite and frame styles</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="Static-Methods"></a></p>
+<h2 id="methods-1">Methods</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">setOptions</span>(options<span class="op">:</span> Sprite<span class="op">.</span><span class="at">Options</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Sets the default options.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Sprite.Options</em></td>
+<td><code>options</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb7"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">assignSpriteSheetAsync</span>(sprite<span class="op">:</span> Sprite<span class="op">,</span> callback<span class="op">:</span> (thisArg<span class="op">:</span> Sprite) <span class="kw">=&gt;</span> <span class="dt">void</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Assigns a sprite sheet source to the sprite object.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Sprite</em></td>
+<td><code>sprite</code></td>
+</tr>
+<tr class="even">
+<td><em>function</em></td>
+<td><code>callback</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb8"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">getUrlId</span>(url<span class="op">:</span> <span class="dt">string</span>)<span class="op">:</span> <span class="dt">string</span></span></code></pre></div>
+<p>Gets the url id.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>url</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb9"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">getNextStaticId</span>(url<span class="op">:</span> <span class="dt">string</span>)<span class="op">:</span> <span class="dt">string</span></span></code></pre></div>
+<p>Increments the next static id for a unique sprite sheet.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>url</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb10"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">makeFrameList</span>(sprite<span class="op">:</span> Sprite)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Makes the sprite frame list base on the sprite sheet dimensions and specified flow direction.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Sprite</em></td>
+<td><code>sprite</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb11"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">createClass</span>(name<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> style<span class="op">:</span> Sprite<span class="op">.</span><span class="at">Style</span>)<span class="op">:</span> <span class="dt">string</span></span></code></pre></div>
+<p>Creates a CSS class string.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>name</code></td>
+<td>Class name</td>
+</tr>
+<tr class="even">
+<td><em>Sprite.Style</em></td>
+<td><code>style</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb12"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">appendStyle</span>(sprite<span class="op">:</span> Sprite)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Appends a unique class for a sprite element.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Sprite</em></td>
+<td><code>sprite</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb13"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>Sprite<span class="op">.</span><span class="fu">createStatic</span>(container<span class="op">:</span> HTMLElement<span class="op">,</span> options<span class="op">:</span> Sprite<span class="op">.</span><span class="at">StaticOptions</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Creates a static sprite.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>HTMLElement</em></td>
+<td><code>container</code></td>
+<td>Container element for the sprite icon</td>
+</tr>
+<tr class="even">
+<td><em>Sprite.StaticOptions</em></td>
+<td><code>options</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a name="Static-Interfaces_and_Enums"></a></p>
+<h2 id="interfaces-and-enums">Interfaces and Enums</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>interface Sprite<span class="op">.</span><span class="at">Options</span></span></code></pre></div>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 24%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Sprite.Behavior</em></td>
+<td><code>behavior</code></td>
+<td><code>Sprite.Behavior.linear</code></td>
+<td>Animation delay behavior</td>
+</tr>
+<tr class="even">
+<td><em>Spite.Direction</em></td>
+<td><code>direction</code></td>
+<td><code>Sprite.Direction.leftToRight</code></td>
+<td>Animation frame indexed flow direction</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>delay</code></td>
+<td><code>0</code></td>
+<td>Delay between animated frames in ms</td>
+</tr>
+<tr class="even">
+<td><em>boolean</em></td>
+<td><code>canLoop</code></td>
+<td><code>false</code></td>
+<td>Whether the sprite can loop when animated</td>
+</tr>
+<tr class="odd">
+<td><em>boolean</em></td>
+<td><code>canReset</code></td>
+<td><code>false</code></td>
+<td>Wether the sprite can reset to the starting frame after animating</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>height</code></td>
+<td><code>0</code></td>
+<td>Sprite height in px</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>weight</code></td>
+<td><code>0</code></td>
+<td>Sprite width in px</td>
+</tr>
+<tr class="even">
+<td><em>string</em></td>
+<td><code>url</code></td>
+<td><code>null</code></td>
+<td>Sprite sheet url</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>startFrame</code></td>
+<td><code>0</code></td>
+<td>Start frame index</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>endFrame</code></td>
+<td><code>null</code></td>
+<td>Ending frame index</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb15"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>interface Sprite<span class="op">.</span><span class="at">StaticOptions</span></span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>height</code></td>
+<td><code>0</code></td>
+<td>Sprite height in px</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>width</code></td>
+<td><code>0</code></td>
+<td>Sprite width in px</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>x</code></td>
+<td><code>0</code></td>
+<td>X position on sprite sheet in px</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>y</code></td>
+<td><code>0</code></td>
+<td>Y position on sprite sheet in px</td>
+</tr>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>url</code></td>
+<td><code>null</code></td>
+<td>Sprite sheet url</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb16"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>interface Sprite<span class="op">.</span><span class="at">Style</span></span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>backgroundImage</code></td>
+<td>Background image url</td>
+</tr>
+<tr class="even">
+<td><em>{x: number, y: number}</em></td>
+<td><code>backgroundPosition</code></td>
+<td>Background image position</td>
+</tr>
+<tr class="odd">
+<td><em>number</em></td>
+<td><code>height</code></td>
+<td>Sprite height in px</td>
+</tr>
+<tr class="even">
+<td><em>number</em></td>
+<td><code>width</code></td>
+<td>Spiret width in px</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb17"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>enum Sprite<span class="op">.</span><span class="at">Behavior</span> <span class="op">=</span> {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>    linear<span class="op">,</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>    easeIn<span class="op">,</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>    easeOut</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Animation delay behavior enum.</p>
+<hr />
+<div class="sourceCode" id="cb18"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a>enum Sprite<span class="op">.</span><span class="at">Direction</span> <span class="op">=</span> {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>    leftToRight<span class="op">,</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>    topToBottom</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Animation frame indexed flow direction.</p>
+<hr />
+</body>
+</html>
