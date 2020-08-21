@@ -98,7 +98,7 @@
 
             var path = dir.split('/').filter(item => item);
 
-            if (path[path.length - 1].indexOf('.') >= 0) {
+            if (path.length && [path.length - 1].indexOf('.') >= 0) {
                 path[path.length - 1] = '';
                 dir = path.join('/');
             }
