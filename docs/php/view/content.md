@@ -106,6 +106,7 @@ Embeds a JavaScript library into the markup.
 | compressed | bool | Compress the script               |
 
 ---
+
 ---
 
 ```php
