@@ -34,15 +34,17 @@ Displays a messagebox with content and buttons.
 ```typescript
 messagebox(
     content: string | HTMLElement,
-    buttons: Object<string, MessageboxButtonCallback>
+    buttons: Object<string, MessageboxButtonCallback>,
+    callback?: MessageboxResponseCallback
 ): void
 ```
 Displays a messagebox with content and buttons.
 
-|                                     |           |                                               |
-| ----------------------------------- | --------- | --------------------------------------------- |
-| *string*\|*HTMLElement*             | `content` | Message content to display or a template name |
-| *Object\<MessageboxButtonCallback>* | `buttons` | Button value-callback pairs                   |
+|                                     |              |                                               |
+| ----------------------------------- | ------------ | --------------------------------------------- |
+| *string*\|*HTMLElement*             | `content`    | Message content to display or a template name |
+| *Object\<MessageboxButtonCallback>* | `buttons`    | Button value-callback pairs                   |
+| *MessageboxResponseCallback*        | [`callback`] | Handles user response                         |
 
 ---
 

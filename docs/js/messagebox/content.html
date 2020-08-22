@@ -163,8 +163,9 @@
 <hr />
 <div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">messagebox</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    content<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> HTMLElement<span class="op">,</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    buttons<span class="op">:</span> Object<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> MessageboxButtonCallback<span class="op">&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    buttons<span class="op">:</span> Object<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> MessageboxButtonCallback<span class="op">&gt;,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    callback<span class="op">?:</span> MessageboxResponseCallback</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
 <p>Displays a messagebox with content and buttons.</p>
 <table>
 <tbody>
@@ -177,6 +178,11 @@
 <td><em>Object&lt;MessageboxButtonCallback&gt;</em></td>
 <td><code>buttons</code></td>
 <td>Button value-callback pairs</td>
+</tr>
+<tr class="odd">
+<td><em>MessageboxResponseCallback</em></td>
+<td>[<code>callback</code>]</td>
+<td>Handles user response</td>
 </tr>
 </tbody>
 </table>
