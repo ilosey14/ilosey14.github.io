@@ -1,131 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <base target="_parent">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
-    <link rel="stylesheet" href="/style/style.css">
+	<base target="_parent">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Template</title>
+	<link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
-    <div class="header">
-        <div class="content">
-            <input type="checkbox" id="menu-button" class="menu-button" value="Menu">
-            <label for="menu-button">&#9776;</label>
-            <h1 id="header-h1"></h1>
-        </div>
-        <div class="ribbon">
-            <div class="block blue"></div>
-            <div class="block green"></div>
-            <div class="block yellow"></div>
-            <div class="block red"></div>
-        </div>
-    </div>
-    <div class="content-wrapper">
-        <div class="menu-container">
-            <div class="content-tile">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="https://www.github.com/ilosey14">GitHub</a></li>
-                    <li>
-                        <p>Documentation</p>
-                        <ul>
-                            <li>
-                                <p>JavaScript</p>
-                                <ul>
-                                    <li><a href="/docs/js/common">Common</a></li>
-                                    <li><a href="/docs/js/common-ajax">Common AJAX</a></li>
-                                    <li><a href="/docs/js/keybinds">Keybinds</a></li>
-                                    <li><a href="/docs/js/messagebox">Messagebox</a></li>
-                                    <li><a href="/docs/js/nav-cards">Nav Cards</a></li>
-                                    <li><a href="/docs/js/sprite">Sprite</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <p>PHP</p>
-                                <ul>
-                                    <li><a href="/docs/php/common">Common</a></li>
-                                    <li><a href="/docs/php/sql">SQL</a></li>
-                                    <li><a href="/docs/php/view">View</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="content-container">
-            <iframe id="content-frame" src="about:blank" frameborder="0" style="width:100%;height:100vh">
-                Hmm... nothing to see here.
-            </iframe>
-        </div>
-    </div>
+	<div class="header-container">
+		<div class="content">
+			<input type="checkbox" id="menu-button" class="menu-button" value="Menu">
+			<label for="menu-button">&#9776;</label>
+			<h1 id="header-h1"></h1>
+		</div>
+		<div class="ribbon">
+			<div class="block blue"></div>
+			<div class="block green"></div>
+			<div class="block yellow"></div>
+			<div class="block red"></div>
+		</div>
+	</div>
+	<div class="content-wrapper">
+		<div class="menu-container">
+			<div class="content-tile">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="https://www.github.com/ilosey14">GitHub</a></li>
+					<li>
+						<p>Documentation</p>
+						<ul>
+							<li>
+								<p>JavaScript</p>
+								<ul>
+									<li><a href="/docs/js/common">Common</a></li>
+									<li><a href="/docs/js/common-ajax">Common AJAX</a></li>
+									<li><a href="/docs/js/keybinds">Keybinds</a></li>
+									<li><a href="/docs/js/messagebox">Messagebox</a></li>
+									<li><a href="/docs/js/nav-cards">Nav Cards</a></li>
+									<li><a href="/docs/js/sprite">Sprite</a></li>
+								</ul>
+							</li>
+							<li>
+								<p>PHP</p>
+								<ul>
+									<li><a href="/docs/php/common">Common</a></li>
+									<li><a href="/docs/php/sql">SQL</a></li>
+									<li><a href="/docs/php/view">View</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="content-container">
+			<iframe id="content-frame" src="about:blank" frameborder="0" style="width:100%;height:100vh">🤔 Hmm... Nothing to see here.</iframe>
+		</div>
+	</div>
 
-    <!-- footer -->
-    <div class="footer">
-        <div class="footer">
-            <div class="ribbon">
-                <div class="block blue"></div>
-                <div class="block green"></div>
-                <div class="block yellow"></div>
-                <div class="block red"></div>
-            </div>
-            <div class="content">
-                <p>
-                    Copyright &copy; 2020 ilosey14.github.io |
-                    All Rights Reserved
-                </p>
-            </div>
-        </div>
-    </div>
+	<!-- footer -->
+	<div class="footer-container">
+		<div class="ribbon">
+			<div class="block blue"></div>
+			<div class="block green"></div>
+			<div class="block yellow"></div>
+			<div class="block red"></div>
+		</div>
+		<div class="content">
+			<p>
+				<span>Copyright &copy; 2020 ilosey14.github.io</span> |
+				<span>All Rights Reserved</span>
+			</p>
+		</div>
+	</div>
 
-    <!-- scripts -->
-    <script type="text/javascript">
-        // menu button
-        (function () {
-            var menu = document.getElementsByClassName('menu-container')[0],
-                menuButton = document.getElementsByClassName('menu-button')[0];
+	<!-- scripts -->
+	<script type="text/javascript">
+		// menu button
+		(function () {
+			var menu = document.getElementsByClassName('menu-container')[0],
+				menuButton = document.getElementsByClassName('menu-button')[0];
 
-            if (menu && menuButton)
-                menuButton.onchange = function () {
-                    menu.classList.toggle('open', this.checked);
-                };
-        })();
+			if (menu && menuButton) {
+				menuButton.onchange = function () {
+					menu.classList.toggle('open', this.checked);
+				};
+			}
+		})();
 
-        // template
-        function Template(header, dir = '') {
-            this.header = document.getElementById('header-h1'),
-            this.content = document.getElementById('content-frame')
+		// template
+		function Template(header, dir = '') {
+			this.header = document.getElementById('header-h1');
+			this.frame = document.getElementById('content-frame');
 
-            var path = dir.split('/').filter(item => item);
+			// handle content
+			var content = null;
 
-            if (path.length && [path.length - 1].indexOf('.') >= 0) {
-                path[path.length - 1] = '';
-                dir = path.join('/');
-            }
+			this.frame.onload = function () {
+				content = this.contentWindow.document.documentElement;
 
-            this.content.onload = function () {
-                this.style.height = this.contentWindow.document.documentElement.scrollHeight + 'px';
-            };
+				// assimilate styles
+				var styles = document.getElementsByTagName('style'),
+					links = document.querySelectorAll('link[rel=stylesheet]');
 
-            this.setHeader(header);
-            this.setContentSrc(dir + '/content.html');
-        };
+				while (styles.length)
+					content.head.appendChild(styles[0]);
 
-        Template.prototype.addScript = function (src) {
-            document.body.appendChild(document.createElement('script')).src = src;
-        };
-        Template.prototype.addStyle = function (href) {
-            var link = document.body.appendChild(document.createElement('link'));
-            link.rel = 'stylesheet';
-            link.href = href;
-        };
-        Template.prototype.setHeader = function (text) {
-            this.header.textContent = text;
-        };
-        Template.prototype.setContentSrc = function (src) {
-            this.content.src = src;
-        };
-    </script>
+				while(links.length)
+					content.head.appendChild(links[0]);
+
+				// adjust content height
+				this.onresize();
+			};
+
+			this.frame.onresize = function () {
+				this.style.height = (1.1 * content.scrollHeight) + 'px';
+			};
+
+			// make src path
+			var path = dir.split('/').filter(item => item);
+
+			if (path.length && path[path.length - 1].indexOf('.') >= 0) {
+				path.pop();
+				dir = path.join('/');
+			}
+
+			// set content
+			this.setHeader(header);
+			this.setContentSrc(dir + '/content.html');
+		};
+
+		Template.prototype.addScript = function (src) {
+			document.body.appendChild(document.createElement('script')).src = src;
+		};
+
+		Template.prototype.addStyle = function (href) {
+			var link = document.body.appendChild(document.createElement('link'));
+
+			link.rel = 'stylesheet';
+			link.href = href;
+		};
+
+		Template.prototype.setHeader = function (text) {
+			this.header.textContent = text;
+		};
+
+		Template.prototype.setContentSrc = function (src) {
+			this.frame.src = src;
+		};
+	</script>
 </body>
 </html>

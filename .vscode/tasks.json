@@ -6,32 +6,15 @@
         {
             "label": "Markdown to HTML",
             "type": "shell",
-            "command": "pandoc ${relativeFile} -f markdown+pipe_tables -t html -s --quiet -o ${relativeFileDirname}\\content.html",
+            "command": "pandoc ${relativeFile} -f markdown+pipe_tables -t html --verbose --section-divs -o ${relativeFileDirname}\\content.html",
             "group": "build",
             "problemMatcher": []
         },
         {
-            "label": "Sass (all)",
+            "label": "Sass Compile",
             "type": "shell",
             "group": "build",
-            "dependsOn": [
-                "Sass (style)",
-                "Sass (docs)"
-            ],
-            "problemMatcher": []
-        },
-        {
-            "label": "Sass (style)",
-            "type": "shell",
             "command": "sass style/style.sass style/style.css --style=compressed",
-            "group": "build",
-            "problemMatcher": []
-        },
-        {
-            "label": "Sass (docs)",
-            "type": "shell",
-            "command": "sass style/docs.sass style/docs.css --style=compressed",
-            "group": "build",
             "problemMatcher": []
         }
     ]
