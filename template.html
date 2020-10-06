@@ -98,7 +98,7 @@
 			var content = null;
 
 			this.frame.onload = function () {
-				content = this.contentWindow.document.documentElement;
+				content = this.contentWindow.document;
 
 				// assimilate styles
 				var styles = document.getElementsByTagName('style'),
@@ -115,16 +115,20 @@
 			};
 
 			this.frame.onresize = function () {
-				this.style.height = (1.1 * content.scrollHeight) + 'px';
+				this.style.height = (1.1 * content.body.scrollHeight) + 'px';
 			};
 
 			// make src path
 			var path = dir.split('/').filter(item => item);
 
-			if (path.length && path[path.length - 1].indexOf('.') >= 0) {
-				path.pop();
-				dir = path.join('/');
+			if (path.length) {
+				if (path[path.length - 1].indexOf('.') >= 0) {
+					path.pop();
+					dir = path.join('/');
+				}
 			}
+			else
+				dir = '';
 
 			// set content
 			this.setHeader(header);
