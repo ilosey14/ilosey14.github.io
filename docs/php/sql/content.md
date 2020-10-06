@@ -5,10 +5,10 @@ SQL::connect(string $host?, string $root?, string $password?, string $database?)
 ```
 Instantiates a new `mysqli` connection with a database.
 
-|          |             |               |
+|		  |			 |			   |
 | -------- | ----------- | ------------- |
-| *string* | `$host`     | Host URI      |
-| *string* | `$root`     | Root name     |
+| *string* | `$host`	 | Host URI	  |
+| *string* | `$root`	 | Root name	 |
 | *string* | `$password` | Root password |
 | *string* | `$database` | Database name |
 
@@ -26,7 +26,7 @@ SQL::init(int|array $tables?): void
 ```
 Initializes table dependencies.
 
-|              |           |                                                              |
+|			  |		   |															  |
 | ------------ | --------- | ------------------------------------------------------------ |
 | *int\|array* | `$tables` | Enumerations of tables to initialize i.e. `SQL::TABLE_USERS` |
 
@@ -37,9 +37,9 @@ SQL::query(\SQL\Query $query): mysqli_stmt
 ```
 Prepares and executes an SQL query
 
-|               |           |                                                |
+|			   |		   |												|
 | ------------- | --------- | ---------------------------------------------- |
-| *\SQL\Query*  | `$query`  | Query object to execute                        |
+| *\\SQL\\Query*  | `$query`  | Query object to execute						|
 | *mysqli_stmt* | `@return` | Prepared and executed `mysqli` query statement |
 
 ---
@@ -49,11 +49,11 @@ SQL::getResults(mysqli_stmt $stmt, int $fetch_type?): array|null
 ```
 Gets the specified result type from an executed `mysqli` statement.
 
-|               |               |                                                   |
+|			   |			   |												   |
 | ------------- | ------------- | ------------------------------------------------- |
-| *mysqli_stmt* | `$stmt`       | Statement object                                  |
-| *int*         | `$fetch_type` | Whether to return the first row or all rows       |
-| *array\|null* | `@return`     | The result array or null if no rows were returned |
+| *mysqli_stmt* | `$stmt`	   | Statement object								  |
+| *int*		 | `$fetch_type` | Whether to return the first row or all rows	   |
+| *array\|null* | `@return`	 | The result array or null if no rows were returned |
 
 ---
 
@@ -62,12 +62,12 @@ SQL::getRow(string $table, array $id, array $prop_names?): array|null
 ```
 Gets the property info about a row by its unique id(s).
 
-|               |               |                                                    |
+|			   |			   |													|
 | ------------- | ------------- | -------------------------------------------------- |
-| *string*      | `$table`      | Table name                                         |
-| *array*       | `$id`         | Unique row column-name and value                   |
-| *array*       | `$prop_names` | Property names to get from the rows                |
-| *array\|null* | `@return`     | An associative array or null if no rows were found |
+| *string*	  | `$table`	  | Table name										 |
+| *array*	   | `$id`		 | Unique row column-name and value				   |
+| *array*	   | `$prop_names` | Property names to get from the rows				|
+| *array\|null* | `@return`	 | An associative array or null if no rows were found |
 
 ---
 
@@ -76,12 +76,12 @@ SQL::getRows(string $table, array $params, array $prop_names?): array|null
 ```
 Gets an array of rows by their property names.
 
-|               |               |                                                       |
+|			   |			   |													   |
 | ------------- | ------------- | ----------------------------------------------------- |
-| *string*      | `$table`      | Tables name                                           |
-| *array*       | `$params`     | `where`, `order_by`, `sort`, `limit`, `offset`        |
-| *array*       | `$prop_names` | Property names to get from the rows                   |
-| *array\|null* | `@return`     | An array of result rows or null if no rows were found |
+| *string*	  | `$table`	  | Tables name										   |
+| *array*	   | `$params`	 | `where`, `order_by`, `sort`, `limit`, `offset`		|
+| *array*	   | `$prop_names` | Property names to get from the rows				   |
+| *array\|null* | `@return`	 | An array of result rows or null if no rows were found |
 
 ---
 
@@ -90,12 +90,12 @@ SQL::setRow(string $table, array $id, array $prop_list): int
 ```
 Sets the column values in `$prop_list` of a row by its unique id.
 
-|          |              |                                                 |
+|		  |			  |												 |
 | -------- | ------------ | ----------------------------------------------- |
-| *string* | `$table`     | Table name                                      |
-| *array*  | `$id`        | Unique row column-name and value of rows to set |
-| *array*  | `$prop_list` | Associative array of column values              |
-| *int*    | `@return`    | The number of affected rows                     |
+| *string* | `$table`	 | Table name									  |
+| *array*  | `$id`		| Unique row column-name and value of rows to set |
+| *array*  | `$prop_list` | Associative array of column values			  |
+| *int*	| `@return`	| The number of affected rows					 |
 
 ---
 
@@ -104,11 +104,11 @@ SQL::insertRow(string $table, array $prop_list): int
 ```
 Inserts a new row into a table.
 
-|          |              |                                    |
+|		  |			  |									|
 | -------- | ------------ | ---------------------------------- |
-| *string* | `$table`     | Table name                         |
+| *string* | `$table`	 | Table name						 |
 | *array*  | `$prop_list` | Associative array of column values |
-| *int*    | `@return`    | The number of affected rows        |
+| *int*	| `@return`	| The number of affected rows		|
 
 ---
 
@@ -117,11 +117,11 @@ SQL::deleteRow(string $table, array $id): int
 ```
 Deletes a row from a table.
 
-|          |           |                                                       |
+|		  |		   |													   |
 | -------- | --------- | ----------------------------------------------------- |
-| *string* | `$table`  | Table name                                            |
-| *array*  | `$id`     | Unique row column-name and value of the row to delete |
-| *int*    | `@return` | The number of affected rows                           |
+| *string* | `$table`  | Table name											|
+| *array*  | `$id`	 | Unique row column-name and value of the row to delete |
+| *int*	| `@return` | The number of affected rows						   |
 
 ---
 
@@ -130,7 +130,7 @@ SQL::escape(string $value): string
 ```
 Escapes/sanitizes a string used to query the connected database.
 
-|          |           |                       |
+|		  |		   |					   |
 | -------- | --------- | --------------------- |
 | *string* | `$value`  | The value to sanitize |
 | *string* | `@return` | The sanitized string  |
@@ -142,7 +142,7 @@ SQL::return(array $obj): void
 ```
 Echos a JSON encoded string and exists the script.
 
-|         |        |                   |
+|		 |		|				   |
 | ------- | ------ | ----------------- |
 | *array* | `$obj` | An object to echo |
 

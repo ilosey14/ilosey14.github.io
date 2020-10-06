@@ -30,7 +30,7 @@
 
 ```typescript
 class Sprite {
-    constructor(container: HTMLElement, options?: Sprite.Options)
+	constructor(container: HTMLElement, options?: Sprite.Options)
 }
 ```
 Creates a sprite animation element.
@@ -280,15 +280,15 @@ interface Sprite.Style
 | *string*                 | `backgroundImage`    | Background image url      |
 | *{x: number, y: number}* | `backgroundPosition` | Background image position |
 | *number*                 | `height`             | Sprite height in px       |
-| *number*                 | `width`              | Spiret width in px        |
+| *number*                 | `width`              | Sprite width in px        |
 
 ---
 
 ```typescript
 enum Sprite.Behavior = {
-    linear,
-    easeIn,
-    easeOut
+	linear,
+	easeIn,
+	easeOut
 }
 ```
 
@@ -298,8 +298,8 @@ Animation delay behavior enum.
 
 ```typescript
 enum Sprite.Direction = {
-    leftToRight,
-    topToBottom
+	leftToRight,
+	topToBottom
 }
 ```
 
