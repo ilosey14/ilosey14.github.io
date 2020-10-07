@@ -104,11 +104,11 @@
 				var styles = document.getElementsByTagName('style'),
 					links = document.querySelectorAll('link[rel=stylesheet]');
 
-				while (styles.length)
-					content.head.appendChild(styles[0]);
+				for (let style of styles)
+					content.head.appendChild(style.cloneNode(true));
 
-				while(links.length)
-					content.head.appendChild(links[0]);
+				for (let link of links)
+					content.head.appendChild(link.cloneNode(true));
 
 				// adjust content height
 				this.onresize();
