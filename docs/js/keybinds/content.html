@@ -1,0 +1,68 @@
+<p><a href="example.html">Example</a></p>
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>const keybinds <span class="op">=</span> {}<span class="op">;</span></span></code></pre></div>
+<p>Keyboard binding interface. Pair keys and key combinations to actions and behaviors.</p>
+<hr />
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>interface BindOptions <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    key<span class="op">:</span> <span class="dt">string</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    action<span class="op">:</span> (e<span class="op">:</span> KeyboardEvent) <span class="kw">=&gt;</span> <span class="dt">void</span><span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    ctrl<span class="op">:</span> <span class="dt">boolean</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    shift<span class="op">:</span> <span class="dt">boolean</span><span class="op">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    alt<span class="op">:</span> <span class="dt">boolean</span><span class="op">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    preventDefault<span class="op">:</span> <span class="dt">boolean</span><span class="op">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    stopPropagation<span class="op">:</span> <span class="dt">boolean</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>}</span></code></pre></div>
+<hr />
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>keybinds<span class="op">.</span><span class="fu">Bind</span>(options<span class="op">:</span> BindOptions)<span class="op">:</span> Bind</span></code></pre></div>
+<p>Key bind object constructor.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>BindOptions</em></td>
+<td><code>options</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>keybinds<span class="op">.</span><span class="fu">set</span>(key<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> options<span class="op">:</span> BindOptions <span class="op">|</span> <span class="kw">function</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Sets a new or overwrites an existing keybind.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>key</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><em>BindOptions</em> | <em>function</em></td>
+<td><code>options</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>keybinds<span class="op">.</span><span class="fu">remove</span>(bind<span class="op">:</span> keybinds<span class="op">.</span><span class="at">Bind</span>)<span class="op">:</span> <span class="dt">boolean</span></span></code></pre></div>
+<p>Removes a key bind.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>keybinds.Bind</em></td>
+<td><code>bind</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>keybinds<span class="op">.</span><span class="fu">invoke</span>(e<span class="op">:</span> KeyboardEvent)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Invokes a defined keybind from a keyboard event.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>KeyboardEvent</em></td>
+<td><code>e</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
