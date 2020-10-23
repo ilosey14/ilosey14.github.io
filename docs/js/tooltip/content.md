@@ -1,3 +1,7 @@
+[Example](example.html)
+
+---
+
 ```typescript
 const tooltip(element: HTMLElement, content: string | HTMLElement): void
 ```
