@@ -1,22 +1,4 @@
-[Class]: #Class
-[Class-Constructor]: #Class-Constructor
-[Class-Properties]: #Class-Properties
-[Class-Methods]: #Class-Methods
-[Static]: #Static
-[Static-Properties]: #Static-Properties
-[Static-Methods]: #Static-Methods
-[Static-Interfaces_and_Enums]: #Static-Interfaces_and_Enums
-
-- [Sprite Class][Class]
-  - [Constructor][Class-Constructor]
-  - [Properties][Class-Properties]
-  - [Methods][Class-Methods]
-- [Sprite Object][Static]
-  - [Properties][Static-Properties]
-  - [Methods][Static-Methods]
-  - [Interfaces and Enums][Static-Interfaces_and_Enums]
-
----
+[Example](example.html)
 
 ---
 
