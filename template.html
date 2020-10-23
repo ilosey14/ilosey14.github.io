@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Template</title>
 	<link rel="stylesheet" href="/style/style.css">
+	<script src="/src/template.js"></script>
 </head>
 <body>
 	<div class="header-container">
@@ -26,27 +27,26 @@
 			<div class="content-tile">
 				<ul>
 					<li><a href="/">Home</a></li>
-					<li><a href="https://www.github.com/ilosey14">GitHub</a></li>
+					<li><a href="https://github.com/ilosey14">GitHub</a></li>
 					<li>
 						<p>Documentation</p>
 						<ul>
 							<li>
 								<p>JavaScript</p>
 								<ul>
-									<li><a href="/docs/js/common">Common</a></li>
-									<li><a href="/docs/js/common-ajax">Common AJAX</a></li>
-									<li><a href="/docs/js/keybinds">Keybinds</a></li>
-									<li><a href="/docs/js/messagebox">Messagebox</a></li>
-									<li><a href="/docs/js/nav-cards">Nav Cards</a></li>
-									<li><a href="/docs/js/sprite">Sprite</a></li>
+									<li><a href="/docs/js/keybinds/">Keybinds</a></li>
+									<li><a href="/docs/js/messagebox/">Messagebox</a></li>
+									<li><a href="/docs/js/nav-cards/">NavCards</a></li>
+									<li><a href="/docs/js/sprite/">Sprite</a></li>
+									<li><a href="/docs/js/tooltip/">Tooltip</a></li>
 								</ul>
 							</li>
 							<li>
 								<p>PHP</p>
 								<ul>
-									<li><a href="/docs/php/common">Common</a></li>
-									<li><a href="/docs/php/sql">SQL</a></li>
-									<li><a href="/docs/php/view">View</a></li>
+									<li><a href="/docs/php/common/">Common</a></li>
+									<li><a href="/docs/php/sql/">SQL</a></li>
+									<li><a href="/docs/php/view/">View</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -88,71 +88,6 @@
 				};
 			}
 		})();
-
-		// template
-		function Template(header, dir = '') {
-			this.header = document.getElementById('header-h1');
-			this.frame = document.getElementById('content-frame');
-
-			// handle content
-			var content = null;
-
-			this.frame.onload = function () {
-				content = this.contentWindow.document;
-
-				// assimilate styles
-				var styles = document.getElementsByTagName('style'),
-					links = document.querySelectorAll('link[rel=stylesheet]');
-
-				for (let style of styles)
-					content.head.appendChild(style.cloneNode(true));
-
-				for (let link of links)
-					content.head.appendChild(link.cloneNode(true));
-
-				// adjust content height
-				this.onresize();
-			};
-
-			this.frame.onresize = function () {
-				this.style.height = (1.1 * content.body.scrollHeight) + 'px';
-			};
-
-			// make src path
-			var path = dir.split('/').filter(item => item);
-
-			if (path.length) {
-				if (path[path.length - 1].indexOf('.') >= 0) {
-					path.pop();
-					dir = path.join('/');
-				}
-			}
-			else
-				dir = '';
-
-			// set content
-			this.setHeader(header);
-			this.setContentSrc(dir + '/content.html');
-		};
-
-		Template.prototype.addScript = function (src) {
-			document.body.appendChild(document.createElement('script')).src = src;
-		};
-
-		Template.prototype.addStyle = function (href) {
-			var link = document.body.appendChild(document.createElement('link'));
-
-			link.rel = 'stylesheet';
-			link.href = href;
-		};
-
-		Template.prototype.setHeader = function (text) {
-			this.header.textContent = text;
-		};
-
-		Template.prototype.setContentSrc = function (src) {
-			this.frame.src = src;
-		};
 	</script>
 </body>
 </html>
