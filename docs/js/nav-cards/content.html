@@ -1,0 +1,29 @@
+<p><a href="example.html">Example</a></p>
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>const navCards[name<span class="op">:</span> <span class="dt">string</span>]<span class="op">:</span> NavCards</span></code></pre></div>
+<p>Global nav-cards index. If this functionality is required, you must add an <code>id</code> or <code>data-name</code> attribute to your container.</p>
+<hr />
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">NavCards</span>(container<span class="op">:</span> HTMLElement <span class="op">|</span> <span class="dt">string</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Creates a NavCards navigable interface object.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>HTMLElement</em> | <em>string</em></td>
+<td><code>container</code></td>
+<td>The container element or its <code>id</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>NavCards<span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="fu">showCard</span>(name<span class="op">:</span> <span class="dt">string</span>)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<p>Shows the provided card by name.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>string</em></td>
+<td><code>name</code></td>
+<td>Name of the card to show.</td>
+</tr>
+</tbody>
+</table>
+<hr />
