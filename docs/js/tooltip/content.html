@@ -1,6 +1,6 @@
 <p><a href="example.html">Example</a></p>
 <hr />
-<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>const <span class="fu">tooltip</span>(element<span class="op">:</span> HTMLElement<span class="op">,</span> content<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> HTMLElement)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>const <span class="fu">tooltip</span>(element<span class="op">:</span> HTMLElement<span class="op">,</span> content<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> HTMLElement)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
 <p>Displays a tooltip on the specified element.</p>
 <table>
 <tbody>
@@ -17,7 +17,7 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>tooltip<span class="op">.</span><span class="fu">addTemplate</span>(name<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> content<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> HTMLElement)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tooltip<span class="op">.</span><span class="fu">addTemplate</span>(name<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> content<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> HTMLElement)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
 <p>Adds a named template to be displayed later.</p>
 <table>
 <tbody>
@@ -34,7 +34,7 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>tooltip<span class="op">.</span><span class="fu">addListeners</span>(element<span class="op">:</span> HTMLElement<span class="op">,</span> content<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> HTMLElement)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tooltip<span class="op">.</span><span class="fu">addListeners</span>(element<span class="op">:</span> HTMLElement<span class="op">,</span> content<span class="op">:</span> <span class="dt">string</span> <span class="op">|</span> HTMLElement)<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
 <p>Attaches tooltip listeners to an element.</p>
 <table>
 <tbody>
@@ -51,9 +51,21 @@
 </tbody>
 </table>
 <hr />
-<div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>tooltip<span class="op">.</span><span class="fu">clear</span>()<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tooltip<span class="op">.</span><span class="fu">clear</span>()<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
 <p>Clears the current contents.</p>
 <hr />
-<div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>tooltip<span class="op">.</span><span class="fu">close</span>()<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tooltip<span class="op">.</span><span class="fu">close</span>()<span class="op">:</span> <span class="dt">void</span></span></code></pre></div>
 <p>Closes the tooltip and clears its contents.</p>
 <hr />
+<section id="events" class="level3">
+<h3>Events</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tooltip<span class="op">.</span><span class="at">onopen</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="dt">void</span></span></code></pre></div>
+<p>Called when the tooltip is opened or changed.</p>
+<hr />
+<div class="sourceCode" id="cb7"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tooltip<span class="op">.</span><span class="at">onclear</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="dt">void</span></span></code></pre></div>
+<p>Called when the tooltip is cleared.</p>
+<hr />
+<div class="sourceCode" id="cb8"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tooltip<span class="op">.</span><span class="at">onclose</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="dt">void</span></span></code></pre></div>
+<p>Called when the tooltip is closed.</p>
+<hr />
+</section>

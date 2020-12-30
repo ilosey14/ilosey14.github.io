@@ -52,3 +52,25 @@ Closes the tooltip and clears its contents.
 
 ---
 
+### Events
+
+```typescript
+tooltip.onopen: () => void
+```
+Called when the tooltip is opened or changed.
+
+---
+
+```typescript
+tooltip.onclear: () => void
+```
+Called when the tooltip is cleared.
+
+---
+
+```typescript
+tooltip.onclose: () => void
+```
+Called when the tooltip is closed.
+
+---
