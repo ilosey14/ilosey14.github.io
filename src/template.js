@@ -1,63 +1,57 @@
-function Template(header, dir = '') {
-	this.header = document.getElementById('header-h1');
+function Template(dir, options) {
+	this.header = document.getElementById('page-header');
 	this.frame = document.getElementById('content-frame');
-
-	// handle content
-	var content = null;
-
-	this.frame.onload = function () {
-		content = this.contentWindow.document;
-
-		// assimilate styles
-		var styles = document.getElementsByTagName('style'),
-			links = document.querySelectorAll('link[rel=stylesheet]');
-
-		for (let style of styles)
-			content.head.appendChild(style.cloneNode(true));
-
-		for (let link of links)
-			content.head.appendChild(link.cloneNode(true));
-
-		// adjust content height
-		this.onresize();
-	};
-
-	this.frame.onresize = function () {
-		this.style.height = (1.1 * content.body.scrollHeight) + 'px';
-	};
 
 	// make src path
 	var path = dir.split('/').filter(item => item);
 
 	if (path.length) {
-		if (path[path.length - 1].indexOf('.') >= 0) {
+		if (path[path.length - 1].indexOf('.') >= 0)
 			path.pop();
-			dir = path.join('/');
-		}
+
+		dir = path.join('/');
 	}
 	else
 		dir = '';
 
 	// set content
-	this.setHeader(header);
+	this.setHeader(options.header);
+	this.appendStyle(options.style)
 	this.setContentSrc(dir + '/content.html');
 };
 
-Template.prototype.addScript = function (src) {
-	document.body.appendChild(document.createElement('script')).src = src;
-};
-
-Template.prototype.addStyle = function (href) {
-	var link = document.body.appendChild(document.createElement('link'));
-
-	link.rel = 'stylesheet';
-	link.href = href;
-};
-
 Template.prototype.setHeader = function (text) {
-	this.header.textContent = text;
+	this.header.textContent = text || '[object IMessedSomethingUp]';
 };
 
 Template.prototype.setContentSrc = function (src) {
-	this.frame.src = src;
+	if (!src) return;
+
+	var xhr = new XMLHttpRequest(),
+		frame = this.frame;
+
+	xhr.open('get', src);
+
+	xhr.responseType = 'text'; // 'document' appended everything display:inline ???
+	xhr.onload = function () {
+		var content = (new DOMParser).parseFromString(this.response, 'text/html');
+
+		while (content.body.children.length)
+			frame.appendChild(content.body.firstElementChild);
+	};
+	xhr.onerror = function () {
+		frame.appendChild(document.createElement('p'))
+			.textContent = 'If I was better at coding, there\'d be something here :/';
+	};
+
+	xhr.send();
+};
+
+Template.prototype.appendStyle = function (href) {
+	if (!href) return;
+
+	var link = document.head.appendChild(document.createElement('link'));
+
+	link.rel = 'stylesheet';
+	link.href = href;
 };

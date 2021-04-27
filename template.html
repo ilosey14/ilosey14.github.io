@@ -1,93 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<base target="_parent">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Template</title>
 	<link rel="stylesheet" href="/style/style.css">
-	<script src="/src/template.js"></script>
 </head>
 <body>
-	<div class="header-container">
-		<div class="content">
-			<input type="checkbox" id="menu-button" class="menu-button" value="Menu">
-			<label for="menu-button">&#9776;</label>
-			<h1 id="header-h1"></h1>
-		</div>
-		<div class="ribbon">
-			<div class="block blue"></div>
-			<div class="block green"></div>
-			<div class="block yellow"></div>
-			<div class="block red"></div>
-		</div>
+	<div class="header-sticky"></div>
+	<div class="header">
+		<a href="/" title="Go to home page">
+			<h1 id="page-header">Page Header</h1>
+			<p>ilosey14</p>
+		</a>
 	</div>
 	<div class="content-wrapper">
-		<div class="menu-container">
-			<div class="content-tile">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="https://github.com/ilosey14">GitHub</a></li>
-					<li>
-						<p>Documentation</p>
-						<ul>
-							<li>
-								<p>JavaScript</p>
-								<ul>
-									<li><a href="/docs/js/keybinds/">Keybinds</a></li>
-									<li><a href="/docs/js/messagebox/">Messagebox</a></li>
-									<li><a href="/docs/js/nav-cards/">NavCards</a></li>
-									<li><a href="/docs/js/sprite/">Sprite</a></li>
-									<li><a href="/docs/js/tooltip/">Tooltip</a></li>
-								</ul>
-							</li>
-							<li>
-								<p>PHP</p>
-								<ul>
-									<li><a href="/docs/php/common/">Common</a></li>
-									<li><a href="/docs/php/sql/">SQL</a></li>
-									<li><a href="/docs/php/view/">View</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+		<div class="sidebar">
+			<!-- TODO scrolling on menu that overflows... -->
+			<input type="button" value="🍔" class="sidebar-button">
+			<ul class="sidebar-menu">
+				<li><a href="/">Home</a></li>
+				<li><a href="https://github.com/ilosey14" target="_blank">GitHub</a></li>
+				<li>
+					<p>Documentation</p>
+					<ul>
+						<li>
+							<p>JavaScript</p>
+							<ul>
+								<li><a href="/docs/js/keybinds/">Keybinds</a></li>
+								<li><a href="/docs/js/messagebox/">Messagebox</a></li>
+								<li><a href="/docs/js/nav-cards/">NavCards</a></li>
+								<li><a href="/docs/js/sprite/">Sprite</a></li>
+								<li><a href="/docs/js/tooltip/">Tooltip</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>PHP</p>
+							<ul>
+								<li><a href="/docs/php/common/">Common</a></li>
+								<li><a href="/docs/php/sql/">SQL</a></li>
+								<li><a href="/docs/php/view/">View</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 		<div class="content-container">
-			<iframe id="content-frame" src="about:blank" frameborder="0" style="width:100%;min-height:100vh">🤔 Hmm... Nothing to see here.</iframe>
+			<input type="button" value="🍔" class="sidebar-button">
+			<div id="content-frame" class="content-frame"></div>
 		</div>
 	</div>
-
-	<!-- footer -->
-	<div class="footer-container">
-		<div class="ribbon">
-			<div class="block blue"></div>
-			<div class="block green"></div>
-			<div class="block yellow"></div>
-			<div class="block red"></div>
-		</div>
-		<div class="content">
-			<p>
-				<span>Copyright &copy; 2020 ilosey14.github.io</span> |
-				<span>All Rights Reserved</span>
-			</p>
-		</div>
+	<div class="footer">
+		<p>Copyright &copy; 2021 ilosey.github.io</p>
+		<p>All Rights Reserved</p>
 	</div>
-
-	<!-- scripts -->
 	<script>
-		// menu button
 		(function () {
-			var menu = document.getElementsByClassName('menu-container')[0],
-				menuButton = document.getElementsByClassName('menu-button')[0];
+			var wrapper = document.getElementsByClassName('content-wrapper')[0];
 
-			if (menu && menuButton) {
-				menuButton.onchange = function () {
-					menu.classList.toggle('open', this.checked);
-				};
-			}
-		})();
+			for (let button of document.getElementsByClassName('sidebar-button'))
+				button.onclick = () => wrapper.classList.toggle('show-sidebar');
+		})()
 	</script>
+	<script src="/src/template.js"></script>
 </body>
 </html>

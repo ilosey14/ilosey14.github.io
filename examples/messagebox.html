@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Messagebox Example</title>
+	<style type="text/css">
+		input {
+			margin: 10px;
+			padding: 5px 8px;
+			background-color: #d1d1d1;
+			border-width: 0;
+			cursor: pointer;
+		}
+		input[type=text] {
+			cursor: text;
+		}
+		input:active {
+			transform: scale(0.95);
+		}
+
+		.toggle {
+			display: none;
+		}
+		.toggle:checked + label .scrubber {
+			left: 20px;
+			background-color: #0d0;
+		}
+		.toggle + label .scrubber {
+			position: absolute;
+			left: 0;
+			height: 10px;
+			width: 10px;
+			background-color: #f1f1f1;
+			border: 5px solid #d1d1d1;
+			border-radius: 10px;
+			transition: left 0.2s;
+		}
+		.toggle-container {
+			position: relative;
+			display: inline-block;
+			height: 20px;
+			width: 40px;
+			background-color: #fff;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- example -->
+	<input type="button" value="Show Menu" id="menu-button">
+	<input type="button" value="Special Prompt" id="special-prompt">
+	<p id="special-content"></p>
+
+	<!-- templates -->
+	<div class="-messagebox-templates">
+		<!-- menu -->
+		<div data-name="menu">
+			<style type="text/css">
+				/* let's make the buttons stack vertically */
+				#messagebox-buttons > * { display: block; }
+			</style>
+		</div>
+
+		<!-- some option -->
+		<div data-name="some-option">
+			<h3>Here is the option you selected...</h3>
+			<p>... but that's it, there's nothing else.</p>
+		</div>
+
+		<!-- form -->
+		<form data-name="form">
+			<table>
+				<tr>
+					<td>First Name</td>
+					<td>
+						<input type="text" name="first_name" data-autofocus>
+					</td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td>
+						<input type="text" name="last_name">
+					</td>
+				</tr>
+			</table>
+		</form>
+
+		<!-- settings -->
+		<div data-name="settings">
+			<p>Enable advanced machine learning features</p>
+			<div class="toggle-container">
+				<input type="checkbox" id="track-toggle" class="toggle" checked>
+				<label for="track-toggle">
+					<div class="scrubber"></div>
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<!-- messagebox -->
+	<link rel="stylesheet" href="./style/messagebox.css">
+	<div id="messagebox-mask">
+		<div id="messagebox-container">
+			<div id="messagebox-content"></div>
+			<div id="messagebox-buttons"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="./src/messagebox.js"></script>
+
+	<!-- script -->
+	<script type="text/javascript">
+		/**
+		 * Here is where we implement our site's functionality
+		 * by wrapping specific calls to the messagebox library.
+		 * A reusable interface like this allows reliable navigation
+		 * between messagebox content.
+		 */
+		const example = {};
+
+		example.showMenu = function () {
+			messagebox('menu', {
+				'Some Option': () => this.showSomeOption(),
+				'Form': () => this.showForm(),
+				'Settings': () => this.showSettings()
+			});
+		};
+
+		example.showSomeOption = function () {
+			messagebox('some-option', {
+				'Back to Menu': () => this.showMenu(),
+				'Close': null
+			});
+		};
+
+		example.showForm = function () {
+			messagebox('form', [
+				'Go',
+				'Cancel'
+			], (response, content) => {
+				if (response === 'Cancel') return;
+
+				var data = new FormData(content),
+					firstName = data.get('first_name'),
+					lastName = data.get('last_name');
+
+				if (!firstName || !lastName) {
+					alert('It\'s two fields, just fill it out...');
+					this.showForm();
+				}
+				else {
+					confirm(`Are you really "${firstName} ${lastName}"...`);
+					content.reset()
+				}
+			});
+		};
+
+		example.showSettings = function () {
+			messagebox('settings', {
+				'Back to Menu': () => this.showMenu(),
+				'Close': null
+			});
+		};
+
+		example.specialText = ('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+				+ 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+				+ 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
+				+ 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+				.split(/\s+/);
+		example.specialIndex = 0;
+		example.specialContent = document.getElementById('special-content');
+
+		example.showSpecialPrompt = function () {
+			messagebox('Press the button?', [
+				'Yes',
+				'No'
+			], response => {
+				if (response !== 'Yes') return;
+
+				if (!this.specialText[this.specialIndex])
+					this.specialIndex = 0;
+
+				this.specialContent.textContent += this.specialText[this.specialIndex++] + ' ';
+			});
+		};
+
+		//
+
+		document.getElementById('menu-button').onclick = function () {
+			example.showMenu();
+		};
+
+		document.getElementById('special-prompt').onclick = function() {
+			example.showSpecialPrompt();
+		};
+	</script>
+</body>
+</html>

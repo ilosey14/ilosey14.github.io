@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>common.js - ilosey14</title>
 	<style>html,body{margin:0;padding:0;overflow:hidden;}</style>
-	<script type="text/javascript">function frame_onload(frame){new frame.contentWindow.Template(frame.dataset.header,location.pathname)}</script>
+	<script>function frame_onload(frame){new frame.contentWindow.Template(location.pathname,frame.dataset)}</script>
 </head>
 <body>
-	<iframe data-header="common.js" src="/template.html" frameborder="0" style="width:100vw;height:100vh" onload="frame_onload(this)"></iframe>
+	<iframe data-header="common.js" data-style="/style/docs.css" src="/template.html" frameborder="0" style="width:100vw;height:100vh" onload="frame_onload(this)"></iframe>
 </body>
 </html>

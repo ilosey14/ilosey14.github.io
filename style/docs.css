@@ -1,0 +1,119 @@
+:root {
+	--white: #f8f8f8;
+	--light-gray: #eeeeee;
+	--gray: #7f7f7f;
+
+	--red: #ff1133;
+	--grapefruit: #ff1177;
+	--light-magenta: #ff78f7;
+	--yellow: gold;
+	--yellow-green: #f6ff7b;
+	--pale-gray-blue: #7874a7;
+	--dark-purple: #7700aa;
+	--light-blue: #c0ffee;
+	--blue: #518af1;
+	--green: #00df00;
+	--magenta: #ff07df;
+	--orange: #ff7711;
+	--light-orange: #ffcc77;
+	--brown: #dfd193;
+
+	--code-background: #1a2b3c;
+}
+
+pre {
+	background-color: var(--code-background);
+	color: var(--white);
+}
+
+pre,
+code {
+	font-family: 'JetBrains Mono', 'Monospac821 BT', Courier New, monospace;
+}
+
+/* Alert */
+.al { color: var(--red); font-weight: bold }
+
+/* Annotation */
+.an { color: var(--gray); font-weight: bold; font-style: italic}
+
+/* Attribute */
+.at { color: var(--blue) }
+
+/* BaseN */
+.bn { color: var(--light-magenta) }
+
+/* Built In */
+.bu { color: inherit }
+
+/* Char */
+.ch { color: var(--yellow-green) }
+
+/* Comment */
+.co { color: var(--pale-gray-blue);	font-style: italic }
+
+/* Comment Var */
+.cv { color: var(--blue); font-weight: bold;font-style: italic }
+
+/* Constant */
+.cn { color: var(--red) }
+
+/* Control Flow */
+.cf { color: var(--dark-purple); font-style: italic }
+
+/* Data Type */
+.dt { color: var(--light-blue); font-weight: bold }
+
+/* Dec Val */
+.dv { color: var(--light-magenta) }
+
+/* Documentation */
+.do { color: var(--gray); font-style: italic }
+
+/* Error */
+.er { color: var(--red); font-weight: bold }
+
+/* Extension */
+.ex { color: inherit }
+
+/* Float */
+.fl { color: var(--light-magenta) }
+
+/* Function */
+.fu { color: var(--green) }
+
+/* Import */
+.im { color: inherit }
+
+/* Information */
+.in { color: var(--magenta); font-weight: bold; font-style: italic }
+
+/* Keyword */
+.kw { color: var(--yellow);	font-weight: bold }
+
+/* Operator */
+.op { color: var(--brown) }
+
+/* Other */
+.ot { color: var(--white) }
+
+/* Preprocessor */
+.pp { color: var(--brown) }
+
+/* Special Char */
+.sc { color: var(--light-orange) }
+
+/* Special String */
+.ss { color: var(--grapefruit) }
+
+/* String */
+.st { color: var(--orange) }
+
+/* Variable */
+.va { color: var(--light-gray) }
+
+/* Verbatim String */
+.vs { color: var(--orange); font-style: italic }
+
+/* Warning */
+.wa { color: var(--yellow-green); font-weight: bold; font-style: italic }
