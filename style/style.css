@@ -35,25 +35,19 @@
 	background-color: var(--blue);
 }
 
-html, body {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	width: 100vw;
-}
-
-html {
-	overflow: hidden;
-}
+html { box-sizing: border-box }
 
 body {
 	display: grid;
-	grid-template-rows: auto auto 1fr auto;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: auto 1fr;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
 	background-color: var(--white);
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Tahoma, Helvetica, sans-serif;
-	font-size: 14px;
-	overflow-x: hidden;
-	overflow-y: auto;
+	font-size: 16px;
+	line-height: 1.75;
 }
 
 a {
@@ -61,14 +55,9 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 }
+a:visited { color: inherit }
 
-a:visited {
-	color: inherit
-}
-
-p {
-	text-align: justify;
-}
+p { text-align: justify }
 
 input {
 	margin: 3px;
@@ -77,18 +66,15 @@ input {
 	font: inherit;
 	-webkit-appearance: none;
 }
-
 input:active {
 	background-color: var(--white);
 	color: var(--black);
 }
-
 input:disabled {
 	background-color: var(--white);
 	opacity: 0.67;
 	cursor: default;
 }
-
 input:checked + label[for] {
 	background-color: var(--light-green) !important;
 	border-color: var(--green) !important;
@@ -104,7 +90,7 @@ input[type=file] + label[for] {
 	color: var(--dark-gray);
 	border: var(--border);
 	border-radius: var(--border-radius);
-	text-align: center;
+	text-align: left;
 	cursor: pointer;
 }
 
@@ -138,11 +124,9 @@ ul {
 	margin: 1em 0 0 0;
 	padding: 0 0 0 1em;
 }
-
 ul ul {
 	border-left: 1px solid var(--gray);
 }
-
 ul li {
 	margin: 0.5em;
 	padding: 0;
@@ -152,13 +136,11 @@ ul li {
 li p {
 	font-weight: bold;
 }
-
 li a {
 	display: block;
 	padding: 0.5em;
 	border: 1px solid transparent;
 }
-
 li a:hover {
 	background-color: var(--white);
 	border-color: var(--black) !important;
@@ -187,71 +169,44 @@ table {
 	border-collapse: collapse;
 }
 
-table tr {
-	border-bottom: 1px solid var(--gray);
+table tr { border-bottom: 1px solid var(--gray) }
+
+table tr:nth-child(2n) { background-color: var(--medium-light-gray) }
+
+table th { background-color: var(--medium-gray) }
+
+th, td { padding: 0.5em }
+
+td[colspan] { text-align: center }
+
+header h1 {
+	text-shadow:
+		 1px  1px var(--white),
+		-1px  1px var(--white),
+		 1px -1px var(--white),
+		-1px -1px var(--white);
 }
 
-table tr:nth-child(2n) {
-	background-color: var(--medium-light-gray);
+article {
+	margin: 0 auto;
+	max-width: 1080px;
 }
 
-table th {
-	background-color: var(--medium-gray);
+section {
+	margin: 1em 2em;
+	padding: 1em;
+	/* border-radius: var(--border-radius);
+	box-shadow: 0 0 var(--border-radius) var(--light-blue); */
 }
 
-th,
-td {
-	padding: 0.5em;
-}
-
-td[colspan] {
-	text-align: center;
-}
-
-.header,
-.header-sticky,
-.footer {
-	padding: 0 1em;
-	background: var(--blue) linear-gradient(to right, var(--blue), var(--light-green) 150%);
-	box-shadow: inset 0 -2em 2em -2em var(--light-light-gray);
-	border-bottom: var(--border);
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
-	z-index: 1;
-}
-
-.header h1 {
-	text-shadow: 1px 1px var(--white), -1px 1px var(--white), 1px -1px var(--white), -1px -1px var(--white);
-}
-
-.header-sticky {
-	position: sticky;
-	top: 0;
-}
-
-.content-wrapper {
-	display: grid;
-	grid-template-columns: auto 1fr;
-}
-
-.sidebar {
-	min-width: 200px;
-	box-shadow: 0 0 1em var(--light-gray);
-}
-
-.sidebar-button {
-	display: none;
-	vertical-align: top;
-	font-size: 2em;
-	z-index: 1;
-}
+section:not(:last-child) { border-bottom: var(--border) }
 
 .sidebar-menu {
 	position: sticky;
 	top: 0;
-}
-
-.content-container {
-	min-height: 100%;
+	margin: 1em;
+	max-height: 100vh;
+	overflow-y: auto;
 }
 
 .content-frame {
@@ -260,59 +215,83 @@ td[colspan] {
 	max-width: 1080px;
 }
 
-.content-tile {
-	margin: 1em;
+.page-header { grid-row: 1 }
+.page-footer { grid-row: 3 }
+.page-header,
+.page-footer {
+	grid-column: 1 / 3;
 	padding: 1em;
-	/* border-radius: var(--border-radius);
-	box-shadow: 0 0 var(--border-radius) var(--light-blue); */
-	border-bottom: var(--border)
+	background: var(--blue) linear-gradient(to right, var(--blue), var(--light-green) 150%);
+	box-shadow: inset 0 -2em 2em -2em var(--light-light-gray);
+	border-bottom: var(--border);
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-@media only screen and (max-width: 720px) {
-	body {
-		font-size: 12px;
-	}
+#sidebar-button + label[for] { display: none }
 
-	.header-sticky {
-		position: absolute;
-		height: 4em;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 1;
-	}
+#sidebar {
+	grid-row: 2;
+	grid-column: 1;
+	padding-left: 1em;
+	min-width: 256px;
+	max-width: 50%;
+	background-color: var(--white);
+	box-shadow: 0 0 1em var(--light-gray);
+}
 
-	.content-wrapper {
-		position: relative;
-		left: -100vw;
-		grid-template-columns: 100vw 100vw;
-		transition: left var(--transition-duration);
-		overflow: visible;
-	}
+#content-wrapper {
+	grid-row: 2;
+	grid-column: 2;
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
 
-	.content-wrapper.show-sidebar {
-		left: 0;
-	}
-
-	.sidebar {
-		min-height: 100%;
-	}
+@media screen and (max-width: 600px) {
+	body { display: block }
 
 	.sidebar-menu {
-		top: 2em;
+		max-height: none;
+		overflow: hidden
 	}
 
-	.sidebar-button {
+	.content-frame * { overflow-x: auto }
+
+	#sidebar-button + label[for] {
 		display: block;
 		position: sticky;
 		top: 0;
+		left: 0;
+		right: 0;
+		padding: 0.5em;
+		line-height: 2em;
+		background-color: var(--gray);
+	}
+	#sidebar-button + label[for]::before { content: '🍔' }
+	#sidebar-button:checked + label[for] {
+		position: fixed;
+		background-color: var(--light-green);
+	}
+	#sidebar-button:checked + label[for]::before { content: '❌' }
+	#sidebar-button:checked + label[for] + #sidebar {
+		left: 0;
+		right: 0;
+		opacity: 1;
 	}
 
-	.content-frame * {
-		overflow-x: auto;
+	#sidebar {
+		position: fixed;
+		top: 3em;
+		bottom: 0;
+		left: -100%;
+		right: 100%;
+		max-width: none;
+		max-height: calc(100vh - 3em);
+		opacity: 0;
+		transition:
+			right var(--transition-duration) ease-out,
+			opacity var(--transition-duration);
+		overflow-y: auto;
 	}
 
-	.content-tile {
-		overflow-x: auto;
-	}
+	#content-wrapper { min-height: 100vh }
 }
